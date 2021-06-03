@@ -1,0 +1,100 @@
+{
+    "SETTINGS": {
+        "language": "اللغة",
+        "your-account": "حسابك",
+        "login": "تسجيل دخول",
+        "logout":"تسجيل خروج",
+        "ar": "العربية - ar",
+        "en": "الانجليزية - en",
+        "date": "تاريخ",
+        "home": "الرئيسية",
+        "operations": "عمليات",
+        "upload": "رفع"
+    },
+    "TOURNAMENTS": {
+        "tournaments": "البطولات",
+        "sponsorship-of-tournaments": "رعاية البطولة",
+        "now-playing": "مباريات جارية الان",
+        "upcoming-events": "احداث قادمة",
+        "current-tournaments": "البطولات الحالية",
+        "previous-tournaments": "البطولات السابقة",
+        "request-type": "نوع الطلب",
+        "request-title": "عنوان الطلب",
+        "brief": "نبذه مختصره",
+        "create-a-tournament": "انشاء بطولة",
+        "providing-sponsorship":"تقديم رعاية",
+        "name": "اسم البطوله",
+        "number": "رقم البطوله",
+        "date": "تاريخ البطوله",
+        "owner": "المالك",
+        "mangage-result": "ادارة نتائج البطوله",
+        "info": "معلومات البطوله",
+        "tournament-requests": "طلبات البطوله",
+        "reject-requests": "الطلبات المرفوض",
+        "offers-tournaments": "عروض البطولات",
+        "associate": "المنتسبين للبطوله",
+        "main": "المعلومات الرئيسية",
+        "start-date": "تاريخ بدا البطوله",
+        "end-date": "تاريخ انتهى البطوله",
+        "number-of-participants": "عدد المشاركين",
+        "create-new-tournament": "انشاء بطولة جديدة",
+        "logo": "شعار البطوله",
+        "prize": "جوائز البطوله",
+        "rules": "قواعد البطوله ",
+        "discription": "وصف البطوله",
+        "manage": "ادارة البطولة",
+        "save-as-draft": "حفظ كمسودة"
+    },
+    "FORM" : {
+        "registr": "تسجيل",
+        "platform": "منصة اللعبة",
+        "agree":"اقر بقرائة الشروط و الاحكام " ,
+        "login-to-your-account": "سجل دخولك لحسابك",
+        "enter": "ادخل",
+        "your-email": "بريدك الالكتروني",
+        "your-password":"كلمة مرورك",
+        "rember-me": "تذكرني",
+        "forgot-your-password":"نسيت كلمه مرورك؟",
+        "click-here": "اضغط هنا",
+        "register-now": "سجل الان",
+        "create-your-account": "انشاء حسابك",
+        "repeat-password": "اعد كلمة السر",
+        "submit-your-request": "تقدم بارسال طلبك",
+        "compelete-company-profile": "يتوجب  اكمال ملف الشركة ",
+        "compelete-profile": "اكمل الملف",
+        "search": "بحث",
+        "registration-department": "ادارة التسجيل",
+        "save": "حفظ",
+        "next": "التالي",
+        "actions": "عمليات",
+        "previous": "السابق",
+        "edit": "تحرير",
+        "start-date": "تاريخ بداية ",
+        "end-date": "تاريخ النهاية "
+    },
+    "MATCH": {
+        "last-matches-stats": "احصائيات اخر المباريات",
+        "kills": "القتل",
+        "deaths": "الموت",
+        "assists": "المساعدات",
+        "match-result": "نتيجة المبارة",
+        "watch-replay": "مشاهده الاعاده"
+    },
+    "GAME" : {
+        "games": "الالعاب"
+    },
+    "PLATFORM": {
+        "platforms": "منصات اللعب",
+        "platform": "منصة اللعب"
+
+    },
+    "SUCCESS": {
+        "new-tournament": "تم انشاء بطولة بنجاح",
+        "update-tournament": "تم تحديث البطوله بنجاح"
+    },
+    "ERROR": {
+        "new-tournament": "فشل انشاء بطولة ",
+        "update-tournament": "فشل تحديث البطوله "
+    }
+
+}

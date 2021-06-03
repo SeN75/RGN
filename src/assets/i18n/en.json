@@ -1,0 +1,98 @@
+{
+    "SETTINGS": {
+        "language": "language",
+        "your-account": "your account",
+        "login": "login",
+        "logout":"logout",
+        "ar": "Arabic - ar",
+        "en": "English - en",
+        "date": "date",
+        "home": "home",
+        "operations": "operations",
+        "upload": "upload"
+    },
+    "TOURNAMENTS": {
+        "tournaments": "tournaments",
+        "sponsorship-of-tournaments": "sponsorship of tournaments",
+        "now-playing": "now playing",
+        "upcoming-events": "upcoming events",
+        "current-tournaments": "current tournaments",
+        "previous-tournaments": "Previous tournaments",
+        "request-type": "request type",
+        "request-title": "request title",
+        "brief": "brief",
+        "create-a-tournament": "create a tournament",
+        "providing-sponsorship":"providing sponsorship",
+        "name": "Tournament Name",
+        "number": "Tournament Number",
+        "date": "Tournament Date",
+        "owner": "Owner",
+        "mangage-result": "Manage tournament results",
+        "info": "Tournament Information",
+        "tournament-requests": "touranment requests",
+        "associate":"Associate tournament",
+        "main": "main information",
+        "start-date": "tournament Start Date",
+        "end-date": "tournament End Date",
+        "number-of-participants": "number of participants",
+        "create-new-tournament": "create new tournament",
+        "logo": "Tournament logo",
+        "prize": "Tournament awards",
+        "rules": "Tournament rules ",
+        "discription": "Description tournament",
+        "manage": "Tournament Management"
+
+    },
+    "FORM" : {
+        "registr": "registr",
+        "platform": "game platform",
+        "agree":"I have read the terms and conditions" ,
+        "login-to-your-account": "login to your account",
+        "enter": "enter",
+        "your-email": "your email",
+        "your-password":"your password",
+        "rember-me": "rember me",
+        "forgot-your-password":"forgot your password?",
+        "click-here": "click here",
+        "register-now": "register now",
+        "create-your-account": "create your account",
+        "repeat-password": "repeat password",
+        "submit-your-request": "submit your request",
+        "compelete-company-profile": "You must complete the company file",
+        "compelete-profile": "compelete profile",
+        "search": "search",
+        "registration-department": "Registration Department",
+        "save": "save",
+        "next": "next",
+        "actions": "actions",
+        "previous": "previous",
+        "start-date": "Start Date",
+        "end-date": "End Date"
+
+    },
+    "MATCH": {
+        "last-matches-stats": "last matches stats",
+        "kills": "kills",
+        "deaths": "deaths",
+        "assists": "assists",
+        "match-result": "match result",
+        "watch-replay": "watch replay"
+    },
+    "GAME" : {
+        "games": "games"
+    },
+    "PLATFORM": {
+        "platforms": "platforms",
+        "platform": "platform"
+
+    },
+    "SUCCESS": {
+        "new-tournament": "A tournament was created successfully",
+        "update-tournament": "Tournament has been successfully updated"
+    },
+    "ERROR": {
+        "new-tournament": "Failed to create tournament",
+        "update-tournament": "Tournament update failed "
+    }
+
+}
