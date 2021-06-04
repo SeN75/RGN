@@ -1,0 +1,42 @@
+.game-wrapper {
+  position: relative;
+  width: 150px;
+  height: 120px;
+  border: 1px solid #aeaeae;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.selected {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  color: #0ecfee;
+  animation: selected-in 300ms forwards;
+  background: linear-gradient(
+    320deg,
+    rgb(26, 103, 115),
+    rgba(132, 83, 194, 0.88)
+  );
+}
+.selected mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 1em;
+}
+
+@keyframes selected-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

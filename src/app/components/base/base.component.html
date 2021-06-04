@@ -3,3 +3,9 @@
     <show-tournament-card></show-tournament-card>
     <show-tournament-card [isAdding]=true></show-tournament-card>
 </div>
+
+<div style="display: flex; justify-content: center;">
+    <game-select *ngFor="let game of games; let i = index" [selected]=game.isSelected [game]="game"
+        (click)="selectGame(i)"></game-select>
+
+</div>
