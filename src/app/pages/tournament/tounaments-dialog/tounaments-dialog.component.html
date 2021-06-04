@@ -1,0 +1,70 @@
+<h2 mat-dialog-title>{{'TOURNAMENTS.create-new-tournament' | translate}}</h2>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="createForm">
+
+        <form [formGroup]="createForm">
+            <ng-template matStepLabel>{{'TOURNAMENTS.general' | translate}}</ng-template>
+            <div class="row">
+
+                <mat-form-field *ngFor="let input of inputs" appearance="outline" class="{{input.grid}}">
+                    <mat-label>{{input.name | translate}}</mat-label>
+                    <input matInput placeholder="{{input.name | translate}}" [formControlName]="input.controlName"
+                        required>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button matStepperNext color="primary">{{'FORM.next' | translate}}</button>
+                <button mat-button>{{'FORM.save' | translate}} </button>
+            </div>
+        </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="createForm2">
+        <form [formGroup]="createForm2">
+            <ng-template matStepLabel>{{'TOURNAMENTS.advance' | translate}}</ng-template>
+            <div class="row">
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.start-date' | translate}}</mat-label>
+                    <input matInput [matDatepicker]="startPicker" formControlName="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startPicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.end-date' | translate}}</mat-label>
+                    <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endPicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.logo' | translate}}</mat-label>
+                    <input matInput placeholder="{{'TOURNAMENTS.logo' | translate}}" formControlName="logo" required>
+                    <button mat-icon-button matSuffix>
+                        <mat-icon>attach_file</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.discription' | translate}}</mat-label>
+                    <textarea matInput placeholder="{{'TOURNAMENTS.discription' | translate}}"
+                        formControlName="descriptioon" required></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.rules' | translate}}</mat-label>
+                    <textarea matInput placeholder="{{'TOURNAMENTS.rules' | translate}}" formControlName="rule"
+                        required></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col col-md-6">
+                    <mat-label>{{'TOURNAMENTS.prize' | translate}}</mat-label>
+                    <textarea matInput placeholder="{{'TOURNAMENTS.prize' | translate}}" formControlName="prize"
+                        required></textarea>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' | translate}}</button>
+                <button mat-button>{{'FORM.save' | translate}}</button>
+            </div>
+        </form>
+    </mat-step>
+
+</mat-vertical-stepper>

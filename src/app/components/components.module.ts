@@ -9,6 +9,7 @@ import { BaseComponent } from './base/base.component';
 import { ShowTournamentCardComponent } from './show-tournament-card/show-tournament-card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { TounamentsDialogComponent } from "../pages/tournament/tounaments-dialog/tounaments-dialog.component";
 
 @NgModule({
     imports: [
@@ -28,7 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
     ],
     exports: [
         ShowTournamentCardComponent
-    ]
+    ],
+
+
 })
 
 export class ComponentsModule { }

@@ -1,0 +1,12 @@
+<div class="">
+    <h1 class="title">
+        {{'TOURNAMENTS.tournaments' | translate}}
+    </h1>
+
+    <div class="tournmaents_wrapper">
+        <show-tournament-card [isAdding]="false" *ngFor="let tourn of tournmaents" [tournament]="tourn">
+        </show-tournament-card>
+        <show-tournament-card [isAdding]="true"></show-tournament-card>
+
+    </div>
+</div>

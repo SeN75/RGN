@@ -43,7 +43,9 @@
         "rules": "قواعد البطوله ",
         "discription": "وصف البطوله",
         "manage": "ادارة البطولة",
-        "save-as-draft": "حفظ كمسودة"
+        "save-as-draft": "حفظ كمسودة",
+        "general": "عام",
+        "advance": "متقدم" 
     },
     "FORM" : {
         "registr": "تسجيل",

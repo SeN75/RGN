@@ -12,6 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { LayoutsModule } from './layout/layout.module';
+import { PageModule } from './pages/pages.module';
+import { TounamentsDialogComponent } from './pages/tournament/tounaments-dialog/tounaments-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -25,8 +29,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     AppRoutingModule,
     ComponentsModule,
-    LayoutsModule,
     NgbModule,
+    LayoutsModule,
+    MatDialogModule,
+    MatNativeDateModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({
       loader: {
@@ -36,6 +42,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
   ],
+
+  entryComponents: [TounamentsDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

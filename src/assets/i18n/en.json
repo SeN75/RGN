@@ -40,8 +40,9 @@
         "prize": "Tournament awards",
         "rules": "Tournament rules ",
         "discription": "Description tournament",
-        "manage": "Tournament Management"
-
+        "manage": "Tournament Management",
+        "general": "general",
+        "advance": "Advance"
     },
     "FORM" : {
         "registr": "registr",

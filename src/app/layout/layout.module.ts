@@ -6,13 +6,17 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LayoutComponent } from './layout.component';
 import { ComponentsModule } from "../components/components.module";
 
+import { LayoutRoutingModule } from './layout.routing';
+import { PageModule } from "../pages/pages.module";
 @NgModule({
     imports: [
-        CommonModule,
         HttpClientModule,
+        CommonModule,
         RouterModule,
         TranslateModule,
-        ComponentsModule
+        ComponentsModule,
+        LayoutRoutingModule,
+        PageModule
     ],
     declarations: [
         LayoutComponent,

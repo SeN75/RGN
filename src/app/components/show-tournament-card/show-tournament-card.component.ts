@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tournament } from 'src/app/_common/types';
+import { DialogService } from './../../_services/dialog.service';
 
 @Component({
   selector: 'show-tournament-card',
@@ -13,8 +14,8 @@ export class ShowTournamentCardComponent implements OnInit {
     startDate: "2020/12/01",
     endDate: '2021/12/01'
   }
-  isAdding = true;
-  constructor() {
+  @Input() isAdding = false;
+  constructor(public dialogSrv: DialogService) {
 
   }
 
