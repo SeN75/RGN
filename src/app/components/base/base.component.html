@@ -9,3 +9,9 @@
         (click)="selectGame(i)"></game-select>
 
 </div>
+
+<div style="display: flex; justify-content: center; ">
+    <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform"
+        (click)="plateform.selected = !plateform.selected  ">
+    </plateform-select>
+</div>

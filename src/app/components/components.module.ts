@@ -10,6 +10,8 @@ import { ShowTournamentCardComponent } from './show-tournament-card/show-tournam
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TounamentsDialogComponent } from "../pages/tournament/tounaments-dialog/tounaments-dialog.component";
+import { GameSelectComponent } from './game-select/game-select.component';
+import { PlateformSelectComponent } from './plateform-select/plateform-select.component';
 
 @NgModule({
     imports: [
@@ -25,10 +27,14 @@ import { TounamentsDialogComponent } from "../pages/tournament/tounaments-dialog
 
 
         BaseComponent,
-        ShowTournamentCardComponent
+        ShowTournamentCardComponent,
+        GameSelectComponent,
+        PlateformSelectComponent
     ],
     exports: [
-        ShowTournamentCardComponent
+        ShowTournamentCardComponent,
+        GameSelectComponent,
+        PlateformSelectComponent
     ],
 
 

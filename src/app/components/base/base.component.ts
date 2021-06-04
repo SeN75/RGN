@@ -22,6 +22,39 @@ export class BaseComponent implements OnInit {
       isSelected: false
     }
   ]
+
+  platfroms = [
+    {
+      name: 'Pc',
+      logo: 'tv',
+      active: true,
+      selected: false
+    },
+    {
+      name: 'Mobile',
+      logo: 'phone_iphone',
+      active: false,
+      selected: false
+    },
+    {
+      name: 'PS4, PS5',
+      logo: 'sports_esports',
+      active: false,
+      selected: false
+    },
+    {
+      name: 'Xbox',
+      logo: 'videogame_asset',
+      active: true,
+      selected: false
+    },
+    {
+      name: 'Switch',
+      logo: 'tv',
+      active: false,
+      selected: false
+    },
+  ]
   selectGame(index: number) {
     for (let i = 0; i < this.games.length; i++) {
       if (i != index)

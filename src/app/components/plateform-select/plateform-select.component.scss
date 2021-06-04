@@ -1,0 +1,35 @@
+.platForm_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #aeaeae;
+  margin: 0.8em;
+  font-size: 1.6em;
+}
+
+.platForm_item mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 2em;
+
+  color: #aeaeae;
+}
+
+.platForm_item.active {
+  cursor: pointer;
+  color: #1e1e1e;
+}
+
+.platForm_item.platForm_item.active mat-icon {
+  color: #1e1e1e;
+}
+
+.platForm_item.selected {
+  color: rgb(49, 35, 102) !important;
+  transform: scale(1.2);
+}
+
+.platForm_item.selected mat-icon {
+  color: rgb(93, 93, 249) !important;
+}
