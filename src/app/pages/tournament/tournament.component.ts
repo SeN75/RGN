@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggerService } from 'src/app/_services/logger.service';
+import { GamesService } from './../../_services/games.service';
 
 @Component({
   selector: 'app-tournament',
@@ -36,9 +38,14 @@ export class TournamentComponent implements OnInit {
       endDate: '2021/12/01'
     }
   ]
-  constructor() { }
+  constructor(
+    private logger: LoggerService,
+    private gameSrv: GamesService) { }
 
   ngOnInit(): void {
+    this.gameSrv.getGame();
+    this.logger.log('', this.gameSrv.gamesData)
+
   }
 
 }

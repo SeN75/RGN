@@ -8,11 +8,32 @@
 
                 <mat-form-field *ngFor="let input of inputs" appearance="outline" class="{{input.grid}}">
                     <mat-label>{{input.name | translate}}</mat-label>
-                    <input matInput placeholder="{{input.name | translate}}" [formControlName]="input.controlName"
-                        required>
+                    <input matInput placeholder="{{input.name | translate}}" [type]="input.type"
+                        [formControlName]="input.controlName" required>
                 </mat-form-field>
             </div>
+            <div class="game-select">
+                <div class="">
+                    <mat-label>Game</mat-label>
+                </div>
 
+                <div class="games_wrapper">
+                    <game-select *ngFor="let game of games; index as i " [selected]=game.isSelected [game]=game
+                        (click)="selectGame(i)">
+                    </game-select>
+                </div>
+            </div>
+            <div class="game-select">
+                <div class="">
+                    <mat-label>Plateform</mat-label>
+                </div>
+
+                <div class="plateforms_wrapper">
+                    <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform"
+                        (click)="plateform.selected = !plateform.selected  ">
+                    </plateform-select>
+                </div>
+            </div>
             <div>
                 <button mat-raised-button matStepperNext color="primary">{{'FORM.next' | translate}}</button>
                 <button mat-button>{{'FORM.save' | translate}} </button>
@@ -62,7 +83,7 @@
             </div>
             <div>
                 <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' | translate}}</button>
-                <button mat-button>{{'FORM.save' | translate}}</button>
+                <button mat-button (click)="fillObjToSend()">{{'FORM.save' | translate}}</button>
             </div>
         </form>
     </mat-step>

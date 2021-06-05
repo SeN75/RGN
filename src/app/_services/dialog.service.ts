@@ -14,7 +14,7 @@ export class DialogService {
     const dialogRef = this.dialog.open(TounamentsDialogComponent, {
       height: 'auto',
       minWidth: '450px',
-      maxWidth: "750px",
+      maxWidth: "950px",
       width: 'auto',
       data: { state: state, tournament: tournament }
     });

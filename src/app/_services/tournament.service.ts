@@ -162,7 +162,7 @@ export class TournamentService {
    */
   public postTournament(tournament: Tournament) {
     this._postTournament(tournament).subscribe((success: Tournament) => {
-      this.router.navigateByUrl('/tournaments/admin-mangement');
+      // this.router.navigateByUrl('/tournaments/admin-mangement');
       this.tournaments = success;
       this.translateSrv.get("SUCCESS.new-tournament").subscribe(msg => this.showMessage(msg, 'success'))
       this.logger.log('post Tournament: ', success);
@@ -179,7 +179,7 @@ export class TournamentService {
     this._putTournament(tournament, id).subscribe((success: Tournament) => {
       this.logger.log('put Tournament: ', success);
       this.tournaments = success;
-      this.router.navigateByUrl('/tournaments/admin-mangement');
+      // this.router.navigateByUrl('/tournaments/admin-mangement');
       this.translateSrv.get("SUCCESS.update-tournament").subscribe(msg => this.showMessage(msg, 'success'))
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get("ERRORS.update-tournament").subscribe(msg => this.showMessage(msg, 'danger'))

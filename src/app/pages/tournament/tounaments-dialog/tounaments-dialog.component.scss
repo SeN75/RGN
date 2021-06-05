@@ -1,0 +1,8 @@
+.games_wrapper,
+.plateforms_wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+.games_wrapper game-select {
+  margin: 0.8em;
+}
