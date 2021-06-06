@@ -1,0 +1,32 @@
+.rtl-active {
+  direction: rtl;
+  text-align: right;
+  .tournament_wrapper,
+  .tournament_date,
+  .tournament_body,
+  .plateforms_wrapper,
+  .games_wrapper {
+    text-align: right !important;
+    direction: rtl !important;
+  }
+  .footer-element {
+    left: 15% !important;
+    right: unset;
+  }
+  .footer-form input[type="submit"] {
+    left: 40%;
+    right: unset;
+  }
+  .banner-element-one {
+    left: unset;
+    right: 50%;
+  }
+  .header-search-bar .header-search-btn {
+    right: unset;
+    left: 0;
+  }
+  .challenge-section .challenge-area .challenge-item::before {
+    right: unset;
+    left: 0;
+  }
+}

@@ -34,8 +34,8 @@
         "offers-tournaments": "عروض البطولات",
         "associate": "المنتسبين للبطوله",
         "main": "المعلومات الرئيسية",
-        "start-date": "تاريخ بدا البطوله",
-        "end-date": "تاريخ انتهى البطوله",
+        "start-date": "تاريخ بداية ",
+        "end-date": "تاريخ انتهى ",
         "number-of-participants": "عدد المشاركين",
         "create-new-tournament": "انشاء بطولة جديدة",
         "logo": "شعار البطوله",
@@ -45,7 +45,8 @@
         "manage": "ادارة البطولة",
         "save-as-draft": "حفظ كمسودة",
         "general": "عام",
-        "advance": "متقدم" 
+        "advance": "متقدم" ,
+        "timezone": "منطقة الزمنية"
     },
     "FORM" : {
         "registr": "تسجيل",

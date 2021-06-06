@@ -1,11 +1,17 @@
 import { NgModule } from "@angular/core";
 
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from "./medforce/about-us/about-us.component";
+import { MedforceComponent } from "./medforce/medforce.component";
 import { TournamentComponent } from "./tournament/tournament.component";
+import { TournamentsInfoComponent } from "./tournament/tournaments-info/tournaments-info.component";
 
 
 const routes: Routes = [
-    { component: TournamentComponent, path: "" },
+    { component: MedforceComponent, path: "" },
+    { component: AboutUsComponent, path: "about-us" },
+    { component: TournamentComponent, path: "tournaments" },
+    { component: TournamentsInfoComponent, path: "tournaments/:id" },
 
 ];
 

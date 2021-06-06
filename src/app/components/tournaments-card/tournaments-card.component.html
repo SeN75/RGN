@@ -1,0 +1,12 @@
+<div class="tournament_card" (click)="showTournament(tournament)">
+    <div class="see_more">
+        see more
+    </div>
+    <div class="image_logo" [ngStyle]="{'background-image': 'url('+tournament.logo+')'}"></div>
+    <div class="info_panel">
+        <h3 class="title">{{tournament.name}}</h3>
+        <div class="date">
+            {{tournament.startDate | date:'YYYY/MM/dd'}} - {{tournament.endDate | date:'YYYY/MM/dd'}}
+        </div>
+    </div>
+</div>

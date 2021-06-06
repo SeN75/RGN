@@ -1,0 +1,88 @@
+<div class="wrapper animeate">
+    <div class="header-top-area">
+        <div class="container">
+            <div class="header-top-content d-flex flex-wrap align-items-center justify-content-between">
+                <div class="header-logo">
+                    <a class="site-logo site-title" routerLinke="/"><img src="../../../assets/images/logoRJ_.png"
+                            alt="site-logo"></a>
+                </div>
+                <div class="header-right d-flex flex-wrap align-items-center">
+                    <div class="header-social-area">
+                        <ul class="header-social">
+                            <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#0" class="active"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#0"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#0"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+
+        <div class="container mt-5">
+            <nav class="navbar navbar-expand-lg p-0">
+                <a class="site-logo site-title d-lg-none" href="index.html"><img src="assets/images/banner/logo.png"
+                        alt="site-logo"></a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="fas fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav main-menu">
+                        <li><a routerLink="/">الصفحة الرئيسية</a></li>
+                        <li><a routerLink="/about-us">من نحن</a></li>
+                        <li class="active"><a>البطولات</a></li>
+                    </ul>
+                </div>
+                <div class="header-search-bar">
+                    <input type="text" name="text" placeholder="I’m searching for _">
+                    <button class="header-search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="tournament_wrapper mt-5">
+        <div class="tournament_bannar" [ngStyle]="{'background-image': 'url('+tournament.logo+')'}">
+            <div class="tournament_bannar_info">
+                <div class="tournament_title text-center">
+                    <h3>{{tournament.name}}</h3>
+                </div>
+                <div class="tournament_date">
+                    <div class="date">
+                        {{'TOURNAMENTS.start-date' | translate}}
+                        <p>{{tournament.startDate | date}}</p>
+                    </div>
+                    <div class="date">
+                        {{'TOURNAMENTS.end-date' | translate}}
+                        <p>{{tournament.endDate | date}}</p>
+                    </div>
+                </div>
+                <div class="plateforms_wrapper">
+                    <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform"
+                        [tournament_info]=true>
+                    </plateform-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="tournament_body row">
+            <div class="col-12 col-md-6 col-lg-8">
+                <h2 class="tilte">{{'TOURNAMENTS.discription' |translate}}</h2>
+                <p>{{(tournament.discription == '' ? tournament.discription: 'no discription')}}</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <h2 class="tilte">{{'TOURNAMENTS.timezone' |translate}}</h2>
+                <p>{{(tournament.timezone == '' ? tournament.timezone: 'no timezone')}}</p>
+                <h2 class="tilte">{{'TOURNAMENTS.prize' |translate}}</h2>
+                <p>{{(tournament.prizes != '' ? tournament.prizes: 'no prizes')}}</p>
+                <h2 class="tilte">{{'TOURNAMENTS.rules' |translate}}</h2>
+                <p>{{(tournament.rule != '' ? tournament.rule: 'no rule')}}</p>
+            </div>
+        </div>
+    </div>
+</div>

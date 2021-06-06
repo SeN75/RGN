@@ -33,3 +33,25 @@
 .platForm_item.selected mat-icon {
   color: #5d5df9 !important;
 }
+
+.platForm_item.tournament_info {
+  color: #ffffff;
+  margin: 0 0.3em;
+  font-size: 1.3em;
+}
+.platForm_item.tournament_info mat-icon {
+  color: #ffffff;
+}
+
+@media screen and (max-width: 50em) {
+  .platForm_item.tournament_info {
+    margin: 0 0.3em;
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 25em) {
+  .platForm_item.tournament_info {
+    margin: 0 0.1em;
+    font-size: 0.7em;
+  }
+}

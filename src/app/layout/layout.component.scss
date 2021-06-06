@@ -6,6 +6,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  justify-content: center;
 }
 
 .sidebar {
@@ -20,7 +21,7 @@
 
 .main-panel {
   position: relative;
-  width: calc(100% - 250px);
+  // width: calc(100% - 250px);
   float: right;
   padding: 0 50px;
 }

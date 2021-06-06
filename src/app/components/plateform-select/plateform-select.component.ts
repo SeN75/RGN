@@ -12,6 +12,7 @@ export class PlateformSelectComponent implements OnInit {
     active: false,
     selected: false
   }
+  @Input() tournament_info: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

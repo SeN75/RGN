@@ -1,0 +1,152 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  height: 150vh;
+  background: #171744;
+  z-index: 100;
+  margin: auto;
+  background-image: url("../../../../assets/images/games/banner/banner.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+}
+// .wrapper::after {
+//   content: "";
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   position: absolute;
+//   z-index: 1;
+//   background-image: url("../../../../assets/images/games/banner/banner.png");
+//   z-index: 100;
+//   background-position: center;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+// }
+
+.tournament_wrapper {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  background-color: #fff;
+  color: #312366;
+  width: 90%;
+  box-shadow: 0 0 50px 0 #5c34e5;
+  animation: fadeIn 300ms forwards; /* referring directly to the animation's @keyframe declaration */
+}
+
+.tournament_bannar {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 450px;
+}
+
+.tournament_bannar_info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(160deg, #5d34e53d, #5d34e5cc, #5d34e5ee, #5c34e5);
+  color: white;
+  padding: 2em;
+  width: 40%;
+  font-weight: 600;
+}
+
+.tournament_date {
+  display: flex;
+
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.tournament_date .date {
+  flex: 1;
+  line-height: 1.6em;
+  font-size: 26px;
+}
+.tournament_date .date p {
+  font-size: 36px;
+  color: white;
+}
+
+.plateforms_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.tournament_body {
+  width: 100%;
+  padding: 5em 3em;
+}
+.tournament_title h3 {
+  color: #fff;
+  font-size: 3.5em;
+}
+@media screen and (max-width: 50em) {
+  .tournament_date .date {
+    font-size: 20px;
+  }
+  .tournament_date .date p {
+    font-size: 26px;
+  }
+  .tournament_title h3 {
+    font-size: 2em;
+  }
+  .tournament_bannar_info {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 30em) {
+  .tournament_bannar_info {
+    width: 60%;
+  }
+  .tournament_date .date {
+    font-size: 17px;
+  }
+  .tournament_date .date p {
+    font-size: 20px;
+  }
+  .tournament_title h3 {
+    font-size: 1.6em;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #312366;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.67em;
+}

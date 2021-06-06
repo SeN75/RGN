@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { TounamentsDialogComponent } from "../pages/tournament/tounaments-dialog/tounaments-dialog.component";
 import { GameSelectComponent } from './game-select/game-select.component';
 import { PlateformSelectComponent } from './plateform-select/plateform-select.component';
+import { TournamentsCardComponent } from "./tournaments-card/tournaments-card.component";
 
 @NgModule({
     imports: [
@@ -24,17 +25,17 @@ import { PlateformSelectComponent } from './plateform-select/plateform-select.co
         MatButtonModule
     ],
     declarations: [
-
-
         BaseComponent,
         ShowTournamentCardComponent,
         GameSelectComponent,
-        PlateformSelectComponent
+        PlateformSelectComponent,
+        TournamentsCardComponent
     ],
     exports: [
         ShowTournamentCardComponent,
         GameSelectComponent,
-        PlateformSelectComponent
+        PlateformSelectComponent,
+        TournamentsCardComponent
     ],
 
 

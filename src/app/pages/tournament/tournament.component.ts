@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { TournamentService } from 'src/app/_services/tournament.service';
 import { GamesService } from './../../_services/games.service';
 
 @Component({
@@ -40,7 +41,12 @@ export class TournamentComponent implements OnInit {
   ]
   constructor(
     private logger: LoggerService,
-    private gameSrv: GamesService) { }
+    private gameSrv: GamesService,
+    private tournamentSrv: TournamentService) {
+    setTimeout(() => {
+      this.tournmaents = this.tournamentSrv.tournamentsData
+    }, 150)
+  }
 
   ngOnInit(): void {
     this.gameSrv.getGame();

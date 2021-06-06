@@ -15,7 +15,7 @@
                 {{tournament.name}}
             </span>
             <span class="tournament_action">
-                <mat-icon>pie_chart</mat-icon>
+                <mat-icon (click)="showTournaments(tournament)">pie_chart</mat-icon>
                 <mat-icon (click)="dialogSrv.openTounamentsDialog('edit', tournament)">edit</mat-icon>
                 <mat-icon>delete</mat-icon>
             </span>

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/RGN-dashboard",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

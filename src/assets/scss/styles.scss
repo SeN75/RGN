@@ -46,3 +46,37 @@ body {
 }
 @import "global";
 @import "fonts";
+@import "rtl";
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap");
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+span,
+label,
+input,
+section,
+p,
+.navbar-nav .main-menu li a,
+#navbarSupportedContent {
+  font-family: "Changa", sans-serif !important;
+}
+
+.success {
+  background: #237a23;
+}
+.danger {
+  background: #7f0000;
+}
+
+.site-logo img {
+  height: 100px;
+  width: auto;
+}
+
+.header-bottom {
+  background-color: transparent !important;
+}

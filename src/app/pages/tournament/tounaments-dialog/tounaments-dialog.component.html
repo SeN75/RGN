@@ -14,7 +14,7 @@
             </div>
             <div class="game-select">
                 <div class="">
-                    <mat-label>Game</mat-label>
+                    <mat-label>{{'GAME.games' | translate}}</mat-label>
                 </div>
 
                 <div class="games_wrapper">
@@ -25,7 +25,7 @@
             </div>
             <div class="game-select">
                 <div class="">
-                    <mat-label>Plateform</mat-label>
+                    <mat-label>{{'PLATFORM.platform' | translate}}</mat-label>
                 </div>
 
                 <div class="plateforms_wrapper">
@@ -36,7 +36,7 @@
             </div>
             <div>
                 <button mat-raised-button matStepperNext color="primary">{{'FORM.next' | translate}}</button>
-                <button mat-button>{{'FORM.save' | translate}} </button>
+                <button mat-button (click)="formTournament()">{{'FORM.save' | translate}} </button>
             </div>
         </form>
     </mat-step>
@@ -83,7 +83,7 @@
             </div>
             <div>
                 <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' | translate}}</button>
-                <button mat-button (click)="fillObjToSend()">{{'FORM.save' | translate}}</button>
+                <button mat-button (click)="formTournament()">{{'FORM.save' | translate}}</button>
             </div>
         </form>
     </mat-step>

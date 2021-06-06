@@ -16,6 +16,9 @@ import { PageModule } from './pages/pages.module';
 import { TounamentsDialogComponent } from './pages/tournament/tounaments-dialog/tounaments-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CarouselModule } from 'ngx-owl-carousel-2';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -33,6 +36,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LayoutsModule,
     MatDialogModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({
       loader: {

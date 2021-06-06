@@ -16,6 +16,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { TournamentsInfoComponent } from './tournament/tournaments-info/tournaments-info.component';
+import { MedforceComponent } from "./medforce/medforce.component";
+import { CarouselModule } from "ngx-owl-carousel-2";
 
 @NgModule({
     imports: [
@@ -32,11 +35,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
         MatInputModule,
         MatDatepickerModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CarouselModule,
+
     ],
     declarations: [
         TournamentComponent,
-        TounamentsDialogComponent
+        TounamentsDialogComponent,
+        TournamentsInfoComponent,
+        MedforceComponent
     ],
     exports: [
 

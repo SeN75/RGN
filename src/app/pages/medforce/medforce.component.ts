@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-2';
+import { tournaments, tournmaents } from 'src/app/_common/globle';
+import { TournamentService } from 'src/app/_services/tournament.service';
+
+@Component({
+  selector: 'medforce',
+  templateUrl: './medforce.component.html',
+  styleUrls: ['./medforce.component.scss']
+})
+export class MedforceComponent implements OnInit {
+  tournamentsOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    autoplay: true,
+    dots: false,
+    rtl: true,
+    navSpeed: 500,
+    margin: 10,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 4,
+      },
+    },
+  };
+  tournaments: any
+  constructor(private tournamentSrv: TournamentService) {
+    setTimeout(() => {
+      this.tournaments = this.tournamentSrv.tournamentsData
+    }, 1000)
+  }
+
+  ngOnInit(): void {
+  }
+
+}
