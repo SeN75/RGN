@@ -19,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TournamentsInfoComponent } from './tournament/tournaments-info/tournaments-info.component';
 import { MedforceComponent } from "./medforce/medforce.component";
 import { CarouselModule } from "ngx-owl-carousel-2";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     imports: [
@@ -43,7 +44,8 @@ import { CarouselModule } from "ngx-owl-carousel-2";
         TournamentComponent,
         TounamentsDialogComponent,
         TournamentsInfoComponent,
-        MedforceComponent
+        MedforceComponent,
+        LoginComponent
     ],
     exports: [
 

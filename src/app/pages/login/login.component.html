@@ -1,0 +1,47 @@
+<section class="login_wrapper">
+    <div class="login_form" [formGroup]="loginForm">
+        <img src="../../../assets/images/logoRJ_.png" class="logo">
+        <h2>{{'FORM.login' | translate}}</h2>
+        <div class="w-100" dir="rtl">
+            <mat-form-field class="input mt-5 " appearance="outline">
+                <mat-label>{{'FORM.your-email' | translate}}</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="w-100" dir="rtl">
+            <mat-form-field class="input " appearance="outline">
+                <mat-label>{{'FORM.your-password' | translate}}</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="password">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="login()">
+            <span>{{'FORM.login' | translate}}</span>
+        </button>
+        <button mat-button color="light" class="mt-5" routerLink="/">
+            <span>صفحة الرئيسية</span>
+            <mat-icon>home</mat-icon>
+        </button>
+
+    </div>
+    <div class="login_img">
+
+        <div class="banner-element-fourteen">
+            <img src="assets/images/banner/line6.png" alt="element">
+        </div>
+        <div class="banner-element-fifteen">
+            <img src="assets/images/banner/line3.png" alt="element">
+        </div>
+        <div class="banner-element-sixteen">
+            <img src="assets/images/banner/line7.png" alt="element">
+        </div>
+        <div class="banner-element-seventeen">
+            <img src="assets/images/banner/line1.png" alt="element">
+        </div>
+        <div class="banner-element-eightteen">
+            <img src="assets/images/banner/manyline.png" alt="element">
+        </div>
+        <div class="banner-element-nineteen">
+            <img src="assets/images/banner/whitedot.png" alt="element">
+        </div>
+    </div>
+</section>
