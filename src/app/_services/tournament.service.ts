@@ -112,16 +112,6 @@ export class TournamentService {
    * @param status 
    */
   showMessage(message: any, status: string) {
-    // this.toastr.show(
-    //   '<span class="now-ui-icons ui-1_bell-53"></span>', message,
-    //   {
-    //     timeOut: 4000,
-    //     closeButton: true,
-    //     enableHtml: true,
-    //     toastClass: status == 'success' ? "alert alert-success alert-with-icon" : "alert alert-danger alert-with-icon",
-    //     positionClass: "toast-top-center"
-    //   }
-    // );
     this.snackBar.open(message, '', {
       duration: 3000,
       direction: 'rtl',

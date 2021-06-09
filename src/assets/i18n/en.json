@@ -46,6 +46,7 @@
     },
     "FORM" : {
         "registr": "registr",
+        "login": "login",
         "platform": "game platform",
         "agree":"I have read the terms and conditions" ,
         "login-to-your-account": "login to your account",
@@ -68,7 +69,15 @@
         "actions": "actions",
         "previous": "previous",
         "start-date": "Start Date",
-        "end-date": "End Date"
+        "end-date": "End Date",
+        "birthday": "birthday",
+        "name": "name",
+        "re-password": "re-password",
+        "your-number": "your number",
+        "nikename": "nikename",
+        "country": "country", 
+        "city": "city",
+        "player-info": "player information"
 
     },
     "MATCH": {

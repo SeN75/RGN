@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistraionService } from '../_services/registraion.service';
+import { HelperService } from './../_services/helper.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public logoutSrv: RegistraionService, public helperSrv: HelperService) { }
 
   ngOnInit(): void {
   }

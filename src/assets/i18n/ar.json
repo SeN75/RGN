@@ -50,6 +50,7 @@
     },
     "FORM" : {
         "registr": "تسجيل",
+        "login": "تسجيل الدخول",
         "platform": "منصة اللعبة",
         "agree":"اقر بقرائة الشروط و الاحكام " ,
         "login-to-your-account": "سجل دخولك لحسابك",
@@ -73,7 +74,15 @@
         "previous": "السابق",
         "edit": "تحرير",
         "start-date": "تاريخ بداية ",
-        "end-date": "تاريخ النهاية "
+        "end-date": "تاريخ النهاية ",
+        "birthday": "تاريخ الميلاد",
+        "name": "الاسم",
+        "re-password": "اعاده كلمة المرور",
+        "your-number": "رقم الجوال",
+        "nikename": "اسم مستعار",
+        "country": "الدولة", 
+        "city": "المدينة",
+        "player-info": "بيانات اللاعب"
     },
     "MATCH": {
         "last-matches-stats": "احصائيات اخر المباريات",

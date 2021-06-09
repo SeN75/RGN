@@ -8,6 +8,7 @@ import { ComponentsModule } from "../components/components.module";
 
 import { LayoutRoutingModule } from './layout.routing';
 import { PageModule } from "../pages/pages.module";
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
     imports: [
         HttpClientModule,
@@ -16,7 +17,8 @@ import { PageModule } from "../pages/pages.module";
         TranslateModule,
         ComponentsModule,
         LayoutRoutingModule,
-        PageModule
+        PageModule,
+        MatIconModule
     ],
     declarations: [
         LayoutComponent,

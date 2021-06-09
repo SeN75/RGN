@@ -30,11 +30,7 @@
   flex-wrap: wrap;
 }
 .tournament_card:hover::before {
-  background: linear-gradient(
-    320deg,
-    rgba(26, 103, 115, 0.7),
-    rgba(132, 83, 194, 0.7)
-  );
+  background: linear-gradient(320deg, #171744cc, rgba(33, 33, 94, 0.822));
   animation: fadein forwards 300ms;
   transition: 300ms;
   box-shadow: 0 0 50px 0px #5d5df9;
