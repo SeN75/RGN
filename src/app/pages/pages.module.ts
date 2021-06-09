@@ -20,6 +20,7 @@ import { TournamentsInfoComponent } from './tournament/tournaments-info/tourname
 import { MedforceComponent } from "./medforce/medforce.component";
 import { CarouselModule } from "ngx-owl-carousel-2";
 import { LoginComponent } from './login/login.component';
+import { RegistationComponent } from './registation/registation.component';
 
 @NgModule({
     imports: [
@@ -45,7 +46,8 @@ import { LoginComponent } from './login/login.component';
         TounamentsDialogComponent,
         TournamentsInfoComponent,
         MedforceComponent,
-        LoginComponent
+        LoginComponent,
+        RegistationComponent
     ],
     exports: [
 

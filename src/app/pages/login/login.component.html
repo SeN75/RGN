@@ -1,14 +1,14 @@
-<section class="login_wrapper">
-    <div class="login_form" [formGroup]="loginForm">
+<section class="registration_wrapper">
+    <div class="registration_form" [formGroup]="loginForm">
         <img src="../../../assets/images/logoRJ_.png" class="logo">
         <h2>{{'FORM.login' | translate}}</h2>
-        <div class="w-100" dir="rtl">
+        <div class="w-100 login" dir="rtl">
             <mat-form-field class="input mt-5 " appearance="outline">
                 <mat-label>{{'FORM.your-email' | translate}}</mat-label>
                 <input matInput placeholder="Placeholder" formControlName="email">
             </mat-form-field>
         </div>
-        <div class="w-100" dir="rtl">
+        <div class="w-100 login" dir="rtl">
             <mat-form-field class="input " appearance="outline">
                 <mat-label>{{'FORM.your-password' | translate}}</mat-label>
                 <input matInput placeholder="Placeholder" formControlName="password">
@@ -23,7 +23,7 @@
         </button>
 
     </div>
-    <div class="login_img">
+    <div class="registration_img">
 
         <div class="banner-element-fourteen">
             <img src="assets/images/banner/line6.png" alt="element">

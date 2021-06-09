@@ -1,4 +1,4 @@
-.login_wrapper {
+.registrationwrapper {
   position: relative;
   display: flex;
   height: 100vh;
@@ -13,13 +13,14 @@
   flex: 2;
 }
 
-.login_form {
+.registrationform {
   flex: 0.5;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #171744;
+  z-index: 10000;
 }
 input {
   text-align: right;
@@ -42,19 +43,19 @@ button span {
   margin-bottom: 1em;
 }
 @media screen and (max-width: 50em) {
-  .login_form {
+  .registrationform {
     flex: 0.8;
   }
 }
 
 @media screen and (max-width: 40em) {
-  .login_form {
+  .registrationform {
     flex: 1;
   }
-  .login_form div {
+  .registrationform div {
     width: 90%;
   }
-  .login_img {
+  .registrationimg {
     display: none;
   }
 }
@@ -63,27 +64,27 @@ button span {
   justify-content: center;
 }
 // mat-icon-stepper selected color change
-::ng-deep .mat-step-header .mat-step-icon-selected,
+.login::ng-deep .mat-step-header .mat-step-icon-selected,
 .mat-step-header .mat-step-icon-state-done,
 .mat-step-header .mat-step-icon-state-edit {
   background-color: #fff !important;
 }
 
 //input outline color
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+.login::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #fff !important;
   // opacity: 1!important;
 }
 
 //mat-input focused color
-::ng-deep
+.login::ng-deep
   .mat-form-field-appearance-outline.mat-focused
   .mat-form-field-outline-thick {
   color: #fff !important;
 }
 
 // mat-input error outline color
-::ng-deep
+.login::ng-deep
   .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
   .mat-form-field-outline-thick {
   color: #fff !important;
@@ -91,28 +92,28 @@ button span {
 }
 
 // mat-input carent color
-::ng-deep .mat-input-element {
+.login::ng-deep .mat-input-element {
   caret-color: transparent !important;
 }
 
 // mat-input error carent color
-::ng-deep .mat-form-field-invalid .mat-input-element,
+.login::ng-deep .mat-form-field-invalid .mat-input-element,
 .mat-warn .mat-input-element {
   caret-color: #fff !important;
 }
 
 // mat-label normal state style
-::ng-deep .mat-form-field-label {
+.login::ng-deep .mat-form-field-label {
   color: rgba(255, 255, 255, 0.6) !important;
   // color: $mainColor!important;
 }
 
 // mat-label focused style
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+.login::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
   color: #fff !important;
 }
 
 // mat-label error style
-::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+.login::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
   color: #fff !important;
 }
