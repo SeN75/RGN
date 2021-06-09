@@ -1,0 +1,142 @@
+.registration_wrapper {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  background: #171744;
+  z-index: 100;
+  margin: auto;
+  background-image: url("../../../assets/images/games/banner/banner.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  flex: 2;
+}
+
+.registration_form {
+  flex: 0.5;
+  display: flex;
+  background: #171744;
+  z-index: 10000;
+  position: relative;
+}
+.registration_form_ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+input {
+  text-align: right;
+  color: #fff;
+  margin: auto;
+}
+.input,
+button {
+  width: 50%;
+}
+button {
+  padding: 0.2em;
+}
+button span {
+  font-size: 1.6em;
+}
+.logo {
+  width: auto;
+  height: 100px;
+  margin-bottom: 1em;
+}
+.registr-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1em;
+  color: #fff;
+  position: absolute;
+  bottom: 2em;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.registr-nav div {
+  display: flex;
+  align-items: center;
+}
+.registr-nav div span {
+  font-size: 1em;
+}
+@media screen and (max-width: 50em) {
+  .registrationform {
+    flex: 0.8;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .registrationform {
+    flex: 1;
+  }
+  .registrationform div {
+    width: 90%;
+  }
+  .registrationimg {
+    display: none;
+  }
+}
+.w-100 {
+  display: flex;
+  justify-content: center;
+}
+// mat-icon-stepper selected color change
+.login::ng-deep .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: #fff !important;
+}
+
+//input outline color
+.login::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #fff !important;
+  // opacity: 1!important;
+}
+
+//mat-input focused color
+.login::ng-deep
+  .mat-form-field-appearance-outline.mat-focused
+  .mat-form-field-outline-thick {
+  color: #fff !important;
+}
+
+// mat-input error outline color
+.login::ng-deep
+  .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
+  .mat-form-field-outline-thick {
+  color: #fff !important;
+  opacity: 0.8 !important;
+}
+
+// mat-input carent color
+.login::ng-deep .mat-input-element {
+  caret-color: transparent !important;
+}
+
+// mat-input error carent color
+.login::ng-deep .mat-form-field-invalid .mat-input-element,
+.mat-warn .mat-input-element {
+  caret-color: #fff !important;
+}
+
+// mat-label normal state style
+.login::ng-deep .mat-form-field-label {
+  color: rgba(255, 255, 255, 0.6) !important;
+  // color: $mainColor!important;
+}
+
+// mat-label focused style
+.login::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #fff !important;
+}
+
+// mat-label error style
+.login::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #fff !important;
+}

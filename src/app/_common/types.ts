@@ -253,3 +253,40 @@ export interface PlayerFavoriteGame {
     playerNavigation?: any;
     gameNavigation?: any;
 }
+
+
+export interface User {
+    id?: number,
+    guidId?: string,
+    fullname: string,
+    gender: string,
+    email: string,
+    mobile: string,
+    password: string,
+    birthday: string,
+    isActive: boolean,
+    isEmailVerified: boolean,
+    isMobileVerified: boolean,
+    lastLoginDate?: string,
+    createdDate?: string,
+    lastModifyDate?: string,
+    isDeleted?: boolean,
+    playerNavigation?: any;
+}
+
+
+export interface Player {
+    id?: number,
+    guidId?: string,
+    userId: number,
+    username: string,
+    countryId: number,
+    cityId: number,
+    rate?: number,
+    createdBy?: number,
+    createdDate?: string,
+    lastModifyDate?: string,
+    deletedBy?: number,
+    isDeleted?: boolean,
+    favoritePlatforms?: any
+}
