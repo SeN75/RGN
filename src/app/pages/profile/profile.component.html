@@ -1,0 +1,76 @@
+<section class="row">
+    <header class="with_button">
+        <h2 class="section-title ">{{'FORM.user-profile' | translate}}</h2>
+        <div class="">
+            <button mat-raised-button color="primary"
+                (click)="dialogSrv.openUserProfileDialog('edit',registrSrv.userData )">
+                {{'FORM.edit' | translate}}
+            </button>
+        </div>
+
+    </header>
+    <div class="col-12 col-sm-6  col-lg-4 user_data">
+        <mat-icon>person</mat-icon>
+        <div>
+            <label>{{'FORM.name' | translate}}</label>
+            <p>{{registrSrv.userData.fullname}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 user_data">
+        <mat-icon>alternate_email</mat-icon>
+        <div>
+            <label>{{'FORM.your-email' | translate}}</label>
+            <p>{{registrSrv.userData.email}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6  col-lg-4 user_data">
+        <mat-icon>cake</mat-icon>
+        <div>
+            <label>{{'FORM.birthday' | translate}}</label>
+            <p>{{registrSrv.userData.birthday | date}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6  col-lg-4 user_data">
+        <mat-icon>face</mat-icon>
+        <div>
+            <label>{{'FORM.gender' | translate}}</label>
+            <p>{{registrSrv.userData.gender ? registrSrv.userData.gender : 'Not Set Yet'}}</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="row mt-5"
+    *ngIf="registrSrv.userData.playerNavigation &&registrSrv.userData.playerNavigation.length != 0">
+    <header class="with_button">
+        <h2 class="section-title ">{{'FORM.player-info' | translate}}</h2>
+        <div class="">
+            <button mat-raised-button color="primary"
+                (click)="dialogSrv.openPlayerDialog('edit',registrSrv.userData.id, registrSrv.userData.playerNavigation[0] )">
+                {{'FORM.edit' | translate}}
+            </button>
+        </div>
+    </header>
+    <div class="col-12 col-sm-6  col-lg-4 user_data">
+        <mat-icon>face</mat-icon>
+        <div>
+            <label>{{'FORM.nikename' | translate}}</label>
+            <p>{{registrSrv.userData.playerNavigation[0].username}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 user_data">
+        <mat-icon>apartment</mat-icon>
+        <div>
+            <label>{{'FORM.city' | translate}}</label>
+            <p>{{registrSrv.userData.playerNavigation[0].cityId}}</p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6  col-lg-4 user_data">
+        <mat-icon>flag</mat-icon>
+        <div>
+            <label>{{'FORM.country' | translate}}</label>
+            <p>{{registrSrv.userData.playerNavigation[0].countryId}}</p>
+        </div>
+    </div>
+
+</section>

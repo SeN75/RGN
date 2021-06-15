@@ -5,5 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class HelperService {
   isSidebarOpen = false;
+  isDashboard = false;
   constructor() { }
 }

@@ -1,0 +1,127 @@
+<!-- join-section start -->
+<section class="join-section  pt-120 pb-120">
+    <div class="container">
+        <!-- <div class="join-element-one">
+            <img src="assets/images/join/icon-1.png" alt="icon">
+        </div>
+        <div class="join-element-two">
+            <img src="assets/images/join/icon-2.png" alt="icon">
+        </div> -->
+        <div class="join-element-three">
+            <img src="assets/images/join/icon-3.png" alt="icon">
+        </div>
+        <div class="join-element-four">
+            <img src="assets/images/join/icon-4.png" alt="icon">
+        </div>
+
+        <div class="container" *ngIf="!ruleNav.battle.isSystem && !ruleNav.point.isSystem">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-right">
+                    <div class="section-header">
+                        <h2 class="section-title">قواعد البطولة</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6" (click)="ruleNav.battle.isSystem = true;">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>نظام المواجهات</h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>يعتمد النظام على المنافسات مواجهه اما فردية او مجموعة يتم ذلك من خلال مواجهات الإقصاء او
+                            الدوري
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" (click)="ruleNav.point.isSystem = true;">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>نظام نقاط</h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>يعتمد النظام على مباريات تتضمن مجموعة من المشاركين يتنافسون لتحقيق نقاط ضمن تصفية مباشرة او
+                            تصفيات مجموعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" *ngIf="ruleNav.battle.isSystem">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-right">
+                    <div class="section-header">
+                        <h2 class="section-title">نظام الواجهات</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6" (click)="dialogSrv.openRuleBattleExclusionDialog()">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>مواجهات الاقصاء</h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>يعتمد النظام على منافسات اما فردية او مجموعات يتم ذلك من خلال مواجهات الاقصاء او الدوري </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" (click)="dialogSrv.openRuleBattleLeagueDialog()">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>مواجهات ضمن دوري</h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>يعتمد النظام على مباريات تتضمن مجموعة من المشاركين يتنافسون لتحقيق نقاط ضمن تصفية او تصفيات
+                            مجموعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container" *ngIf="ruleNav.point.isSystem">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-right">
+                    <div class="section-header">
+                        <h2 class="section-title">نظام النقاط </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6" (click)="dialogSrv.openRulePointSimpleDialog()">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>تصفيات بسيطة </h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>تصفيات مباشرة من خلال حصد نقاط ضمن آلية يتم ضبطها مسبقا مع إمكانيات انشاء اكثر من جولة </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" (click)="dialogSrv.openRulePointGroupDialog()">
+                    <div class="counter-item mb-30">
+                        <div class="counter-content">
+                            <div class="odo-area">
+                                <h3>تصفيات ضمن مجموعات</h3>
+                                <div class="divider"></div>
+                            </div>
+                        </div>
+                        <p>تصفيات ضمن مجموعات تتنافس كل منها لحصد النقاط ويتآهل منها نصف المشاركين وتكمل التصفيات حتى
+                            يتبقى مجموعة نهائية يتم من خلالها التتويج </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

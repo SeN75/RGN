@@ -2,8 +2,9 @@
 
 
 <!-- header-section start -->
-
-<header class="header-section ">
+<navbar></navbar>
+<sidebar class="d-lg-none"></sidebar>
+<!-- <header class="header-section ">
     <div class="header">
         <div class="header-top-area">
             <div class="container">
@@ -30,8 +31,8 @@
         <div class="header-bottom">
             <div class="container mt-5">
                 <nav class="navbar navbar-expand-lg p-0">
-                    <a class="site-logo site-title d-lg-none" routerLink="/"><img src="assets/images/banner/logo.png"
-                            alt="site-logo"></a>
+                    <a class="site-logo site-title d-lg-none" routerLink="/"><img
+                            src="../../../assets/images/logoRJ_.png" alt="site-logo"></a>
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -39,9 +40,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav main-menu">
-                            <li class="active"><a routerLink="/">الصفحة الرئيسية</a></li>
-                            <li><a routerLink="/about-us">من نحن</a></li>
-                            <li><a routerLink="/tournament">البطولات</a></li>
+                                <li class="active"><a routerLink="/">الصفحة الرئيسية</a></li>
+                                <li><a routerLink="/about-us">من نحن</a></li>
+                                <li><a routerLink="/tournament">البطولات</a></li>
                         </ul>
                     </div>
                     <div class="header-search-bar">
@@ -52,7 +53,7 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
 <!-- header-section end -->
 
 
@@ -135,13 +136,13 @@
                 </div>
             </div>
             <div class="col-lg-6 mb-30">
-                <div class="banner-video-area">
+                <!-- <div class="banner-video-area">
                     <div class="banner-video-icon">
-                        <!-- <a class="popup-youtube mfp-iframe" href="https://www.youtube.com/watch?v=pOuW1dDFXxo">
+                        <a class="popup-youtube mfp-iframe" href="https://www.youtube.com/watch?v=pOuW1dDFXxo">
                             <img src="assets/images/banner/play.png" alt="video">
-                        </a> -->
+                        </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -224,8 +225,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
                 <div class="section-header">
-                    <h3 class="sub-title">اخبار</h3>
-                    <h2 class="section-title">اطلع على اخر اخبار البطولات</h2>
+                    <h3 class="sub-title">بطولات</h3>
+                    <h2 class="section-title">البطولات الحالية</h2>
                     <!-- <p>Whether you want to go on an epic adventure, show your skills online or play together with family
                         and
                         friends</p> -->
@@ -233,17 +234,15 @@
             </div>
         </div>
         <div class="row justify-content-center mb-30-none">
-            <div class="col-lg-4 col-md-6 col-sm-8 mb-30">
+            <div class="col-lg-4 col-md-6 col-sm-8 mb-30" *ngFor="let tourn of tournaments">
                 <div class="game-item">
                     <div class="game-thumb">
-                        <img src="assets/images/game/d8b511aa-87ad-4780-9bc2-fce0e4e272cbfifa-21-intros.jpg" alt="game">
+                        <img src="{{tourn.logo}}" alt="game">
                     </div>
                     <div class="game-content">
                         <div class="game-content-body">
-                            <h3 class="title">عنوان 1</h3>
-                            <p>و سأعرض مثال حي لهذا، من منا لم يتحمل جهد بدني شاق إلا من أجل الحصول على ميزة أو فائدة؟
-                                ولكن من لديه الحق أن ينتقد شخص ما أراد أن يشعر بالسعادة التي لا تشوبها عواقب أليمة أو
-                                آخر أراد أن يتجنب الألم الذي ربما تنجم عنه بعض المتعة ؟
+                            <h3 class="title">{{tourn.name}}</h3>
+                            <p>{{tourn.description}}
                             </p>
                             <!-- <div class="game-meta-post d-flex flex-wrap">
                                 <div class="game-verson">
@@ -262,17 +261,17 @@
                             <div
                                 class="game-content-footer-content d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="game-player">
-                                    <span>1356 Active Players</span>
+                                    <span>{{tourn.startDate | date}}</span>
                                 </div>
-                                <div class="game-footer-icon">
-                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                <div class="game-footer-icon" style="cursor: pointer;" (click)="showTournament(tourn)">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-8 mb-30">
+            <!-- <div class="col-lg-4 col-md-6 col-sm-8 mb-30">
                 <div class="game-item">
                     <div class="game-thumb">
                         <img src="assets/images/game/egs-rocketleague-psyonixllc-s3-2560x1440-56d55e752216.jpg"
@@ -325,7 +324,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>
@@ -335,7 +334,7 @@
 
 
 <!-- client-section start -->
-<section class="client-section bg pt-120 pb-120">
+<!-- <section class="client-section bg pt-120 pb-120">
     <div class="client-element-one">
         <img src="assets/images/circle-1.png" alt="shape">
     </div>
@@ -372,7 +371,7 @@
             </owl-carousel-o>
         </div>
     </div>
-</section>
+</section> -->
 <!-- client-section end -->
 
 
@@ -565,7 +564,7 @@
                 </div>
                 <!-- <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
                     <div class="footer-logo">
-                        <a href="#0"><img src="assets/images/banner/logo.png" alt="logo"></a>
+                        <a href="#0"><img src="../../../assets/images/logoRJ_.png" alt="logo"></a>
                     </div>
                     <div class="footer-btn">
                         <a href="#0" class="cmn-btn">Join Us</a>

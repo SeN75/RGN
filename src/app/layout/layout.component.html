@@ -1,38 +1,8 @@
 <div class="wrapper">
-    <div class="sidebar" [class.open]="helperSrv.isSidebarOpen">
-        <div class="user_data">
-            <div class="img_wrapper">
-                <mat-icon class="logo">account_circle</mat-icon>
-            </div>
-            <span class="name"> Hussin alqarni</span>
-            <span class="email">dev.alqarni@gmail.com</span>
-        </div>
-
-        <div class="vertical-menu">
-            <a routerLink="/">
-
-                الصفحة الرئيسية
-                <mat-icon>home</mat-icon>
-            </a>
-            <a routerLink="/about-us">
-
-                من نحن
-                <mat-icon>portrait</mat-icon>
-            </a>
-            <a routerLink="/tournament">
-
-                البطولات
-                <mat-icon>gamepad</mat-icon>
-            </a>
-            <a (click)="logoutSrv.logout()" style="cursor: pointer;">
-
-                تسجيل خروج
-                <mat-icon>logout</mat-icon>
-            </a>
-
-        </div>
-    </div>
+    <sidebar class="sidebar" style="height: 100%;"></sidebar>
     <div class="main-panel">
+        <navbar></navbar>
+
         <router-outlet></router-outlet>
     </div>
 </div>

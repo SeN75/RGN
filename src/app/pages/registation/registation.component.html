@@ -20,13 +20,14 @@
             </button>
             <div class="registr-nav">
                 <div class="before">
-                    <button mat-button color="light" routerLink="." (click)="registraionSrv.showForm = 'userData'">
+                    <button mat-button class="w-auto" color="light" routerLink="."
+                        (click)="registraionSrv.showForm = 'userData'">
                         <mat-icon>arrow_forward</mat-icon>
                         <span> تسجيل</span>
                     </button>
                 </div>
                 <div class="home">
-                    <button mat-button color="light" routerLink="/">
+                    <button mat-button class="w-auto" color="light" routerLink="/">
                         <span>صفحة الرئيسية</span>
                         <mat-icon>home</mat-icon>
                     </button>
@@ -55,11 +56,11 @@
                 </mat-form-field>
             </div>
             <div class="w-100 login" dir="rtl">
-                <mat-form-field class="input  w-25 mx-1" appearance="outline">
+                <mat-form-field class="input  w-32 mx-1" appearance="outline">
                     <mat-label>{{'FORM.your-password' | translate}}</mat-label>
                     <input matInput placeholder="Placeholder" formControlName="password">
                 </mat-form-field>
-                <mat-form-field class="input  w-25 mx-1" appearance="outline">
+                <mat-form-field class="input  w-32 mx-1" appearance="outline">
                     <mat-label>{{'FORM.re-password' | translate}}</mat-label>
                     <input matInput placeholder="Placeholder" formControlName="re_password">
                 </mat-form-field>
@@ -83,22 +84,24 @@
             </button>
             <div class="registr-nav">
                 <div class="before">
-
-                    <button mat-button color="light" routerLink="." (click)="registraionSrv.showForm= 'playerInfo'">
+                    <!-- 
+                    <button mat-button class="w-auto" color="light" routerLink="."
+                        (click)="registraionSrv.showForm= 'playerInfo'">
                         <mat-icon>arrow_forward</mat-icon>
 
                         <span>بيانات اللاعب</span>
 
-                    </button>
+                    </button> -->
                 </div>
                 <div class="home">
-                    <button mat-button color="light" routerLink="/">
+                    <button mat-button class="w-auto" color="light" routerLink="/">
                         <span>صفحة الرئيسية</span>
                         <mat-icon>home</mat-icon>
                     </button>
                 </div>
                 <div class="next">
-                    <button mat-button color="light" routerLink="." (click)="registraionSrv.showForm= 'login'">
+                    <button mat-button class="w-auto" color="light" routerLink="."
+                        (click)="registraionSrv.showForm= 'login'">
                         <span>تسجيل دخول</span>
                         <mat-icon>arrow_back</mat-icon>
                     </button>
@@ -137,13 +140,14 @@
 
                 </div>
                 <div class="home">
-                    <button mat-button color="light" routerLink="/">
+                    <button mat-button class="w-auto" color="light" routerLink="/">
                         <span>صفحة الرئيسية</span>
                         <mat-icon>home</mat-icon>
                     </button>
                 </div>
                 <div class="next">
-                    <button mat-button color="light" routerLink="." (click)="registraionSrv.showForm= 'userData'">
+                    <button mat-button class="w-auto" color="light" routerLink="."
+                        (click)="registraionSrv.showForm= 'userData'">
                         <span>بيانات الشخصية</span>
                         <mat-icon>arrow_back</mat-icon>
                     </button>

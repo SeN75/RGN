@@ -1,0 +1,38 @@
+<div class="sidebar" [class.open]="helperSrv.isSidebarOpen">
+    <button mat-icon-button class="close_button d-block d-lg-none" (click)="helperSrv.isSidebarOpen = false">
+        <mat-icon class="text-light">close</mat-icon>
+    </button>
+    <div class="user_data">
+        <div class="img_wrapper">
+            <mat-icon class="logo">account_circle</mat-icon>
+        </div>
+        <span class="name" *ngIf=" logoutSrv.userData"> {{ logoutSrv.userData.fullname? logoutSrv.userData.fullname :
+            ''}}</span>
+        <span class="email" *ngIf=" logoutSrv.userData">{{ logoutSrv.userData.email? logoutSrv.userData.email :
+            ''}}</span>
+    </div>
+
+    <div class="vertical-menu">
+        <a routerLink="/">
+
+            الصفحة الرئيسية
+            <mat-icon>home</mat-icon>
+        </a>
+        <a routerLink="/about-us">
+
+            من نحن
+            <mat-icon>portrait</mat-icon>
+        </a>
+        <a routerLink="/tournament" *ngIf="logoutSrv.userData.isAdmin">
+
+            البطولات
+            <mat-icon>gamepad</mat-icon>
+        </a>
+        <a (click)="logoutSrv.logout()" style="cursor: pointer;">
+
+            تسجيل خروج
+            <mat-icon>logout</mat-icon>
+        </a>
+
+    </div>
+</div>

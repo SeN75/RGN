@@ -1,0 +1,102 @@
+<section class="wrapper">
+    <div class="client-element-one">
+        <img src="assets/images/circle-1.png" alt="shape">
+    </div>
+    <div class="client-element-two">
+        <img src="assets/images/circle-2.png" alt="shape">
+    </div>
+
+
+    <div class="tournament_container">
+
+        <div class="row justify-content-between align-items-center">
+            <h2 class="col" style="color: #05c3de;">{{'TOURNAMENTS.manage' | translate}}</h2>
+            <span class="col" style="text-align: left;">
+                <button mat-raised-button color="primary" class="mx-1">{{'TOURNAMENTS.save-as-draft' |
+                    translate}}</button>
+                <button mat-raised-button color="primary" class="mx-1">{{'TOURNAMENTS.save-as-draft' |
+                    translate}}</button>
+            </span>
+        </div>
+        <div class="tournament_card row align-items-center">
+            <h5 class="tournament_title">{{'TOURNAMENTS.main' | translate}}</h5>
+            <div class=" col-lg-3 col-md-4 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.name' | translate}}</label>
+                <div>{{tournaemnt.name}}</div>
+            </div>
+            <div class=" col-lg-3 col-md-4 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.start-date' | translate}}</label>
+                <div>{{tournaemnt.startDate | date}}</div>
+            </div>
+            <div class=" col-lg-3 col-md-4 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.game' | translate}}</label>
+                <div>{{tournaemnt.numberOfParticipants}}</div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 ">
+                <button mat-raised-button color="primary"
+                    (click)="dialogSrv.openTounamentsDialog('edit', tournaemnt)">{{'FORM.edit' | translate}}</button>
+            </div>
+        </div>
+
+        <div class="tournament_card row align-items-center">
+            <h5 class="tournament_title">{{'TOURNAMENTS.associate' | translate}}</h5>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+                <div>{{tournaemnt.numberOfParticipants}}</div>
+            </div>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+                <div>{{tournaemnt.tournamentParticipants ?tournaemnt.tournamentParticipants.length : 0 }}
+                </div>
+            </div>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+                <div>{{tournaemnt.numberOfParticipants}}</div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 ">
+                <button mat-raised-button color="primary">{{'FORM.edit' | translate}}</button>
+            </div>
+        </div>
+
+        <div class="tournament_card row align-items-center">
+            <h5 class="tournament_title">{{'FORM.registration-department' | translate}}</h5>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.start-date' | translate}}</label>
+                <div>{{tournaemnt.startRegistrationDate | date}}</div>
+            </div>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <label>{{ 'TOURNAMENTS.end-date' | translate}}</label>
+                <div>{{tournaemnt.endRegistrationDate | date}}</div>
+            </div>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <!-- <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+                <div>{{tournaemnt.numberOfParticipants}}</div> -->
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 ">
+                <button mat-raised-button color="primary"
+                    (click)="dialogSrv.openTounamentsDialog('edit', tournaemnt)">{{'FORM.edit' | translate}}</button>
+            </div>
+        </div>
+
+
+        <div class="tournament_card row align-items-center justify-content-between">
+            <h5 class="tournament_title">{{'TOURNAMENTS.management-rules' | translate}}</h5>
+            <div class="col rules" *ngIf="tournaemnt.tournamentRules">
+                <div class="tournament_rule" *ngFor="let rule of tournaemnt.tournamentRules">
+                    <label class="rule_name">{{rule.name}}</label>
+                    <div class="rule_info">{{rule.name}}</div>
+                </div>
+            </div>
+            <div class=" col-lg-3 col-md-3 col-2 tournament_data">
+                <!-- <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+                <div>{{tournaemnt.numberOfParticipants}}</div> -->
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 ">
+                <button mat-raised-button color="primary" routerLink="rule">{{'FORM.add' | translate}}</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>

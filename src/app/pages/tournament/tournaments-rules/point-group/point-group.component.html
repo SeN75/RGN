@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>{{'TOURNAMENTS.group-qualifiers' | translate}}</h2>
+<mat-vertical-stepper [linear]="isLinear" #stepper [dir]="lang.dir">
+    <mat-step [stepControl]="createForm">
+
+        <form [formGroup]="createForm">
+            <ng-template matStepLabel>{{'TOURNAMENTS.general' | translate}}</ng-template>
+            <div class="row">
+                <mat-form-field *ngFor="let input of inputs" appearance="outline" class="{{input.grid}}">
+                    <mat-label>{{input.name | translate}}</mat-label>
+                    <input matInput placeholder="{{input.name | translate}}" [type]="input.type"
+                        [formControlName]="input.controlName" required>
+                </mat-form-field>
+            </div>
+            <div class="mt-3">
+                <button mat-raised-button matStepperNext color="primary">{{'FORM.next' | translate}}</button>
+                <button mat-button (click)="formTournament()">{{'FORM.save' | translate}} </button>
+            </div>
+        </form>
+    </mat-step>
+
+
+    <mat-step [stepControl]="createForm2">
+        <form [formGroup]="createForm2">
+            <ng-template matStepLabel>{{'TOURNAMENTS.advance' | translate}}</ng-template>
+            <div class="row checkbox_panel">
+                <div class="checkbox" (click)="pointPerPlace()">
+                    <mat-checkbox>{{'TOURNAMENTS.point-per-place'
+                        | translate}}</mat-checkbox>
+                </div>
+                <mat-form-field appearance="outline" class="col">
+                    <mat-label>{{'TOURNAMENTS.first-place' | translate}}</mat-label>
+                    <input matInput placeholder="{{'TOURNAMENTS.first-place' | translate}}" type="number"
+                        formControlName="firstPlace" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col">
+                    <mat-label>{{'TOURNAMENTS.second-place' | translate}}</mat-label>
+                    <input matInput placeholder="{{'TOURNAMENTS.second-place' | translate}}" type="number"
+                        formControlName="secondPlace" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col">
+                    <mat-label>{{'TOURNAMENTS.third-place' | translate}}</mat-label>
+                    <input matInput placeholder="{{'TOURNAMENTS.third-place' | translate}}" type="number"
+                        formControlName="thirdPlace" required>
+                </mat-form-field>
+            </div>
+            <div class="row checkbox_panel">
+                <div class="checkbox" (click)="pointPerPoint()">
+                    <mat-checkbox>{{'TOURNAMENTS.point-per-kill' | translate}}</mat-checkbox>
+                </div>
+                <mat-form-field appearance="outline" class="col">
+                    <mat-label>{{'TOURNAMENTS.kill-point' | translate}}</mat-label>
+                    <input matInput placeholder="{{'TOURNAMENTS.kill-point' | translate}}" type="number"
+                        formControlName="killPoint" required>
+                </mat-form-field>
+            </div>
+            <div class="mt-3">
+                <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' | translate}}</button>
+                <button mat-button (click)="formTournament()">{{'FORM.save' | translate}}</button>
+            </div>
+        </form>
+    </mat-step>
+
+</mat-vertical-stepper>

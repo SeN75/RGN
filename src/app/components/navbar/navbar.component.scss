@@ -1,0 +1,9 @@
+.header-section-dashbord {
+  width: calc(100% - 250px);
+}
+
+@media screen and (max-width: 63em) {
+  .header-section-dashbord {
+    width: 100%;
+  }
+}

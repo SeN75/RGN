@@ -1,0 +1,50 @@
+.section-title {
+  color: #05c3de;
+}
+
+.with_button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_data {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.user_data div label {
+  color: #725fcf;
+  font-size: 1em;
+}
+.user_data div p {
+  color: #1e1e1e;
+  font-size: 1.8em;
+}
+.user_data mat-icon {
+  color: #725fcf;
+  font-size: 1.3em;
+  width: auto;
+  height: auto;
+  margin-top: 0.8em;
+}
+
+@media screen and (max-width: 30em) {
+  .user_data div p {
+    font-size: 2em !important;
+  }
+  .user_data mat-icon {
+    font-size: 1.5em !important;
+  }
+}
+@media screen and (max-width: 25em) {
+  .user_data div label {
+    font-size: 0.8em;
+  }
+  .user_data div p {
+    font-size: 1.5em !important;
+  }
+  .user_data mat-icon {
+    font-size: 1em !important;
+  }
+}

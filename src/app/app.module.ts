@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { NgModule } from '@angular/core';
@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CarouselModule } from 'ngx-owl-carousel-2';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Interceptor } from './_helper/interceptor';
 
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -48,7 +49,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
 
   entryComponents: [TounamentsDialogComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

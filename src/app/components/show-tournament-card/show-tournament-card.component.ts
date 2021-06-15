@@ -28,4 +28,9 @@ export class ShowTournamentCardComponent implements OnInit {
     this.tournamentsSrv.tournaments = tournament;
     this.router.navigateByUrl('/tournaments/' + tournament.id);
   }
+  editTournamenets(tournament: any) {
+    this.tournamentsSrv.tournaments = tournament;
+    this.router.navigateByUrl('/tournaments/' + tournament.id + "/edit");
+
+  }
 }

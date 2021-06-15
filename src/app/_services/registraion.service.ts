@@ -19,24 +19,55 @@ export class RegistraionService {
   player: any;
   showForm = 'login';
 
-  constructor(private http: HttpClient, private router: Router, private logger: LoggerService, private translateSrv: TranslateService, private toastSrv: ToastService) { }
+  constructor(private http: HttpClient, private router: Router, private logger: LoggerService, private translateSrv: TranslateService, private toastSrv: ToastService) {
+    this.isLogin();
+  }
 
   login(data: Login) {
     this._login(data).subscribe((success: any) => {
+      this.userData = success;
+      // this.logger.log('user log in : ', success)
       localStorage.setItem('token', success.accessToken);
+      localStorage.setItem('isLogin', 'true');
+      localStorage.setItem('userId', success.id);
+      this.router.navigateByUrl('/profile');
+    }, (error: any) => {
+      this.logger.error('error: ', error)
     })
-    this.router.navigateByUrl('/tournament');
   }
   private _login(data: Login) {
     return this.http.post(API + "/api/Authorization/Login", data);
   }
 
   logout() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLogin');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('playerId');
     this.router.navigateByUrl('/login')
   }
-
-
+  isLogin() {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      this.getUser(+userId);
+      return true
+    }
+    return false;
+  }
+  public register(user: User) {
+    this.http.post(API + '/api/Authorization/Register', user).subscribe((success: any) => {
+      this.user = success;
+      localStorage.setItem('token', success.accessToken);
+      localStorage.setItem('isLogin', 'true');
+      localStorage.setItem('userId', success.id);
+      this.router.navigateByUrl('');
+      this.translateSrv.get("SUCCESS.new-user").subscribe(msg => this.toastSrv.showMessage(msg, 'success'))
+      this.logger.log('post User: ', success);
+    }, (error: HttpErrorResponse) => {
+      this.translateSrv.get("ERRORS.new-user").subscribe(msg => this.toastSrv.showMessage(msg, 'danger'))
+      this.logger.error("'post User: ", error);
+    })
+  }
 
   /**
   *  User
@@ -65,13 +96,14 @@ export class RegistraionService {
     if (!id) {
       this._getUser().subscribe((success: User) => {
         this.userData = success;
-        this.logger.log('get User: ', success);
+        this.logger.log('get User: ', this.userData);
       }, (error: HttpErrorResponse) => {
         this.logger.error("'get User: ", error);
       })
     } else {
       this._getUserById(id).subscribe((success: User) => {
-        this.logger.log('getById User: ', success);
+        this.userData = success;
+        this.logger.log('getById User: ', this.userData);
       }, (error: HttpErrorResponse) => {
         this.logger.error("'getById User: ", error);
       })

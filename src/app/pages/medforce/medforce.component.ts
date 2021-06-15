@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-2';
 import { tournaments, tournmaents } from 'src/app/_common/globle';
 import { TournamentService } from 'src/app/_services/tournament.service';
@@ -36,7 +37,7 @@ export class MedforceComponent implements OnInit {
     },
   };
   tournaments: any
-  constructor(private tournamentSrv: TournamentService) {
+  constructor(private tournamentSrv: TournamentService, public router: Router) {
     setTimeout(() => {
       this.tournaments = this.tournamentSrv.tournamentsData
     }, 1000)
@@ -44,5 +45,8 @@ export class MedforceComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showTournament(tournament: any) {
+    this.tournamentSrv.tournaments = tournament;
+    this.router.navigateByUrl("/tournaments/" + tournament.id)
+  }
 }

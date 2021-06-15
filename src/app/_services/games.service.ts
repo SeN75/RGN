@@ -14,11 +14,13 @@ export class GamesService {
   game: any;
   playerFavoriteGame: any;
   playerFavoriteGamesData: any;
+
   constructor(
     private http: HttpClient,
     private logger: LoggerService,
     private toastr: ToastrService,
-    private translateSrv: TranslateService) { }
+    private translateSrv: TranslateService) {
+  }
 
   /**
 * 

@@ -1,0 +1,55 @@
+<header class="header-section " [class.header-section-dashbord]="helperSrv.isDashboard">
+    <div class="header">
+
+        <div class="">
+            <div class="container p-0" style="max-width: unset;">
+                <nav class="navbar navbar-expand-lg p-0">
+                    <div class="header-logo  d-none d-lg-block">
+                        <a class="site-logo site-title" routerLinke="/"><img src="../../../assets/images/logoRJ_.png"
+                                alt="site-logo"></a>
+                    </div>
+                    <a class="site-logo site-title d-lg-none" routerLink="/"><img
+                            src="../../../assets/images/logoRJ_.png" alt="site-logo"></a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="fas fa-bars"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " style="justify-content: center;" id="navbarSupportedContent">
+                        <ul class="navbar-nav main-menu">
+                            <li class="active"><a routerLink="/">الصفحة الرئيسية</a></li>
+                            <li><a routerLink="/about-us">من نحن</a></li>
+                            <li><a routerLink="/tournament" *ngIf="registrSrv.userData.isAdmin">البطولات</a></li>
+                        </ul>
+                    </div>
+                    <div class="header-social-area d-lg-block d-none">
+                        <ul class="header-social">
+                            <li *ngIf="registrSrv.userData"><a routerLink="/profile">
+                                    {{isLogin ? registrSrv.userData.fullname : ''}}
+                                    <i class="fas fa-user"></i>
+
+                                </a></li>
+                            <li *ngIf="!isLogin">
+                                <a routerLink="." (click)="registration('userData')">
+                                    تسجيل
+                                </a>
+                                /
+                                <a routerLink="." (click)="registration('login')">
+                                    تسجيل دخول
+                                </a>
+                            </li>
+                            <li><a routerLink="."><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a routerLink="." class="active"><i class="fab fa-twitter"></i></a></li>
+                            <li><a routerLink="."><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a routerLink="."><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                    </div>
+                    <button mat-icon-button class="ml-auto d-lg-none d-block"
+                        (click)="helperSrv.isSidebarOpen = !helperSrv.isSidebarOpen">
+                        <mat-icon style="font-size: 3em; width: auto; height: auto;">menu</mat-icon>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

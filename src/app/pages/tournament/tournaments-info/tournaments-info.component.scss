@@ -4,6 +4,7 @@
   height: 150vh;
   background: #171744;
   z-index: 100;
+  padding-top: 100px;
   margin: auto;
   background-image: url("../../../../assets/images/games/banner/banner.png");
   background-position: center;
@@ -83,6 +84,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   flex-grow: 1;
+  width: 100%;
 }
 
 .tournament_body {
@@ -104,12 +106,12 @@
     font-size: 2em;
   }
   .tournament_bannar_info {
-    width: 50%;
+    width: 60%;
   }
 }
 @media screen and (max-width: 30em) {
   .tournament_bannar_info {
-    width: 60%;
+    width: 100%;
   }
   .tournament_date .date {
     font-size: 17px;

@@ -21,6 +21,18 @@ import { MedforceComponent } from "./medforce/medforce.component";
 import { CarouselModule } from "ngx-owl-carousel-2";
 import { LoginComponent } from './login/login.component';
 import { RegistationComponent } from './registation/registation.component';
+import { ManageTournamentComponent } from './tournament/manage-tournament/manage-tournament.component';
+import { TournamentsRulesComponent } from './tournament/tournaments-rules/tournaments-rules.component';
+import { PointGroupComponent } from './tournament/tournaments-rules/point-group/point-group.component';
+import { PointSimpleComponent } from './tournament/tournaments-rules/point-simple/point-simple.component';
+import { BattleLeagueComponent } from './tournament/tournaments-rules/battle-league/battle-league.component';
+import { BattleExclusionComponent } from './tournament/tournaments-rules/battle-exclusion/battle-exclusion.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { AboutUsComponent } from "./medforce/about-us/about-us.component";
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileDialogComponent } from './profile/profile-dialog/profile-dialog.component';
+import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.component';
 
 @NgModule({
     imports: [
@@ -39,20 +51,39 @@ import { RegistationComponent } from './registation/registation.component';
         FormsModule,
         ReactiveFormsModule,
         CarouselModule,
+        MatCheckboxModule,
+        MatSelectModule
 
     ],
     declarations: [
         TournamentComponent,
         TounamentsDialogComponent,
+        AboutUsComponent,
         TournamentsInfoComponent,
         MedforceComponent,
         LoginComponent,
-        RegistationComponent
+        RegistationComponent,
+        ManageTournamentComponent,
+        TournamentsRulesComponent,
+        PointGroupComponent,
+        PointSimpleComponent,
+        BattleLeagueComponent,
+        BattleExclusionComponent,
+        ProfileComponent,
+        ProfileDialogComponent,
+        PlayerDialogComponent,
     ],
     exports: [
 
     ],
-    entryComponents: [TounamentsDialogComponent]
+    entryComponents: [
+
+        TounamentsDialogComponent,
+        PointGroupComponent,
+        PointSimpleComponent,
+        BattleLeagueComponent,
+        BattleExclusionComponent
+    ]
 })
 
 export class PageModule { }

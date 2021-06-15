@@ -60,6 +60,7 @@ label,
 input,
 section,
 p,
+a,
 vertical-menu,
 .navbar-nav .main-menu li a,
 #navbarSupportedContent {
@@ -74,10 +75,41 @@ vertical-menu,
 }
 
 .site-logo img {
-  height: 100px;
+  height: 60px;
   width: auto;
 }
-
+mat-dialog-container {
+  z-index: 10000000;
+}
 .header-bottom {
   background-color: transparent !important;
+}
+
+.mat-dialog-title {
+  display: flex !important;
+  direction: rtl;
+  justify-content: space-between;
+}
+
+.close {
+  color: #1a1a1a;
+}
+h1.mat-dialog-title,
+h2.mat-dialog-title,
+h3.mat-dialog-title,
+h4.mat-dialog-title,
+h5.mat-dialog-title,
+h6.mat-dialog-title {
+  color: #312366;
+}
+.mat-option-text,
+.mat-select-min-line,
+.mat-select-value-text {
+  color: unset;
+}
+@media screen and (max-width: 40em) {
+  .site-logo img {
+    height: 60px;
+    width: auto;
+  }
 }

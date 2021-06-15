@@ -44,7 +44,7 @@ export class TournamentService {
     private snackBar: MatSnackBar,
     private translateSrv: TranslateService) {
     this.getTournament();
-
+    this.getTournament(4);
     // this.getTournament();
     // this.getTournament("30");
     // // this.postTournament(tournamentTest);
@@ -471,8 +471,12 @@ export class TournamentService {
    */
   public postTournamentPlayer(tournament: TournamentPlayer) {
     this._postTournamentPlayer(tournament).subscribe((success: TournamentPlayer) => {
+      this.translateSrv.get('SUCCESS.registr-complete').subscribe(msg => this.showMessage(msg, 'success'))
+      this.router.navigateByUrl('/')
       this.logger.log('post TournamentPlayer: ', success);
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERRORS.registr-complete').subscribe(msg => this.showMessage(msg, 'danger'))
+
       this.logger.error("'post TournamentPlayer: ", error);
     })
   }
@@ -619,6 +623,8 @@ export class TournamentService {
    */
   public postTournamentRules(tournament: TournamentRules) {
     this._postTournamentRules(tournament).subscribe((success: TournamentRules) => {
+      this.getTournament(this.tournaments.id)
+      this.router.navigateByUrl('/tournament');
       this.logger.log('post TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'post TournamentRules: ", error);

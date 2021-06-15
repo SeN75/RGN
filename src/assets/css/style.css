@@ -51,7 +51,6 @@ Contact Area Start
 
 body {
   font-size: 16px;
-  font-family: var(--para-font);
   padding: 0;
   margin: 0;
   font-weight: 400;
@@ -132,7 +131,6 @@ h6 > a {
 
 a {
   display: inline-block;
-  font-family: var(--para-font);
   font-weight: 400;
 }
 a,
@@ -145,7 +143,6 @@ p,
 span,
 li {
   margin: 0;
-  font-family: var(--para-font);
   color: var(--para-color);
   line-height: 1.7;
   font-size: 16px;
@@ -155,7 +152,6 @@ li {
   text-transform: capitalize;
 }
 p {
-  font-family: var(--para-font);
   font-size: 18px;
   font-weight: 500;
 }
@@ -187,7 +183,6 @@ textarea {
   font-size: 16px;
   background: transparent;
   width: 100%;
-  font-family: var(--para-font);
   color: #4c588f;
   text-transform: capitalize;
 }
@@ -890,7 +885,7 @@ span {
 
 /* header */
 .header-section {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

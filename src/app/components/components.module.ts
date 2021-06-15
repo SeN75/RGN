@@ -13,6 +13,8 @@ import { TounamentsDialogComponent } from "../pages/tournament/tounaments-dialog
 import { GameSelectComponent } from './game-select/game-select.component';
 import { PlateformSelectComponent } from './plateform-select/plateform-select.component';
 import { TournamentsCardComponent } from "./tournaments-card/tournaments-card.component";
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
     imports: [
@@ -29,13 +31,17 @@ import { TournamentsCardComponent } from "./tournaments-card/tournaments-card.co
         ShowTournamentCardComponent,
         GameSelectComponent,
         PlateformSelectComponent,
-        TournamentsCardComponent
+        TournamentsCardComponent,
+        NavbarComponent,
+        SidebarComponent
     ],
     exports: [
         ShowTournamentCardComponent,
         GameSelectComponent,
         PlateformSelectComponent,
-        TournamentsCardComponent
+        TournamentsCardComponent,
+        NavbarComponent,
+        SidebarComponent
     ],
 
 

@@ -29,4 +29,15 @@
     right: unset;
     left: 0;
   }
+  .banner-element-six {
+    left: unset;
+    right: 60%;
+  }
+  mat-vertical-stepper {
+    direction: rtl;
+  }
+  .mat-vertical-stepper-header .mat-step-icon {
+    margin-left: 12px;
+    margin-right: unset;
+  }
 }

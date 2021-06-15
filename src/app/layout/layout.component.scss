@@ -2,25 +2,29 @@
   position: relative;
   display: flex;
   height: 100%;
-  background: #171744;
-  background-image: url("../../assets/images/games/banner/banner.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: #e1e1f5;
+  // background-image: url("../../assets/images/games/banner/banner.png");
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
   justify-content: center;
 }
 
 .sidebar {
   width: 250px;
-  background: linear-gradient(320deg, #171744, #21215e);
+  height: 100%;
+  // background: linear-gradient(320deg, #171744, #21215e);
   bottom: 0;
+  z-index: 100;
 }
 
 .main-panel {
   position: relative;
   width: calc(100% - 250px);
   float: right;
-  padding: 0 50px;
+  padding: 140px 10px;
+  height: auto;
+  overflow: auto;
 }
 
 .nav-menu {
@@ -88,7 +92,7 @@
     right: 0;
     bottom: 0;
     margin-top: 0;
-    z-index: 100;
+    z-index: 1000000;
     margin-right: -300px;
     transition: 500ms;
   }

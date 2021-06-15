@@ -12,7 +12,9 @@
   width: 100%;
   flex: 2;
 }
-
+.w-32 {
+  width: 32% !important;
+}
 .registration_form {
   flex: 0.5;
   display: flex;
@@ -34,7 +36,7 @@ input {
 }
 .input,
 button {
-  width: 50%;
+  width: 65%;
 }
 button {
   padding: 0.2em;
@@ -66,20 +68,27 @@ button span {
   font-size: 1em;
 }
 @media screen and (max-width: 50em) {
-  .registrationform {
+  .registration_form {
     flex: 0.8;
   }
 }
 
 @media screen and (max-width: 40em) {
-  .registrationform {
+  .registration_form {
     flex: 1;
   }
-  .registrationform div {
-    width: 90%;
+  .registration_form .registration_form_ {
+    width: 100%;
   }
-  .registrationimg {
+  .registration_img {
     display: none;
+  }
+  h2,
+  h2 > a {
+    font-size: 40px;
+  }
+  .registr-nav div span {
+    font-size: 0.8em;
   }
 }
 .w-100 {

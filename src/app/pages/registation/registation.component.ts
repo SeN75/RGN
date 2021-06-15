@@ -43,14 +43,17 @@ export class RegistationComponent implements OnInit {
     }
   }
   userInfo() {
+
+    const user = delete this.userInfoForm.value.re_password;
+    console.log(user);
     if (this.isNewUser) {
-      this.registraionSrv.postUser(this.userInfoForm.value);
+      this.registraionSrv.register(this.userInfoForm.value);
     } else {
-      this.registraionSrv.postUser(this.userInfoForm.value);
+      this.registraionSrv.register(this.userInfoForm.value);
     }
   }
   playerInfo() {
-    this.playerInfoForm.get("userId").setValue(this.registraionSrv.user.id);
+    this.playerInfoForm.get("userId").setValue(this.registraionSrv.userData.id);
     if (this.isNewUser) {
       this.registraionSrv.postPlayer(this.playerInfoForm.value);
     } else {
