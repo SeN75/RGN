@@ -34,7 +34,7 @@ export interface Tournament {
     timeZone: string;
     gameNavigation?: any;
     tournamentRules?: TournamentRules[],
-    tournamentParticipants?: any;
+    tournamentParticipants?: any[];
     tournamentMatches?: TournamentMatch[],
     tournamentGroups?: TournamentGroup[],
     tournamentRounds?: TournamentRound[]

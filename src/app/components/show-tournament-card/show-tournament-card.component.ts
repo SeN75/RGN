@@ -26,11 +26,11 @@ export class ShowTournamentCardComponent implements OnInit {
   }
   showTournaments(tournament: any) {
     this.tournamentsSrv.tournaments = tournament;
-    this.router.navigateByUrl('/tournaments/' + tournament.id);
+    this.router.navigateByUrl('/tournament/' + tournament.id);
   }
   editTournamenets(tournament: any) {
     this.tournamentsSrv.tournaments = tournament;
-    this.router.navigateByUrl('/tournaments/' + tournament.id + "/edit");
+    this.router.navigateByUrl('/tournament/' + tournament.id + "/edit");
 
   }
 }

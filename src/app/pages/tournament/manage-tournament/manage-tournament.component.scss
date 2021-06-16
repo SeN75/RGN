@@ -40,3 +40,12 @@
   padding: 1em;
   color: #fff;
 }
+
+@media screen and (max-width: 40em) {
+  .tournament_card {
+    margin: 1em;
+  }
+  .tournament_container {
+    width: 100%;
+  }
+}

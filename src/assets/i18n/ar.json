@@ -67,7 +67,8 @@
         "point-per-place": "نقاط حسب الترتيب",
         "point-per-kill": "نقاط حسب القتل",
         "kill-point": "نقاط القتلات",
-        "edit-tournament": "تحديث بيانات البطوله"
+        "edit-tournament": "تحديث بيانات البطوله",
+        "already-registered": "انت مسجل بالفعل في البطولة"
     },
     "FORM" : {
         "registr": "تسجيل",

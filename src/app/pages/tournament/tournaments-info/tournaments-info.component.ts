@@ -51,8 +51,11 @@ export class TournamentsInfoComponent implements OnInit {
       selected: false
     },
   ]
+  isParticipant = false;
   constructor(private tournamentsSrv: TournamentService, private router: Router, private userSrv: RegistraionService) {
     console.log('int')
+    this.checkIfExist();
+
     if (this.tournamentsSrv.tournaments) {
       this.tournamentsSrv.getTournament(this.tournamentsSrv.tournaments.id);
       setTimeout(() => {
@@ -63,16 +66,29 @@ export class TournamentsInfoComponent implements OnInit {
   registrInTourn() {
 
     if (this.userSrv.userData) {
-      if (this.userSrv.userData.playerNavigation[0].id)
-        this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: this.tournament.id });
-      else {
-        this.userSrv.showForm = 'playerInfo';
-        this.router.navigateByUrl('/login');
-      }
+      if (this.userSrv.userData.playerNavigation)
+        if (this.userSrv.userData.playerNavigation.length != 0 && this.userSrv.userData.playerNavigation[0].id)
+          this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: this.tournament.id });
+        else {
+          this.userSrv.showForm = 'playerInfo';
+          this.router.navigateByUrl('/login');
+        }
 
     }
     else {
       this.router.navigateByUrl('/login');
+    }
+  }
+  checkIfExist() {
+    if (this.userSrv.userData) {
+      if (this.userSrv.userData.playerNavigation && this.userSrv.userData.playerNavigation.length != 0)
+        for (let i = 0; i < this.tournamentsSrv.tournaments.tournamentParticipants.length; i++) {
+          if (this.userSrv.userData.playerNavigation)
+            if (this.userSrv.userData.playerNavigation[0].id == this.tournamentsSrv.tournaments.tournamentParticipants[i].playerId) {
+              this.isParticipant = true;
+              break;
+            }
+        }
     }
   }
   ngOnInit(): void {

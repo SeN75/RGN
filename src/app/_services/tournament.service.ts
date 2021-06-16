@@ -70,7 +70,7 @@ export class TournamentService {
     // this.removeTournamentMatchPlayer("0");
 
     // this.getTournamentPlayer();
-    // this.getTournamentPlayer("0");
+    this.getTournamentPlayer(1);
     // this.postTournamentPlayer(tournmaentPlayerTest);
     // this.updateTournamentPlayer(tournmaentPlayerTest, "0");
     // this.removeTournamentPlayer("0");

@@ -1,6 +1,6 @@
-<header class="header-section " [class.header-section-dashbord]="helperSrv.isDashboard">
+<header class="header-section " [class.d-lg-none]="helperSrv.isDashboard" [class.d-relative]="helperSrv.isDashboard"
+    [class.header-section-dashbord]="helperSrv.isDashboard">
     <div class="header">
-
         <div class="">
             <div class="container p-0" style="max-width: unset;">
                 <nav class="navbar navbar-expand-lg p-0">
@@ -19,17 +19,19 @@
                         <ul class="navbar-nav main-menu">
                             <li class="active"><a routerLink="/">الصفحة الرئيسية</a></li>
                             <li><a routerLink="/about-us">من نحن</a></li>
-                            <li><a routerLink="/tournament" *ngIf="registrSrv.userData.isAdmin">البطولات</a></li>
+                            <li><a routerLink="/tournament"
+                                    *ngIf="registrSrv.userData &&registrSrv.userData.isAdmin">البطولات</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="header-social-area d-lg-block d-none">
                         <ul class="header-social">
                             <li *ngIf="registrSrv.userData"><a routerLink="/profile">
-                                    {{isLogin ? registrSrv.userData.fullname : ''}}
+                                    {{registrSrv.userData.fullname}}
                                     <i class="fas fa-user"></i>
 
                                 </a></li>
-                            <li *ngIf="!isLogin">
+                            <li *ngIf="!registrSrv.userData">
                                 <a routerLink="." (click)="registration('userData')">
                                     تسجيل
                                 </a>

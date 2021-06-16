@@ -13,6 +13,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding-top: 2em;
 }
 
 .nav-menu {
@@ -72,6 +73,11 @@
 .sidebar.open {
   margin-right: 0;
   transition: 500ms;
+}
+.logo_img {
+  width: 40%;
+  height: auto;
+  margin: 0 auto;
 }
 @media screen and (max-width: 63em) {
   .sidebar {

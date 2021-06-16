@@ -26,15 +26,16 @@
   font-size: 1.3em;
   width: auto;
   height: auto;
-  margin-top: 0.8em;
+  margin-top: 1.2em;
+  margin-left: 0.3em;
 }
 
 @media screen and (max-width: 30em) {
   .user_data div p {
-    font-size: 2em !important;
+    font-size: 1.6em !important;
   }
   .user_data mat-icon {
-    font-size: 1.5em !important;
+    font-size: 1em !important;
   }
 }
 @media screen and (max-width: 25em) {
@@ -42,9 +43,9 @@
     font-size: 0.8em;
   }
   .user_data div p {
-    font-size: 1.5em !important;
+    font-size: 1.3em !important;
   }
   .user_data mat-icon {
-    font-size: 1em !important;
+    font-size: 0.8em !important;
   }
 }

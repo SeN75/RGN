@@ -33,6 +33,8 @@ import { AboutUsComponent } from "./medforce/about-us/about-us.component";
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDialogComponent } from './profile/profile-dialog/profile-dialog.component';
 import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.component';
+import { ParticipantsComponent } from './tournament/participants/participants.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     imports: [
@@ -48,6 +50,7 @@ import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.com
         MatFormFieldModule,
         MatInputModule,
         MatDatepickerModule,
+        MatTableModule,
         FormsModule,
         ReactiveFormsModule,
         CarouselModule,
@@ -72,6 +75,7 @@ import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.com
         ProfileComponent,
         ProfileDialogComponent,
         PlayerDialogComponent,
+        ParticipantsComponent,
     ],
     exports: [
 

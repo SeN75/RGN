@@ -45,6 +45,7 @@ export class RegistraionService {
     localStorage.removeItem('userId');
     localStorage.removeItem('playerId');
     this.router.navigateByUrl('/login')
+    this.userData = null;
   }
   isLogin() {
     const userId = localStorage.getItem('userId');

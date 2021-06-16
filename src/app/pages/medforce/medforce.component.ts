@@ -47,6 +47,6 @@ export class MedforceComponent implements OnInit {
   }
   showTournament(tournament: any) {
     this.tournamentSrv.tournaments = tournament;
-    this.router.navigateByUrl("/tournaments/" + tournament.id)
+    this.router.navigateByUrl("/tournament/" + tournament.id)
   }
 }

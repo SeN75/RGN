@@ -105,19 +105,20 @@ export class TounamentsDialogComponent implements OnInit {
     private formBuilder: FormBuilder, public tournamentsSrv: TournamentService, private gameSrv: GamesService) { }
 
   ngOnInit(): void {
+    console.log(this.data.tournament)
     this.createForm = this.formBuilder.group({
-      name: [(this.data.tournament.name ? this.data.tournament.name : ''), Validators.required],
-      numberOfParticipants: [(this.data.tournament.numberOfParticipants ? this.data.tournament.numberOfParticipants : 0), Validators.required],
+      name: [(this.data.tournament ? this.data.tournament.name ? this.data.tournament.name : '' : ''), Validators.required],
+      numberOfParticipants: [(this.data.tournament ? this.data.tournament.numberOfParticipants ? this.data.tournament.numberOfParticipants : 0 : 0), Validators.required],
       gameId: ['1', Validators.required],
 
     });
     this.createForm2 = this.formBuilder.group({
-      startDate: [(this.data.tournament.startDate ? this.data.tournament.startDate : ''), Validators.required],
-      endDate: [(this.data.tournament.endDate ? this.data.tournament.endDate : ''), Validators.required],
-      logo: [(this.data.tournament.logo ? this.data.tournament.logo : ''), Validators.required],
-      prize: [(this.data.tournament.prize ? this.data.tournament.prize : ''), Validators.required],
-      rule: [(this.data.tournament.rule ? this.data.tournament.rule : ''), Validators.required],
-      descriptioon: [(this.data.tournament.descriptioon ? this.data.tournament.descriptioon : ''), Validators.required],
+      startDate: [(this.data.tournament ? this.data.tournament.startDate ? this.data.tournament.startDate : '' : ''), Validators.required],
+      endDate: [(this.data.tournament ? this.data.tournament.endDate ? this.data.tournament.endDate : '' : ''), Validators.required],
+      logo: [(this.data.tournament ? this.data.tournament.logo ? this.data.tournament.logo : '' : ''), Validators.required],
+      prize: [(this.data.tournament ? this.data.tournament.prize ? this.data.tournament.prize : '' : ''), Validators.required],
+      rule: [(this.data.tournament ? this.data.tournament.rule ? this.data.tournament.rule : '' : ''), Validators.required],
+      descriptioon: [(this.data.tournament ? this.data.tournament.descriptioon ? this.data.tournament.descriptioon : '' : ''), Validators.required],
 
     })
     // this.gameSrv.postGame({ name: 'game', banner: "banner", logo: "logo" })
