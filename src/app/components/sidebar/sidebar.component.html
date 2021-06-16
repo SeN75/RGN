@@ -20,11 +20,11 @@
             الصفحة الرئيسية
             <mat-icon>home</mat-icon>
         </a>
-        <a routerLink="/about-us" (click)="helperSrv.isSidebarOpen = false">
+        <!-- <a routerLink="/about-us" (click)="helperSrv.isSidebarOpen = false">
 
             من نحن
             <mat-icon>portrait</mat-icon>
-        </a>
+        </a> -->
         <a routerLink="/tournament" (click)="helperSrv.isSidebarOpen = false"
             *ngIf="logoutSrv.userData && logoutSrv.userData.isAdmin">
 

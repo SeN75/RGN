@@ -44,7 +44,7 @@ export class RegistraionService {
     localStorage.removeItem('isLogin');
     localStorage.removeItem('userId');
     localStorage.removeItem('playerId');
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/')
     this.userData = null;
   }
   isLogin() {
