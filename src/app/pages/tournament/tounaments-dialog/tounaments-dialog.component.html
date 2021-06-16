@@ -1,91 +1,117 @@
-<h2 mat-dialog-title>{{'TOURNAMENTS.create-new-tournament' | translate}}</h2>
-<mat-vertical-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="createForm">
+<h2 mat-dialog-title class="mat-dialog-title ">{{'TOURNAMENTS.' + (data.state == 'edit'? 'edit-tournament':
+    'create-new-tournament') | translate}}
+    <button mat-icon-button (click)="onNoClick()">
+        <mat-icon class="close">clear</mat-icon>
+    </button>
+</h2>
+<div mat-dialog-content>
+    <mat-vertical-stepper [linear]="isLinear" #stepper [dir]="lang.dir">
+        <mat-step [stepControl]="createForm">
 
-        <form [formGroup]="createForm">
-            <ng-template matStepLabel>{{'TOURNAMENTS.general' | translate}}</ng-template>
-            <div class="row">
-
-                <mat-form-field *ngFor="let input of inputs" appearance="outline" class="{{input.grid}}">
-                    <mat-label>{{input.name | translate}}</mat-label>
-                    <input matInput placeholder="{{input.name | translate}}" [type]="input.type"
-                        [formControlName]="input.controlName" required>
-                </mat-form-field>
-            </div>
-            <div class="game-select">
-                <div class="">
-                    <mat-label>Game</mat-label>
+            <form [formGroup]="createForm">
+                <ng-template matStepLabel>{{'TOURNAMENTS.general' | translate}}</ng-template>
+                <div class="row">
+                    <div class="{{input.grid}}" dir="rtl" *ngFor="let input of inputs">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{input.name | translate}}</mat-label>
+                            <input matInput placeholder="{{input.name | translate}}" [type]="input.type"
+                                [formControlName]="input.controlName" required>
+                        </mat-form-field>
+                    </div>
                 </div>
+                <div class="game-select">
+                    <div class="">
+                        <mat-label>{{'GAME.games' | translate}}</mat-label>
+                    </div>
 
-                <div class="games_wrapper">
-                    <game-select *ngFor="let game of games; index as i " [selected]=game.isSelected [game]=game
-                        (click)="selectGame(i)">
-                    </game-select>
+                    <div class="games_wrapper">
+                        <game-select *ngFor="let game of games; index as i " [selected]=game.isSelected [game]=game
+                            (click)="selectGame(i)">
+                        </game-select>
+                    </div>
                 </div>
-            </div>
-            <div class="game-select">
-                <div class="">
-                    <mat-label>Plateform</mat-label>
+                <div class="game-select">
+                    <div class="">
+                        <mat-label>{{'PLATFORM.platform' | translate}}</mat-label>
+                    </div>
+
+                    <div class="plateforms_wrapper">
+                        <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform"
+                            (click)="plateform.selected = !plateform.selected  ">
+                        </plateform-select>
+                    </div>
                 </div>
-
-                <div class="plateforms_wrapper">
-                    <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform"
-                        (click)="plateform.selected = !plateform.selected  ">
-                    </plateform-select>
+                <div>
+                    <button mat-raised-button matStepperNext color="primary">{{'FORM.next' |
+                        translate}}</button>
                 </div>
-            </div>
-            <div>
-                <button mat-raised-button matStepperNext color="primary">{{'FORM.next' | translate}}</button>
-                <button mat-button>{{'FORM.save' | translate}} </button>
-            </div>
-        </form>
-    </mat-step>
+            </form>
+        </mat-step>
 
 
-    <mat-step [stepControl]="createForm2">
-        <form [formGroup]="createForm2">
-            <ng-template matStepLabel>{{'TOURNAMENTS.advance' | translate}}</ng-template>
-            <div class="row">
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.start-date' | translate}}</mat-label>
-                    <input matInput [matDatepicker]="startPicker" formControlName="startDate">
-                    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-                    <mat-datepicker #startPicker></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.end-date' | translate}}</mat-label>
-                    <input matInput [matDatepicker]="endPicker" formControlName="endDate">
-                    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-                    <mat-datepicker #endPicker></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.logo' | translate}}</mat-label>
-                    <input matInput placeholder="{{'TOURNAMENTS.logo' | translate}}" formControlName="logo" required>
-                    <button mat-icon-button matSuffix>
-                        <mat-icon>attach_file</mat-icon>
-                    </button>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.discription' | translate}}</mat-label>
-                    <textarea matInput placeholder="{{'TOURNAMENTS.discription' | translate}}"
-                        formControlName="descriptioon" required></textarea>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.rules' | translate}}</mat-label>
-                    <textarea matInput placeholder="{{'TOURNAMENTS.rules' | translate}}" formControlName="rule"
-                        required></textarea>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="col col-md-6">
-                    <mat-label>{{'TOURNAMENTS.prize' | translate}}</mat-label>
-                    <textarea matInput placeholder="{{'TOURNAMENTS.prize' | translate}}" formControlName="prize"
-                        required></textarea>
-                </mat-form-field>
-            </div>
-            <div>
-                <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' | translate}}</button>
-                <button mat-button (click)="fillObjToSend()">{{'FORM.save' | translate}}</button>
-            </div>
-        </form>
-    </mat-step>
+        <mat-step [stepControl]="createForm2">
+            <form [formGroup]="createForm2">
+                <ng-template matStepLabel>{{'TOURNAMENTS.advance' | translate}}</ng-template>
+                <div class="row">
+                    <div class="col col-md-6" dir="rtl">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.start-date' | translate}}</mat-label>
+                            <input matInput [matDatepicker]="startPicker" [min]="minDate" formControlName="startDate">
+                            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #startPicker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-md-6" dir="rtl">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.end-date' | translate}}</mat-label>
+                            <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+                            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #endPicker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-md-6" dir="rtl">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.logo' | translate}}</mat-label>
+                            <input matInput placeholder="{{'TOURNAMENTS.logo' | translate}}" formControlName="logo"
+                                required>
+                            <button mat-icon-button matSuffix>
+                                <mat-icon>attach_file</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-md-6" dir="rtl">
 
-</mat-vertical-stepper>
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.discription' | translate}}</mat-label>
+                            <textarea matInput placeholder="{{'TOURNAMENTS.discription' | translate}}"
+                                formControlName="descriptioon" required></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-md-6" dir="rtl">
+
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.rules' | translate}}</mat-label>
+                            <textarea matInput placeholder="{{'TOURNAMENTS.rules' | translate}}" formControlName="rule"
+                                required></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-md-6" dir="rtl">
+
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>{{'TOURNAMENTS.prize' | translate}}</mat-label>
+                            <textarea matInput placeholder="{{'TOURNAMENTS.prize' | translate}}" formControlName="prize"
+                                required></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <button mat-raised-button matStepperPrevious color="primary">{{'FORM.previous' |
+                        translate}}</button>
+                    <button mat-button (click)="formTournament()"><span class="close">{{'FORM.save' |
+                            translate}}</span></button>
+                </div>
+            </form>
+        </mat-step>
+
+    </mat-vertical-stepper>
+</div>

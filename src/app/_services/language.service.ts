@@ -11,7 +11,7 @@ export class LanguageService {
   public dir: direction = 'rtl';
 
   constructor(private translate: TranslateService) {
-    this.en();
+    this.ar();
 
   }
 

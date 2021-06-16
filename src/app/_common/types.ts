@@ -34,7 +34,7 @@ export interface Tournament {
     timeZone: string;
     gameNavigation?: any;
     tournamentRules?: TournamentRules[],
-    tournamentParticipants?: any;
+    tournamentParticipants?: any[];
     tournamentMatches?: TournamentMatch[],
     tournamentGroups?: TournamentGroup[],
     tournamentRounds?: TournamentRound[]
@@ -99,6 +99,7 @@ export interface TournamentPlayer {
     guidId?: string;
     tournamentId: number;
     playerId: number;
+    isApproval?: boolean;
     createdBy?: number;
     createdDate?: string;
     lastModifyDate?: string;
@@ -126,27 +127,28 @@ export interface TournamentRound {
 export interface TournamentRules {
     id?: number;
     guidId?: string
-    tournamentId: number;
-    tournamentRuleTypeId: number;
-    name: string;
-    orderItem: number;
-    numberOfParticipants: number;
-    numberOfGroups: number;
-    numberOfParticipantsInGroup: number;
-    numberOfWinnerInGroup: number;
-    numberOfRounds: number;
-    isRoundTrip: boolean;
-    isRandomDistribution: boolean;
-    calculatePoints: boolean;
-    countOfWins: number;
-    countOfDraws: number;
-    countOflosses: number;
-    calculationBasedOnResult: boolean;
-    pointBasedOnKill: number;
+    tournamentId?: number;
+    tournamentRuleTypeId?: number;
+    name?: string;
+    orderItem?: number;
+    numberOfParticipants?: number;
+    numberOfGroups?: number;
+    numberOfParticipantsInGroup?: number;
+    numberOfWinnerInGroup?: number;
+    numberOfRounds?: number;
+    isRoundTrip?: boolean;
+    isRandomDistribution?: boolean;
+    calculatePoints?: boolean;
+    countOfWins?: number;
+    countOfDraws?: number;
+    countOflosses?: number;
+    calculationBasedOnResult?: boolean;
+    pointBasedOnKill?: number;
     createdBy?: number;
     createdDate?: string;
     lastModifyDate?: string;
     deletedBy?: number;
+    timezone?: string;
     tournamentNavigation?: any;
     typeNavigation?: any;
     tournamentWinnerOrder?: any;
@@ -252,4 +254,41 @@ export interface PlayerFavoriteGame {
     isDeleted?: boolean;
     playerNavigation?: any;
     gameNavigation?: any;
+}
+
+
+export interface User {
+    id?: number,
+    guidId?: string,
+    fullname: string,
+    gender: string,
+    email: string,
+    mobile: string,
+    password: string,
+    birthday: string,
+    isActive: boolean,
+    isEmailVerified: boolean,
+    isMobileVerified: boolean,
+    lastLoginDate?: string,
+    createdDate?: string,
+    lastModifyDate?: string,
+    isDeleted?: boolean,
+    playerNavigation?: any;
+}
+
+
+export interface Player {
+    id?: number,
+    guidId?: string,
+    userId: number,
+    username: string,
+    countryId: number,
+    cityId: number,
+    rate?: number,
+    createdBy?: number,
+    createdDate?: string,
+    lastModifyDate?: string,
+    deletedBy?: number,
+    isDeleted?: boolean,
+    favoritePlatforms?: any
 }

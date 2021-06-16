@@ -1,0 +1,17 @@
+.join-section {
+  height: 100%;
+}
+
+.counter-item:hover {
+  cursor: pointer;
+  transition: 300ms;
+  transform: scale(1.03);
+}
+
+.counter-item {
+  transition: 300ms;
+}
+
+.section-title {
+  color: #05c3de;
+}

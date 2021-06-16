@@ -1,0 +1,35 @@
+<h2 mat-dialog-title class="mat-dialog-title">{{'FORM.'+ (data.state == 'edit' ? 'edit-player' : 'add-player') |
+    translate}}
+    <button mat-icon-button (click)="onNoClick()">
+        <mat-icon class="close">clear</mat-icon>
+    </button>
+</h2>
+
+<div mat-dialog-content [formGroup]="playerForm" class="row">
+    <div class="col-12" dir="rtl">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{'FORM.nikename' | translate}}</mat-label>
+            <input matInput placeholder="{{'FORM.name' | translate}}" formControlName="username">
+        </mat-form-field>
+    </div>
+    <div class="col-12" dir="rtl">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{'FORM.city' | translate}}</mat-label>
+            <input matInput type="number" placeholder="{{'FORM.city' | translate}}" formControlName="cityId">
+        </mat-form-field>
+    </div>
+    <div class="col-12" dir="rtl">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{'FORM.country' | translate}}</mat-label>
+            <input matInput type="number" placeholder="{{'FORM.country' | translate}}" formControlName="countryId">
+        </mat-form-field>
+    </div>
+
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial (click)="onNoClick()">{{'FORM.ok' | translate}}</button>
+    <button mat-raised-button color="primary" (click)="playerInfo()">{{'FORM.'+(data.state == 'edit' ? 'edit' : 'add') |
+        translate}}</button>
+</div>

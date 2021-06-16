@@ -2,25 +2,101 @@
   position: relative;
   display: flex;
   height: 100%;
-  background-image: url("../../assets/images/games/banner/banner.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: #e1e1f5;
+  // background-image: url("../../assets/images/games/banner/banner.png");
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  justify-content: center;
 }
 
 .sidebar {
   width: 250px;
-  background: linear-gradient(
-    320deg,
-    rgb(26, 103, 115),
-    rgba(132, 83, 194, 0.99)
-  );
+  height: 100%;
+  // background: linear-gradient(320deg, #171744, #21215e);
   bottom: 0;
+  z-index: 100;
 }
 
 .main-panel {
   position: relative;
   width: calc(100% - 250px);
   float: right;
-  padding: 0 50px;
+  padding: 100px 10px;
+  height: auto;
+  overflow: auto;
+}
+
+.nav-menu {
+  display: inline-block;
+  list-style: none;
+}
+
+.vertical-menu a {
+  font-family: unset;
+  background-color: linear-gradient(320deg, #171744, #21215e);
+  color: #fff;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  border-bottom-left-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  margin: 1.5em 0;
+}
+
+.vertical-menu a:hover {
+  background-color: #fff;
+  color: #171744;
+}
+
+.vertical-menu a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.vertical-menu a {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_data {
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 4em 0 2em;
+}
+.user_data .email {
+  font-size: 0.8em;
+}
+.user_data .email {
+  font-size: 0.8em;
+}
+.user_data .name {
+  font-size: 1.6em;
+}
+.logo {
+  font-size: 5em;
+  width: auto;
+  height: auto;
+  color: #fff;
+}
+.sidebar.open {
+  margin-right: 0;
+  transition: 500ms;
+}
+@media screen and (max-width: 63em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    z-index: 1000000;
+    margin-right: -300px;
+    transition: 500ms;
+  }
+  .main-panel {
+    width: 100%;
+  }
 }

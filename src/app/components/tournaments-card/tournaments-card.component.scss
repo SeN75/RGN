@@ -1,0 +1,87 @@
+.tournament_card {
+  margin: auto;
+  position: relative;
+  border-radius: 0.25em;
+  background-color: #202066;
+  max-width: 380px;
+  width: 100%;
+  min-width: 310px;
+  min-height: 220px;
+  margin-top: 30px;
+}
+
+.see_more {
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+  color: #fff;
+  font-size: 1.2em;
+  z-index: 1000;
+}
+.tournament_card:hover .see_more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tournament_card:hover::before {
+  background: linear-gradient(320deg, #171744cc, rgba(33, 33, 94, 0.822));
+  animation: fadein forwards 300ms;
+  transition: 300ms;
+  box-shadow: 0 0 50px 0px #5d5df9;
+}
+.tournament_card::before {
+  cursor: pointer;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 300ms;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeout forwards 300ms;
+}
+.image_logo {
+  background-position: top center;
+  width: 100%;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.info_panel {
+  padding: 1em 0.5em;
+}
+.info_panel .title {
+  text-align: right;
+  text-transform: capitalize;
+}
+.info_panel .date {
+  color: #fff;
+  text-align: left;
+  font-weight: lighter;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

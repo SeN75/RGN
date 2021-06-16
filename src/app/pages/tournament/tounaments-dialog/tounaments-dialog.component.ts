@@ -2,7 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { Tournament } from 'src/app/_common/types';
+import { LanguageService } from 'src/app/_services/language.service';
 import { TournamentService } from 'src/app/_services/tournament.service';
+import { GamesService } from './../../../_services/games.service';
 
 @Component({
   selector: 'app-tounaments-dialog',
@@ -11,7 +13,7 @@ import { TournamentService } from 'src/app/_services/tournament.service';
 })
 export class TounamentsDialogComponent implements OnInit {
   isLinear = true;
-  isNew = false;
+  isNew = true;
   games = [
     {
       logo: '../../../assets/images/games/d8b511aa-87ad-4780-9bc2-fce0e4e272cbfifa-21-intros.jpg',
@@ -94,25 +96,32 @@ export class TounamentsDialogComponent implements OnInit {
     { name: 'TOURNAMENTS.name', controlName: 'name', grid: 'col', type: 'text' },
     { name: 'TOURNAMENTS.number-of-participants', controlName: 'numberOfParticipants', grid: 'col', type: 'number' },
   ]
-  createForm: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    numberOfParticipants: ['', Validators.required],
-    gameId: ['1', Validators.required],
-
-  })
-  createForm2: FormGroup = this.formBuilder.group({
-    startDate: ['', Validators.required],
-    endDate: ['', Validators.required],
-    logo: ['', Validators.required],
-    prize: ['', Validators.required],
-    rule: ['', Validators.required],
-    descriptioon: ['', Validators.required],
-
-  })
+  createForm: FormGroup | any;
+  createForm2: FormGroup | any;
+  minDate = new Date();
   constructor(public dialogRef: MatDialogRef<TounamentsDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, public tournamentsSrv: TournamentService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public lang: LanguageService,
+    private formBuilder: FormBuilder, public tournamentsSrv: TournamentService, private gameSrv: GamesService) { }
 
   ngOnInit(): void {
+    console.log(this.data.tournament)
+    this.createForm = this.formBuilder.group({
+      name: [(this.data.tournament ? this.data.tournament.name ? this.data.tournament.name : '' : ''), Validators.required],
+      numberOfParticipants: [(this.data.tournament ? this.data.tournament.numberOfParticipants ? this.data.tournament.numberOfParticipants : 0 : 0), Validators.required],
+      gameId: ['1', Validators.required],
+
+    });
+    this.createForm2 = this.formBuilder.group({
+      startDate: [(this.data.tournament ? this.data.tournament.startDate ? this.data.tournament.startDate : '' : ''), Validators.required],
+      endDate: [(this.data.tournament ? this.data.tournament.endDate ? this.data.tournament.endDate : '' : ''), Validators.required],
+      logo: [(this.data.tournament ? this.data.tournament.logo ? this.data.tournament.logo : '' : ''), Validators.required],
+      prize: [(this.data.tournament ? this.data.tournament.prize ? this.data.tournament.prize : '' : ''), Validators.required],
+      rule: [(this.data.tournament ? this.data.tournament.rule ? this.data.tournament.rule : '' : ''), Validators.required],
+      descriptioon: [(this.data.tournament ? this.data.tournament.descriptioon ? this.data.tournament.descriptioon : '' : ''), Validators.required],
+
+    })
+    // this.gameSrv.postGame({ name: 'game', banner: "banner", logo: "logo" })
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -156,18 +165,18 @@ export class TounamentsDialogComponent implements OnInit {
   fillObjToSend() {
 
     let endDate = new Date(this.createForm2.get('endDate')?.value.year + "-" + (this.createForm2.get('endDate')?.value.month) + "-" + this.createForm2.get('endDate')?.value.day)
-    let startDate = new Date(this.createForm2.get('startDate')?.value.year + "-" + (this.createForm2.get('startDate')?.value.month) + "-" + this.createForm2.get('endDate')?.value.day)
+    let startDate = new Date(this.createForm2.get('startDate')?.value)
     const _Tournament: Tournament = {
       ...this.tournamentsSrv.tournaments,
       name: this.createForm.get('name')?.value,
       description: this.createForm2.get('descriptioon')?.value,
       gameId: 1,
-      endDate: endDate.toUTCString(),
-      startDate: startDate.toUTCString(),
+      endDate: this.createForm2.get('endDate')?.value,
+      startDate: this.createForm2.get('startDate')?.value,
       logo: this.createForm2.get('logo')?.value,
       isTeam: false,
-      endRegistrationDate: endDate.toUTCString(),
-      startRegistrationDate: startDate.toUTCString(),
+      endRegistrationDate: this.createForm2.get('endDate')?.value,
+      startRegistrationDate: this.createForm2.get('startDate')?.value,
       manuallyParticipantAccreditation: false,
       numberOfParticipants: this.createForm.get('numberOfParticipants')?.value,
       prizes: this.createForm2.get('prize')?.value,
@@ -181,10 +190,11 @@ export class TounamentsDialogComponent implements OnInit {
 
   formTournament() {
     const _tournament = this.fillObjToSend()
-    if (this.isNew)
+    if (this.data.state != 'edit')
       this.tournamentsSrv.postTournament(_tournament);
     else
       if (_tournament.id)
         this.tournamentsSrv.updateTournament(_tournament, _tournament.id)
+    this.onNoClick();
   }
 }

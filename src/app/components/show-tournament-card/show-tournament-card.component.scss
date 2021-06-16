@@ -41,11 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    320deg,
-    rgb(26, 103, 115),
-    rgba(132, 83, 194, 0.75)
-  );
+  background: linear-gradient(320deg, #171744, rgba(33, 33, 94, 0.7));
   transition: all 300ms ease-in-out;
   visibility: hidden;
   animation: opacity-out 300ms forwards;
@@ -59,11 +55,7 @@
 }
 
 .tournament_action_panel.active {
-  background: linear-gradient(
-    320deg,
-    rgb(26, 103, 115),
-    rgba(132, 83, 194, 0.88)
-  );
+  background: linear-gradient(320deg, #171744, rgba(33, 33, 94, 0.822));
   visibility: visible;
   animation: none !important;
 }

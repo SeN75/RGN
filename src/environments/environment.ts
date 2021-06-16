@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: "http://46.101.218.30"
+  api: "https://api.rgi.games"
 };
 
 /*

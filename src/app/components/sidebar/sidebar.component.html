@@ -1,0 +1,41 @@
+<div class="sidebar" [class.open]="helperSrv.isSidebarOpen">
+    <button mat-icon-button class="close_button d-block d-lg-none" (click)="helperSrv.isSidebarOpen = false">
+        <mat-icon class="text-light">close</mat-icon>
+    </button>
+    <img src="../../../assets/images/logoRJ_.png" class="d-none d-lg-block logo_img">
+
+    <div class="user_data">
+        <div class="img_wrapper">
+            <mat-icon class="logo">account_circle</mat-icon>
+        </div>
+        <span class="name" *ngIf=" logoutSrv.userData"> {{ logoutSrv.userData.fullname? logoutSrv.userData.fullname :
+            ''}}</span>
+        <span class="email" *ngIf=" logoutSrv.userData">{{ logoutSrv.userData.email? logoutSrv.userData.email :
+            ''}}</span>
+    </div>
+
+    <div class="vertical-menu">
+        <a routerLink="/" (click)="helperSrv.isSidebarOpen = false">
+
+            الصفحة الرئيسية
+            <mat-icon>home</mat-icon>
+        </a>
+        <a routerLink="/about-us" (click)="helperSrv.isSidebarOpen = false">
+
+            من نحن
+            <mat-icon>portrait</mat-icon>
+        </a>
+        <a routerLink="/tournament" (click)="helperSrv.isSidebarOpen = false"
+            *ngIf="logoutSrv.userData && logoutSrv.userData.isAdmin">
+
+            البطولات
+            <mat-icon>gamepad</mat-icon>
+        </a>
+        <a (click)="logoutSrv.logout(); helperSrv.isSidebarOpen = false" style="cursor: pointer;">
+
+            تسجيل خروج
+            <mat-icon>logout</mat-icon>
+        </a>
+
+    </div>
+</div>

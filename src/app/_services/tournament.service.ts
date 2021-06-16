@@ -21,12 +21,14 @@ import {
   tournmaentRoundTest,
   tournmaentRulesTest,
   tournmaentRuleTiebreakerTest,
-  tournmaentRuleWinnerOrderTest
+  tournmaentRuleWinnerOrderTest,
+  tournmaents
 } from '../_common/globle';
 import { tournmaentMatchTest, tournaments } from './../_common/globle';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +41,10 @@ export class TournamentService {
     private logger: LoggerService,
     private router: Router,
     private toastr: ToastrService,
+    private snackBar: MatSnackBar,
     private translateSrv: TranslateService) {
+    this.getTournament();
+    this.getTournament(4);
     // this.getTournament();
     // this.getTournament("30");
     // // this.postTournament(tournamentTest);
@@ -65,7 +70,7 @@ export class TournamentService {
     // this.removeTournamentMatchPlayer("0");
 
     // this.getTournamentPlayer();
-    // this.getTournamentPlayer("0");
+    this.getTournamentPlayer(1);
     // this.postTournamentPlayer(tournmaentPlayerTest);
     // this.updateTournamentPlayer(tournmaentPlayerTest, "0");
     // this.removeTournamentPlayer("0");
@@ -93,6 +98,7 @@ export class TournamentService {
     // this.postTournamentRuleWinnerOrder(tournmaentRuleWinnerOrderTest);
     // this.updateTournamentRuleWinnerOrder(tournmaentRuleWinnerOrderTest, "0");
     // this.removeTournamentRuleTiebreaker("0");
+    this.tournamentsData = tournmaents;
   }
   checkTournament() {
     if (this.tournaments === undefined)
@@ -106,16 +112,11 @@ export class TournamentService {
    * @param status 
    */
   showMessage(message: any, status: string) {
-    this.toastr.show(
-      '<span class="now-ui-icons ui-1_bell-53"></span>', message,
-      {
-        timeOut: 4000,
-        closeButton: true,
-        enableHtml: true,
-        toastClass: status == 'success' ? "alert alert-success alert-with-icon" : "alert alert-danger alert-with-icon",
-        positionClass: "toast-top-center"
-      }
-    );
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      direction: 'rtl',
+      panelClass: [status]
+    })
   }
 
 
@@ -142,8 +143,9 @@ export class TournamentService {
    */
   public getTournament(id?: number) {
     if (!id) {
-      this._getTournament().subscribe((success: Tournament) => {
-        this.tournamentsData = success;
+      this._getTournament().subscribe((success: any) => {
+        if (success.length != 0)
+          this.tournamentsData = success;
         this.logger.log('get Tournament: ', success);
       }, (error: HttpErrorResponse) => {
         this.logger.error("'get Tournament: ", error);
@@ -165,6 +167,7 @@ export class TournamentService {
       // this.router.navigateByUrl('/tournaments/admin-mangement');
       this.tournaments = success;
       this.translateSrv.get("SUCCESS.new-tournament").subscribe(msg => this.showMessage(msg, 'success'))
+      this.getTournament();
       this.logger.log('post Tournament: ', success);
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get("ERRORS.new-tournament").subscribe(msg => this.showMessage(msg, 'danger'))
@@ -468,8 +471,12 @@ export class TournamentService {
    */
   public postTournamentPlayer(tournament: TournamentPlayer) {
     this._postTournamentPlayer(tournament).subscribe((success: TournamentPlayer) => {
+      this.translateSrv.get('SUCCESS.registr-complete').subscribe(msg => this.showMessage(msg, 'success'))
+      this.router.navigateByUrl('/')
       this.logger.log('post TournamentPlayer: ', success);
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERRORS.registr-complete').subscribe(msg => this.showMessage(msg, 'danger'))
+
       this.logger.error("'post TournamentPlayer: ", error);
     })
   }
@@ -616,6 +623,8 @@ export class TournamentService {
    */
   public postTournamentRules(tournament: TournamentRules) {
     this._postTournamentRules(tournament).subscribe((success: TournamentRules) => {
+      this.getTournament(this.tournaments.id)
+      this.router.navigateByUrl('/tournament');
       this.logger.log('post TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'post TournamentRules: ", error);

@@ -1,0 +1,44 @@
+.checkbox_panel {
+  position: relative;
+  border: 1px solid #e2dcf8;
+  border-radius: 0.25em;
+  padding: 1em;
+  margin-top: 2em;
+}
+.checkbox_panel .checkbox {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  background: white;
+  z-index: 10;
+  display: inline-block;
+  width: auto;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.67em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #312366;
+}

@@ -1,0 +1,51 @@
+.wrapper {
+  // background-color: #171744;
+  width: 100%;
+  height: auto;
+}
+
+.tournament_container {
+  width: 90%;
+  margin: auto;
+  max-width: 1240px;
+  padding-top: 5em;
+  position: relative;
+}
+
+.tournament_card {
+  background-color: #171744;
+  z-index: 10;
+  padding: 1em 1em 2em;
+  margin: 3em;
+  box-shadow: 0 2px 30px 0 #5c34e5;
+}
+
+.tournament_title {
+  margin-bottom: 1em;
+}
+
+.tournament_data {
+  color: #fff;
+}
+.tournament_data label {
+  font-size: 0.8em;
+}
+
+.rules {
+  display: flex;
+}
+.tournament_rule {
+  border: #5c34e5 solid 1px;
+  border-radius: 0.25em;
+  padding: 1em;
+  color: #fff;
+}
+
+@media screen and (max-width: 40em) {
+  .tournament_card {
+    margin: 1em;
+  }
+  .tournament_container {
+    width: 100%;
+  }
+}

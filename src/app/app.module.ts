@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { NgModule } from '@angular/core';
@@ -16,6 +16,10 @@ import { PageModule } from './pages/pages.module';
 import { TounamentsDialogComponent } from './pages/tournament/tounaments-dialog/tounaments-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CarouselModule } from 'ngx-owl-carousel-2';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Interceptor } from './_helper/interceptor';
+
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -33,6 +37,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LayoutsModule,
     MatDialogModule,
     MatNativeDateModule,
+    MatSnackBarModule,
     ToastrModule.forRoot(), // ToastrModule added
     TranslateModule.forRoot({
       loader: {
@@ -44,7 +49,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
 
   entryComponents: [TounamentsDialogComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
