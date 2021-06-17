@@ -50,17 +50,17 @@
         "timezone": "منطقة الزمنية",
         "clashes-within-a-league": "مواجهات ضمن دوري",
         "ex-number": "رقم التصفية",
-        "ex-name": "اسم التصفية", 
-        "ex-type": "نوع التصفية", 
-        "spreadsheets": "توزيع جداول", 
+        "ex-name": "اسم التصفية",
+        "ex-type": "نوع التصفية",
+        "spreadsheets": "توزيع جداول",
         "round-trip": "ذهاب و اياب",
         "departure": "ذهاب",
         "random": "عشوائي",
         "group-qualifiers": "تصفيات ضمن مجموعات",
         "simple-qualifiers":"تصفيات بسيطة",
-        "elimination":"موجهات الاقصاء", 
+        "elimination":"موجهات الاقصاء",
         "sort-by-priority": "ترتيب حسب الاولوية",
-        "rounds-counts": "عدد الجولات", 
+        "rounds-counts": "عدد الجولات",
         "first-place": "المركز الاول",
         "second-place": "المركز الثاني",
         "third-place": "المركز الثالث",
@@ -68,7 +68,12 @@
         "point-per-kill": "نقاط حسب القتل",
         "kill-point": "نقاط القتلات",
         "edit-tournament": "تحديث بيانات البطوله",
-        "already-registered": "انت مسجل بالفعل في البطولة"
+        "already-registered": "انت مسجل بالفعل في البطولة",
+        "pending": "غير مؤكد",
+        "approved": "مقبول",
+        "not-approved": "مرفوض",
+        "edit-participants": "تعديل المشاركين"
+
     },
     "FORM" : {
         "registr": "تسجيل",
@@ -102,7 +107,7 @@
         "re-password": "اعاده كلمة المرور",
         "your-number": "رقم الجوال",
         "nikename": "اسم مستعار",
-        "country": "الدولة", 
+        "country": "الدولة",
         "city": "المدينة",
         "player-info": "بيانات اللاعب",
         "add" : "اضافة",
@@ -114,7 +119,11 @@
         "update": "تحديث",
         "edit-player": "تحديث بيانات الاعب",
         "add-player": "اضافة لاعب جديد",
-        "ok": "تم"
+        "ok": "تم",
+        "status":"الحاله",
+        "email": "البريد الالكتروني",
+        "mobile": "رقم الجوال",
+        "no-data": "لا توجد بيانات"
 
 
     },

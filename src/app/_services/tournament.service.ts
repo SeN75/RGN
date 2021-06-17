@@ -107,9 +107,9 @@ export class TournamentService {
     console.log('df')
   }
   /**
-   * 
-   * @param message 
-   * @param status 
+   *
+   * @param message
+   * @param status
    */
   showMessage(message: any, status: string) {
     this.snackBar.open(message, '', {
@@ -486,8 +486,10 @@ export class TournamentService {
    */
   public updateTournamentPlayer(tournament: TournamentPlayer, id: number) {
     this._putTournamentPlayer(tournament, id).subscribe((success: TournamentPlayer) => {
+      this.translateSrv.get('SUCCESS.tournament-player').subscribe(msg => this.showMessage(msg, 'success'));
       this.logger.log('put TournamentPlayer: ', success);
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERRORS.tournament-player').subscribe(msg => this.showMessage(msg, 'success'));
       this.logger.error("'put TournamentPlayer: ", error);
     })
   }

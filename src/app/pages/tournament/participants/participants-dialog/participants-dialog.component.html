@@ -1,0 +1,52 @@
+<h2 mat-dialog-title class="mat-dialog-title">{{'TOURNAMENTS.'+ (data.state == 'edit' ? 'edit-participants' :
+  'add-participants') |
+  translate}}
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon class="close">clear</mat-icon>
+  </button>
+</h2>
+
+<div mat-dialog-content [formGroup]="playerForm" class="row">
+  <div class="col-12" dir="rtl">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{'FORM.name' | translate}}</mat-label>
+      <input matInput placeholder="{{'FORM.name' | translate}}" formControlName="name">
+    </mat-form-field>
+  </div>
+  <div class="col-12" dir="rtl">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{'FORM.nikename' | translate}}</mat-label>
+      <input matInput placeholder="{{'FORM.username' | translate}}" formControlName="username">
+    </mat-form-field>
+  </div>
+  <div class="col-12" dir="rtl">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{'FORM.mobile' | translate}}</mat-label>
+      <input matInput placeholder="{{'FORM.mobile' | translate}}" formControlName="mobile">
+    </mat-form-field>
+  </div>
+  <div class="col-12" dir="rtl">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{'FORM.email' | translate}}</mat-label>
+      <input matInput type="email" placeholder="{{'FORM.email' | translate}}" formControlName="email">
+    </mat-form-field>
+  </div>
+  <div class="col-12" dir="rtl">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{'FORM.status' | translate}}</mat-label>
+      <mat-select formControlName="isApproved">
+        <mat-option [value]="true">{{'TOURNAMENTS.approved' | translate}}</mat-option>
+        <mat-option [value]="false">{{'TOURNAMENTS.not-approved' | translate}}</mat-option>
+        <mat-option [value]="null">{{'TOURNAMENTS.pending' | translate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="onNoClick()">{{'FORM.ok' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="updateStatus()">{{'FORM.'+(data.state == 'edit' ? 'edit' : 'add') |
+    translate}}</button>
+</div>

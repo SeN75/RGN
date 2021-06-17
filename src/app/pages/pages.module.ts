@@ -35,6 +35,7 @@ import { ProfileDialogComponent } from './profile/profile-dialog/profile-dialog.
 import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.component';
 import { ParticipantsComponent } from './tournament/participants/participants.component';
 import { MatTableModule } from '@angular/material/table';
+import { ParticipantsDialogComponent } from './tournament/participants/participants-dialog/participants-dialog.component';
 
 @NgModule({
     imports: [
@@ -76,6 +77,7 @@ import { MatTableModule } from '@angular/material/table';
         ProfileDialogComponent,
         PlayerDialogComponent,
         ParticipantsComponent,
+        ParticipantsDialogComponent,
     ],
     exports: [
 

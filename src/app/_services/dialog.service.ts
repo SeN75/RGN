@@ -7,6 +7,7 @@ import { BattleExclusionComponent } from '../pages/tournament/tournaments-rules/
 import { BattleLeagueComponent } from '../pages/tournament/tournaments-rules/battle-league/battle-league.component';
 import { PointGroupComponent } from '../pages/tournament/tournaments-rules/point-group/point-group.component';
 import { PointSimpleComponent } from '../pages/tournament/tournaments-rules/point-simple/point-simple.component';
+import { ParticipantsDialogComponent } from './../pages/tournament/participants/participants-dialog/participants-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -101,6 +102,19 @@ export class DialogService {
       maxWidth: "600px",
       width: 'auto',
       data: { state: state, player: player, userId: userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openParticipantDialog(state?: string, participant?: any): void {
+    const dialogRef = this.dialog.open(ParticipantsDialogComponent, {
+      height: 'auto',
+      minWidth: '250px',
+      maxWidth: "600px",
+      width: 'auto',
+      data: { state: state, participant: participant }
     });
 
     dialogRef.afterClosed().subscribe(result => {
