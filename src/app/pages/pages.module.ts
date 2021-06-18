@@ -36,60 +36,62 @@ import { PlayerDialogComponent } from './profile/player-dialog/player-dialog.com
 import { ParticipantsComponent } from './tournament/participants/participants.component';
 import { MatTableModule } from '@angular/material/table';
 import { ParticipantsDialogComponent } from './tournament/participants/participants-dialog/participants-dialog.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        TranslateModule,
-        NgbModule,
-        MatIconModule,
-        MatButtonModule,
-        ComponentsModule,
-        PageRoutingModule,
-        MatStepperModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatDatepickerModule,
-        MatTableModule,
-        FormsModule,
-        ReactiveFormsModule,
-        CarouselModule,
-        MatCheckboxModule,
-        MatSelectModule
+  imports: [
+    CommonModule,
+    RouterModule,
+    TranslateModule,
+    NgbModule,
+    MatIconModule,
+    MatButtonModule,
+    ComponentsModule,
+    PageRoutingModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CarouselModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatButtonToggleModule
 
-    ],
-    declarations: [
-        TournamentComponent,
-        TounamentsDialogComponent,
-        AboutUsComponent,
-        TournamentsInfoComponent,
-        MedforceComponent,
-        LoginComponent,
-        RegistationComponent,
-        ManageTournamentComponent,
-        TournamentsRulesComponent,
-        PointGroupComponent,
-        PointSimpleComponent,
-        BattleLeagueComponent,
-        BattleExclusionComponent,
-        ProfileComponent,
-        ProfileDialogComponent,
-        PlayerDialogComponent,
-        ParticipantsComponent,
-        ParticipantsDialogComponent,
-    ],
-    exports: [
+  ],
+  declarations: [
+    TournamentComponent,
+    TounamentsDialogComponent,
+    AboutUsComponent,
+    TournamentsInfoComponent,
+    MedforceComponent,
+    LoginComponent,
+    RegistationComponent,
+    ManageTournamentComponent,
+    TournamentsRulesComponent,
+    PointGroupComponent,
+    PointSimpleComponent,
+    BattleLeagueComponent,
+    BattleExclusionComponent,
+    ProfileComponent,
+    ProfileDialogComponent,
+    PlayerDialogComponent,
+    ParticipantsComponent,
+    ParticipantsDialogComponent,
+  ],
+  exports: [
 
-    ],
-    entryComponents: [
+  ],
+  entryComponents: [
 
-        TounamentsDialogComponent,
-        PointGroupComponent,
-        PointSimpleComponent,
-        BattleLeagueComponent,
-        BattleExclusionComponent
-    ]
+    TounamentsDialogComponent,
+    PointGroupComponent,
+    PointSimpleComponent,
+    BattleLeagueComponent,
+    BattleExclusionComponent
+  ]
 })
 
 export class PageModule { }

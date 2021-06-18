@@ -28,7 +28,15 @@ $RGN-dashboard-theme: mat.define-light-theme(
     ),
   )
 );
-
+.mat-button-toggle-checked {
+  background-color: #3f51b5 !important;
+}
+.mat-button-toggle-checked .mat-button-toggle-label-content {
+  color: #fff !important;
+}
+.mat-button-toggle-label-content {
+  color: #1a1a1a !important;
+}
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

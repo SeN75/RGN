@@ -64,11 +64,14 @@
         "point-per-place": "point per place",
         "point-per-kill": "point per kill",
         "kill-point": "kill point",
-        "edit-tournament": "update tournament data",
         "already-registered":"You are already registered in the tournament",
         "pending": "pending",
         "approved": "approved",
         "not-approved": "not approved",
+        "edit-tournament": "update tournament data",
+        "participants": "participants",
+        "team": "team",
+        "players": "players",
         "publish": "publish"
     },
     "FORM" : {

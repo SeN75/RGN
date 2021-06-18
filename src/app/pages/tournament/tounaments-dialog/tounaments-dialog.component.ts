@@ -110,6 +110,7 @@ export class TounamentsDialogComponent implements OnInit {
       name: [(this.data.tournament ? this.data.tournament.name ? this.data.tournament.name : '' : ''), Validators.required],
       numberOfParticipants: [(this.data.tournament ? this.data.tournament.numberOfParticipants ? this.data.tournament.numberOfParticipants : 0 : 0), Validators.required],
       gameId: ['1', Validators.required],
+      isTeam: [(this.data.tournament ? this.data.tournament.isTeam ? this.data.tournament.isTeam : false : false)],
 
     });
     this.createForm2 = this.formBuilder.group({
@@ -174,7 +175,7 @@ export class TounamentsDialogComponent implements OnInit {
       endDate: this.createForm2.get('endDate')?.value,
       startDate: this.createForm2.get('startDate')?.value,
       logo: this.createForm2.get('logo')?.value,
-      isTeam: false,
+      isTeam: this.createForm.get('isTeam').value,
       endRegistrationDate: this.createForm2.get('endDate')?.value,
       startRegistrationDate: this.createForm2.get('startDate')?.value,
       manuallyParticipantAccreditation: false,
@@ -190,6 +191,7 @@ export class TounamentsDialogComponent implements OnInit {
 
   formTournament() {
     const _tournament = this.fillObjToSend()
+    this.tournamentsSrv.tournaments = _tournament;
     if (this.data.state != 'edit')
       this.tournamentsSrv.postTournament(_tournament);
     else
