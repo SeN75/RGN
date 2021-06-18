@@ -18,6 +18,7 @@ export class ShowTournamentCardComponent implements OnInit {
     id: 0
   }
   @Input() isAdding = false;
+  @Input() isPlayer = false;
   constructor(public dialogSrv: DialogService, private router: Router, private tournamentsSrv: TournamentService) {
 
   }

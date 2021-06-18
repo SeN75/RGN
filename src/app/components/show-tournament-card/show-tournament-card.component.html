@@ -1,36 +1,36 @@
 <section class=" tournament_card" [ngStyle]="{'background-image': 'url('+tournament.logo+')'}">
-    <div *ngIf="!isAdding">
-        <div class="tournament_panel">
-            <div class="tournament_date">
-                <label>{{'FORM.start-date' | translate}}</label>
-                <div>{{tournament.startDate | date}}</div>
-            </div>
-            <div class="tournament_date">
-                <label>{{'FORM.end-date' | translate}}</label>
-                <div>{{tournament.endDate | date}}</div>
-            </div>
-        </div>
-        <div class="tournament_action_panel">
-            <span class="tournament_title">
-                {{tournament.name}}
-            </span>
-            <span class="tournament_action">
-                <mat-icon (click)="showTournaments(tournament)">pie_chart</mat-icon>
-                <mat-icon (click)="editTournamenets(tournament)">edit</mat-icon>
-                <mat-icon>delete</mat-icon>
-            </span>
-        </div>
+  <div *ngIf="!isAdding">
+    <div class="tournament_panel">
+      <div class="tournament_date">
+        <label>{{'FORM.start-date' | translate}}</label>
+        <div>{{tournament.startDate | date}}</div>
+      </div>
+      <div class="tournament_date">
+        <label>{{'FORM.end-date' | translate}}</label>
+        <div>{{tournament.endDate | date}}</div>
+      </div>
     </div>
-    <div *ngIf="isAdding">
-        <div class="tournament_action_panel active">
-            <span class="tournament_title">
-                {{'TOURNAMENTS.create-a-tournament' | translate}}
-            </span>
-            <span class="tournament_action">
-                <button mat-fab color="accent" (click)="dialogSrv.openTounamentsDialog('add')">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </span>
-        </div>
+    <div class="tournament_action_panel">
+      <span class="tournament_title">
+        {{tournament.name}}
+      </span>
+      <span class="tournament_action">
+        <mat-icon (click)="showTournaments(tournament)">pie_chart</mat-icon>
+        <mat-icon *ngIf="!isPlayer" (click)="editTournamenets(tournament)">edit</mat-icon>
+        <mat-icon *ngIf="!isPlayer">delete</mat-icon>
+      </span>
     </div>
+  </div>
+  <div *ngIf="isAdding">
+    <div class="tournament_action_panel active">
+      <span class="tournament_title">
+        {{'TOURNAMENTS.create-a-tournament' | translate}}
+      </span>
+      <span class="tournament_action">
+        <button mat-fab color="accent" (click)="dialogSrv.openTounamentsDialog('add')">
+          <mat-icon>add</mat-icon>
+        </button>
+      </span>
+    </div>
+  </div>
 </section>

@@ -78,7 +78,9 @@ export class TournamentsInfoComponent implements OnInit {
         for (let i = 0; i < this.tournamentsSrv.tournaments.tournamentParticipants.length; i++) {
           if (this.userSrv.userData.playerNavigation)
             if (this.userSrv.userData.playerNavigation[0].id == this.tournamentsSrv.tournaments.tournamentParticipants[i].playerId) {
+
               this.isParticipant = true;
+              console.log(this.isParticipant);
               break;
             }
         }

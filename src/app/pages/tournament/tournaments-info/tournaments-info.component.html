@@ -1,5 +1,5 @@
 <navbar></navbar>
-<!-- <sidebar class="d-block d-lg-none"></sidebar> -->
+<sidebar class="d-block d-lg-none"></sidebar>
 
 <div class="wrapper animeate">
 
@@ -23,6 +23,7 @@
           <plateform-select *ngFor="let plateform of platfroms" [plateform]="plateform" [tournament_info]=true>
           </plateform-select>
         </div>
+        {{checkIfExist()}}
         <div class="">
           <button mat-raised-button class="" *ngIf="!isParticipant" color="light" (click)="registrInTourn()">
             <h2 class="text-dark">

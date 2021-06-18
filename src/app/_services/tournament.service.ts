@@ -35,6 +35,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TournamentService {
   public tournamentsData: Tournament[] | any;
+  public tournamentsCurrent: Tournament[] | any;
   public tournaments!: Tournament | any;
   constructor(
     private http: HttpClient,
@@ -142,7 +143,7 @@ export class TournamentService {
   /**
    * get all tournament
    */
-  public getTournament(id?: string) {
+  public getTournament(id?: string, state?: string) {
     if (!id) {
       this._getTournament().subscribe((success: any) => {
         if (success.length != 0)
@@ -151,7 +152,8 @@ export class TournamentService {
       }, (error: HttpErrorResponse) => {
         this.logger.error("'get Tournament: ", error);
       })
-    } else {
+    }
+    else {
       this._getTournamentById(id).subscribe((success: Tournament) => {
         this.tournaments = success;
         this.logger.log('getById Tournament: ', success);
@@ -160,6 +162,17 @@ export class TournamentService {
       })
     }
 
+  }
+  getTournamentReturnValue(id?: string, state?: string) {
+    this.logger.log('fdfd', id && state == 'returnTournament')
+    if (id && state == 'returnTournament') {
+      this._getTournamentById(id).subscribe((success: Tournament) => {
+        this.logger.log('getById Tournament: ', success);
+        this.tournamentsCurrent.push(success);
+      }, (error: HttpErrorResponse) => {
+        this.logger.error("'getById Tournament: ", error);
+      })
+    }
   }
   getTournamentCheckLocalStorgae() {
     let tournamentId = localStorage.getItem('tournamentId');

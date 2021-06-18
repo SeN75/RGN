@@ -4,13 +4,14 @@
   height: 100vh;
   background: #171744;
   z-index: 100;
-  padding-top: 100px;
+  padding: 50px 0;
   margin: auto;
   background-image: url("../../../../assets/images/games/banner/banner.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   flex-direction: column;
+  overflow: auto;
 }
 .verified_icon {
   width: auto;
@@ -40,7 +41,9 @@
   background-color: #fff;
   color: #312366;
   width: 90%;
-  height: 90%;
+  min-height: 90%;
+  height: auto;
+  min-height: 100%;
   box-shadow: 0 0 50px 0 #5c34e5;
   animation: fadeIn 300ms forwards; /* referring directly to the animation's @keyframe declaration */
 }
