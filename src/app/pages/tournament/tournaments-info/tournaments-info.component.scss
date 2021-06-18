@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   display: flex;
-  height: 150vh;
+  height: 100vh;
   background: #171744;
   z-index: 100;
   padding-top: 100px;
@@ -40,6 +40,7 @@
   background-color: #fff;
   color: #312366;
   width: 90%;
+  height: 90%;
   box-shadow: 0 0 50px 0 #5c34e5;
   animation: fadeIn 300ms forwards; /* referring directly to the animation's @keyframe declaration */
 }
@@ -49,7 +50,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 450px;
+  height: 60%;
 }
 
 .tournament_bannar_info {
@@ -64,7 +65,7 @@
   background: linear-gradient(160deg, #5d34e53d, #5d34e5cc, #5d34e5ee, #5c34e5);
   color: white;
   padding: 2em;
-  width: 40%;
+  width: 60%;
   font-weight: 600;
 }
 
