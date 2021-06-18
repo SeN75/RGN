@@ -4,19 +4,19 @@
 <div class="wrapper animeate">
 
   <div class="tournament_wrapper mt-5">
-    <div class="tournament_bannar" [ngStyle]="{'background-image': 'url('+tournament.logo+')'}">
+    <div class="tournament_bannar" [ngStyle]="{'background-image': 'url('+this.tournamentsSrv.tournaments.logo+')'}">
       <div class="tournament_bannar_info">
         <div class="tournament_title text-center">
-          <h3>{{tournament.name}}</h3>
+          <h3>{{this.tournamentsSrv.tournaments.name}}</h3>
         </div>
         <div class="tournament_date">
           <div class="date">
             {{'TOURNAMENTS.start-date' | translate}}
-            <p>{{tournament.startDate | date}}</p>
+            <p>{{this.tournamentsSrv.tournaments.startDate | date}}</p>
           </div>
           <div class="date">
             {{'TOURNAMENTS.end-date' | translate}}
-            <p>{{tournament.endDate | date}}</p>
+            <p>{{this.tournamentsSrv.tournaments.endDate | date}}</p>
           </div>
         </div>
         <div class="plateforms_wrapper">
@@ -42,15 +42,17 @@
     <div class="tournament_body row">
       <div class="col-12 col-md-6 col-lg-8">
         <h2 class="tilte">{{'TOURNAMENTS.discription' |translate}}</h2>
-        <p>{{(tournament.discription == '' ? tournament.discription: 'no discription')}}</p>
+        <p>{{(this.tournamentsSrv.tournaments.discription == '' ? this.tournamentsSrv.tournaments.discription: 'no
+          discription')}}</p>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <h2 class="tilte">{{'TOURNAMENTS.timezone' |translate}}</h2>
-        <p>{{(tournament.timezone == '' ? tournament.timezone: 'no timezone')}}</p>
+        <p>{{(this.tournamentsSrv.tournaments.timezone == '' ? this.tournamentsSrv.tournaments.timezone: 'no
+          timezone')}}</p>
         <h2 class="tilte">{{'TOURNAMENTS.prize' |translate}}</h2>
-        <p>{{(tournament.prizes != '' ? tournament.prizes: 'no prizes')}}</p>
+        <p>{{(this.tournamentsSrv.tournaments.prizes != '' ? this.tournamentsSrv.tournaments.prizes: 'no prizes')}}</p>
         <h2 class="tilte">{{'TOURNAMENTS.rules' |translate}}</h2>
-        <p>{{(tournament.rule != '' ? tournament.rule: 'no rule')}}</p>
+        <p>{{(this.tournamentsSrv.tournaments.rule != '' ? this.tournamentsSrv.tournaments.rule: 'no rule')}}</p>
       </div>
     </div>
   </div>

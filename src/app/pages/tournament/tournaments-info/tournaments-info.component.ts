@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TournamentService } from 'src/app/_services/tournament.service';
 import { Router } from '@angular/router';
 import { RegistraionService } from 'src/app/_services/registraion.service';
+let tournamentId = localStorage.getItem('tournamentId');
 
 @Component({
   selector: 'app-tournaments-info',
@@ -52,23 +53,15 @@ export class TournamentsInfoComponent implements OnInit {
     },
   ]
   isParticipant = false;
-  constructor(private tournamentsSrv: TournamentService, private router: Router, private userSrv: RegistraionService) {
-    console.log('int')
-    this.checkIfExist();
-
-    if (this.tournamentsSrv.tournaments) {
-      this.tournamentsSrv.getTournament(this.tournamentsSrv.tournaments.id);
-      setTimeout(() => {
-        this.tournament = this.tournamentsSrv.tournaments;
-      }, 250)
-    }
+  constructor(public tournamentsSrv: TournamentService, private router: Router, private userSrv: RegistraionService) {
+    this.tournamentsSrv.getTournamentCheckLocalStorgae();
   }
   registrInTourn() {
 
     if (this.userSrv.userData) {
       if (this.userSrv.userData.playerNavigation)
         if (this.userSrv.userData.playerNavigation.length != 0 && this.userSrv.userData.playerNavigation[0].id)
-          this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: this.tournament.id });
+          this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: (this.tournament.permalink ? this.tournament.permalink : this.tournament.guidId ? this.tournament.guidId : this.tournament.id) });
         else {
           this.userSrv.showForm = 'playerInfo';
           this.router.navigateByUrl('/login');

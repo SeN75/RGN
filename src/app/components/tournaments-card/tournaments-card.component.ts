@@ -21,6 +21,6 @@ export class TournamentsCardComponent implements OnInit {
   }
   showTournament(tournament: any) {
     this.tournamentSrv.tournaments = tournament;
-    this.router.navigateByUrl("/tournaments/" + tournament.id)
+    this.router.navigateByUrl("/tournaments/" + (tournament.permalink ? tournament.permalink : tournament.guidId ? tournament.guidId : tournament.id))
   }
 }

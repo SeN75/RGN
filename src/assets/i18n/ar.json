@@ -72,7 +72,8 @@
         "pending": "غير مؤكد",
         "approved": "مقبول",
         "not-approved": "مرفوض",
-        "edit-participants": "تعديل المشاركين"
+        "edit-participants": "تعديل المشاركين",
+        "publish": "نشر"
 
     },
     "FORM" : {

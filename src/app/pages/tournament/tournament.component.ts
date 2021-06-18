@@ -44,10 +44,8 @@ export class TournamentComponent implements OnInit {
     private logger: LoggerService,
     private gameSrv: GamesService,
     public helperSrv: HelperService,
-    private tournamentSrv: TournamentService) {
-    setTimeout(() => {
-      this.tournmaents = this.tournamentSrv.tournamentsData
-    }, 150)
+    public tournamentSrv: TournamentService) {
+    localStorage.removeItem('tournamentId');
   }
 
   ngOnInit(): void {

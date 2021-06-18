@@ -37,7 +37,9 @@ export class MedforceComponent implements OnInit {
     },
   };
   tournaments: any
-  constructor(private tournamentSrv: TournamentService, public router: Router) {
+  constructor(public tournamentSrv: TournamentService, public router: Router) {
+    this.tournamentSrv.getTournament();
+    localStorage.removeItem('tournamentId');
     setTimeout(() => {
       this.tournaments = this.tournamentSrv.tournamentsData
     }, 1000)
@@ -47,6 +49,6 @@ export class MedforceComponent implements OnInit {
   }
   showTournament(tournament: any) {
     this.tournamentSrv.tournaments = tournament;
-    this.router.navigateByUrl("/tournament/" + tournament.id)
+    this.router.navigateByUrl("/tournament/" + (tournament.permalink ? tournament.permalink : tournament.guidId ? tournament.guidId : tournament.id))
   }
 }

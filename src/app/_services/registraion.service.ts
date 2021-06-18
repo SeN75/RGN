@@ -29,7 +29,7 @@ export class RegistraionService {
       // this.logger.log('user log in : ', success)
       localStorage.setItem('token', success.accessToken);
       localStorage.setItem('isLogin', 'true');
-      localStorage.setItem('userId', success.id);
+      localStorage.setItem('userId', success.permlink ? success.permlink : success.guidId ? success.guidId : success.id);
       this.router.navigateByUrl('/profile');
     }, (error: any) => {
       this.logger.error('error: ', error)
@@ -50,7 +50,7 @@ export class RegistraionService {
   isLogin() {
     const userId = localStorage.getItem('userId');
     if (userId) {
-      this.getUser(+userId);
+      this.getUser(userId);
       return true
     }
     return false;
@@ -60,7 +60,7 @@ export class RegistraionService {
       this.user = success;
       localStorage.setItem('token', success.accessToken);
       localStorage.setItem('isLogin', 'true');
-      localStorage.setItem('userId', success.id);
+      localStorage.setItem('userId', success.permlink ? success.permlink : success.guId ? success.guId : success.id);
       this.router.navigateByUrl('');
       this.translateSrv.get("SUCCESS.new-user").subscribe(msg => this.toastSrv.showMessage(msg, 'success'))
       this.logger.log('post User: ', success);
@@ -76,16 +76,16 @@ export class RegistraionService {
   private _getUser() {
     return this.http.get<User>(API + "/api/User")
   }
-  private _getUserById(id: number) {
+  private _getUserById(id: string) {
     return this.http.get<User>(API + "/api/User/" + id)
   }
   private _postUser(user: User) {
     return this.http.post<User>(API + "/api/User", user);
   }
-  private _putUser(user: User, id: number) {
+  private _putUser(user: User, id: string) {
     return this.http.put<User>(API + "/api/User/" + id, user);
   }
-  private _deleteUser(id: number) {
+  private _deleteUser(id: string) {
     return this.http.delete<User>(API + "/api/User/" + id)
   }
 
@@ -93,7 +93,7 @@ export class RegistraionService {
   /**
   * get all User
   */
-  public getUser(id?: number) {
+  public getUser(id?: string) {
     if (!id) {
       this._getUser().subscribe((success: User) => {
         this.userData = success;
@@ -129,7 +129,7 @@ export class RegistraionService {
   /**
    * update User
    */
-  public updateUser(user: User, id: number) {
+  public updateUser(user: User, id: string) {
     this._putUser(user, id).subscribe((success: User) => {
       this.logger.log('put User: ', success);
       this.user = success;
@@ -143,7 +143,7 @@ export class RegistraionService {
   /**
    * remove User
    */
-  public removeUser(id: number) {
+  public removeUser(id: string) {
     this._deleteUser(id).subscribe((success: User) => {
       this.logger.log('put User: ', success);
     }, (error: HttpErrorResponse) => {
@@ -162,16 +162,16 @@ export class RegistraionService {
   private _getPlayer() {
     return this.http.get<Player>(API + "/api/Player")
   }
-  private _getPlayerById(id: number) {
+  private _getPlayerById(id: string) {
     return this.http.get<Player>(API + "/api/Player/" + id)
   }
   private _postPlayer(Player: Player) {
     return this.http.post<Player>(API + "/api/Player", Player);
   }
-  private _putPlayer(Player: Player, id: number) {
+  private _putPlayer(Player: Player, id: string) {
     return this.http.put<Player>(API + "/api/Player/" + id, Player);
   }
-  private _deletePlayer(id: number) {
+  private _deletePlayer(id: string) {
     return this.http.delete<Player>(API + "/api/Player/" + id)
   }
 
@@ -179,7 +179,7 @@ export class RegistraionService {
   /**
   * get all Player
   */
-  public getPlayer(id?: number) {
+  public getPlayer(id?: string) {
     if (!id) {
       this._getPlayer().subscribe((success: Player) => {
         this.playerData = success;
@@ -214,7 +214,7 @@ export class RegistraionService {
   /**
    * update Player
    */
-  public updatePlayer(Player: Player, id: number) {
+  public updatePlayer(Player: Player, id: string) {
     this._putPlayer(Player, id).subscribe((success: Player) => {
       this.logger.log('put Player: ', success);
       this.player = success;
@@ -228,7 +228,7 @@ export class RegistraionService {
   /**
    * remove Player
    */
-  public removePlayer(id: number) {
+  public removePlayer(id: string) {
     this._deletePlayer(id).subscribe((success: Player) => {
       this.logger.log('put Player: ', success);
     }, (error: HttpErrorResponse) => {

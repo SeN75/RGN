@@ -44,7 +44,7 @@ export class TournamentService {
     private snackBar: MatSnackBar,
     private translateSrv: TranslateService) {
     this.getTournament();
-    this.getTournament(4);
+    // this.getTournament(4);
     // this.getTournament();
     // this.getTournament("30");
     // // this.postTournament(tournamentTest);
@@ -70,7 +70,7 @@ export class TournamentService {
     // this.removeTournamentMatchPlayer("0");
 
     // this.getTournamentPlayer();
-    this.getTournamentPlayer(1);
+    // this.getTournamentPlayer(1);
     // this.postTournamentPlayer(tournmaentPlayerTest);
     // this.updateTournamentPlayer(tournmaentPlayerTest, "0");
     // this.removeTournamentPlayer("0");
@@ -98,7 +98,8 @@ export class TournamentService {
     // this.postTournamentRuleWinnerOrder(tournmaentRuleWinnerOrderTest);
     // this.updateTournamentRuleWinnerOrder(tournmaentRuleWinnerOrderTest, "0");
     // this.removeTournamentRuleTiebreaker("0");
-    this.tournamentsData = tournmaents;
+    if (!this.tournaments)
+      this.tournaments = tournmaents;
   }
   checkTournament() {
     if (this.tournaments === undefined)
@@ -126,22 +127,22 @@ export class TournamentService {
   private _getTournament() {
     return this.http.get<Tournament>(API + "/api/Tournament")
   }
-  private _getTournamentById(id: number) {
+  private _getTournamentById(id: string) {
     return this.http.get<Tournament>(API + "/api/Tournament/" + id)
   }
   private _postTournament(tournament: Tournament) {
     return this.http.post<Tournament>(API + "/api/Tournament", tournament);
   }
-  private _putTournament(tournament: Tournament, id: number) {
+  private _putTournament(tournament: Tournament, id: string) {
     return this.http.put<Tournament>(API + "/api/Tournament/" + id, tournament);
   }
-  private _deleteTournament(id: number) {
+  private _deleteTournament(id: string) {
     return this.http.delete<Tournament>(API + "/api/Tournament/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournament(id?: number) {
+  public getTournament(id?: string) {
     if (!id) {
       this._getTournament().subscribe((success: any) => {
         if (success.length != 0)
@@ -152,12 +153,25 @@ export class TournamentService {
       })
     } else {
       this._getTournamentById(id).subscribe((success: Tournament) => {
+        this.tournaments = success;
         this.logger.log('getById Tournament: ', success);
       }, (error: HttpErrorResponse) => {
         this.logger.error("'getById Tournament: ", error);
       })
     }
 
+  }
+  getTournamentCheckLocalStorgae() {
+    let tournamentId = localStorage.getItem('tournamentId');
+
+    console.log('tournamentId: ', tournamentId)
+    if (tournamentId) {
+      this.getTournament(tournamentId);
+      localStorage.setItem('tournamentId', tournamentId);
+    } else {
+      this.getTournament((this.tournaments.permalink ? this.tournaments.permalink : this.tournaments.guidId ? this.tournaments.guidId : this.tournaments.id));
+      localStorage.setItem('tournamentId', (this.tournaments.permalink ? this.tournaments.permalink : this.tournaments.guidId ? this.tournaments.guidId : this.tournaments.id))
+    }
   }
   /**
    * add new tournament
@@ -178,10 +192,9 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournament(tournament: Tournament, id: number) {
+  public updateTournament(tournament: Tournament, id: any) {
     this._putTournament(tournament, id).subscribe((success: Tournament) => {
       this.logger.log('put Tournament: ', success);
-      this.tournaments = success;
       // this.router.navigateByUrl('/tournaments/admin-mangement');
       this.translateSrv.get("SUCCESS.update-tournament").subscribe(msg => this.showMessage(msg, 'success'))
     }, (error: HttpErrorResponse) => {
@@ -193,7 +206,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournament(id: number) {
+  public removeTournament(id: string) {
     this._deleteTournament(id).subscribe((success: Tournament) => {
       this.logger.log('put Tournament: ', success);
     }, (error: HttpErrorResponse) => {
@@ -212,22 +225,22 @@ export class TournamentService {
   private _getTournamentGroup() {
     return this.http.get<TournamentGroup>(API + "/api/TournamentGroup")
   }
-  private _getTournamentGroupById(id: number) {
+  private _getTournamentGroupById(id: string) {
     return this.http.get<TournamentGroup>(API + "/api/TournamentGroup/" + id)
   }
   private _postTournamentGroup(tournament: TournamentGroup) {
     return this.http.post<TournamentGroup>(API + "/api/TournamentGroup", tournament);
   }
-  private _putTournamentGroup(tournament: TournamentGroup, id: number) {
+  private _putTournamentGroup(tournament: TournamentGroup, id: string) {
     return this.http.put<TournamentGroup>(API + "/api/TournamentGroup/" + id, tournament);
   }
-  private _deleteTournamentGroup(id: number) {
+  private _deleteTournamentGroup(id: string) {
     return this.http.delete<TournamentGroup>(API + "/api/TournamentGroup/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentGroup(id?: number) {
+  public getTournamentGroup(id?: string) {
     if (!id) {
       this._getTournamentGroup().subscribe((success: TournamentGroup) => {
         this.logger.log('get TournamentGroup: ', success);
@@ -257,7 +270,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentGroup(tournament: TournamentGroup, id: number) {
+  public updateTournamentGroup(tournament: TournamentGroup, id: string) {
     this._putTournamentGroup(tournament, id).subscribe((success: TournamentGroup) => {
       this.logger.log('put TournamentGroup: ', success);
     }, (error: HttpErrorResponse) => {
@@ -268,7 +281,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentGroup(id: number) {
+  public removeTournamentGroup(id: string) {
     this._deleteTournamentGroup(id).subscribe((success: TournamentGroup) => {
       this.logger.log('put TournamentGroup: ', success);
     }, (error: HttpErrorResponse) => {
@@ -286,22 +299,22 @@ export class TournamentService {
   private _getTournamentMatch() {
     return this.http.get<TournamentMatch>(API + "/api/TournamentMatch")
   }
-  private _getTournamentMatchById(id: number) {
+  private _getTournamentMatchById(id: string) {
     return this.http.get<TournamentMatch>(API + "/api/TournamentMatch/" + id)
   }
   private _postTournamentMatch(tournament: TournamentMatch) {
     return this.http.post<TournamentMatch>(API + "/api/TournamentMatch", tournament);
   }
-  private _putTournamentMatch(tournament: TournamentMatch, id: number) {
+  private _putTournamentMatch(tournament: TournamentMatch, id: string) {
     return this.http.put<TournamentMatch>(API + "/api/TournamentMatch/" + id, tournament);
   }
-  private _deleteTournamentMatch(id: number) {
+  private _deleteTournamentMatch(id: string) {
     return this.http.delete<TournamentMatch>(API + "/api/TournamentMatch/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentMatch(id?: number) {
+  public getTournamentMatch(id?: string) {
     if (!id) {
       this._getTournamentMatch().subscribe((success: TournamentMatch) => {
         this.logger.log('get TournamentMatch: ', success);
@@ -331,7 +344,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentMatch(tournament: TournamentMatch, id: number) {
+  public updateTournamentMatch(tournament: TournamentMatch, id: string) {
     this._putTournamentMatch(tournament, id).subscribe((success: TournamentMatch) => {
       this.logger.log('put TournamentMatch: ', success);
     }, (error: HttpErrorResponse) => {
@@ -342,7 +355,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentMatch(id: number) {
+  public removeTournamentMatch(id: string) {
     this._deleteTournamentMatch(id).subscribe((success: TournamentMatch) => {
       this.logger.log('put TournamentMatch: ', success);
     }, (error: HttpErrorResponse) => {
@@ -360,22 +373,22 @@ export class TournamentService {
   private _getTournamentMatchPlayer() {
     return this.http.get<TournamentMatchPlayer>(API + "/api/TournamentMatchPlayer")
   }
-  private _getTournamentMatchPlayerById(id: number) {
+  private _getTournamentMatchPlayerById(id: string) {
     return this.http.get<TournamentMatchPlayer>(API + "/api/TournamentMatchPlayer/" + id)
   }
   private _postTournamentMatchPlayer(tournament: TournamentMatchPlayer) {
     return this.http.post<TournamentMatchPlayer>(API + "/api/TournamentMatchPlayer", tournament);
   }
-  private _putTournamentMatchPlayer(tournament: TournamentMatchPlayer, id: number) {
+  private _putTournamentMatchPlayer(tournament: TournamentMatchPlayer, id: string) {
     return this.http.put<TournamentMatchPlayer>(API + "/api/TournamentMatchPlayer/" + id, tournament);
   }
-  private _deleteTournamentMatchPlayer(id: number) {
+  private _deleteTournamentMatchPlayer(id: string) {
     return this.http.delete<TournamentMatchPlayer>(API + "/api/TournamentMatchPlayer/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentMatchPlayer(id?: number) {
+  public getTournamentMatchPlayer(id?: string) {
     if (!id) {
       this._getTournamentMatchPlayer().subscribe((success: TournamentMatchPlayer) => {
         this.logger.log('get TournamentMatchPlayer: ', success);
@@ -405,7 +418,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentMatchPlayer(tournament: TournamentMatchPlayer, id: number) {
+  public updateTournamentMatchPlayer(tournament: TournamentMatchPlayer, id: string) {
     this._putTournamentMatchPlayer(tournament, id).subscribe((success: TournamentMatchPlayer) => {
       this.logger.log('put TournamentMatchPlayer: ', success);
     }, (error: HttpErrorResponse) => {
@@ -416,7 +429,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentMatchPlayer(id: number) {
+  public removeTournamentMatchPlayer(id: string) {
     this._deleteTournamentMatchPlayer(id).subscribe((success: TournamentMatchPlayer) => {
       this.logger.log('put TournamentMatchPlayer: ', success);
     }, (error: HttpErrorResponse) => {
@@ -435,22 +448,22 @@ export class TournamentService {
   private _getTournamentPlayer() {
     return this.http.get<TournamentPlayer>(API + "/api/TournamentPlayer")
   }
-  private _getTournamentPlayerById(id: number) {
+  private _getTournamentPlayerById(id: string) {
     return this.http.get<TournamentPlayer>(API + "/api/TournamentPlayer/" + id)
   }
   private _postTournamentPlayer(tournament: TournamentPlayer) {
     return this.http.post<TournamentPlayer>(API + "/api/TournamentPlayer", tournament);
   }
-  private _putTournamentPlayer(tournament: TournamentPlayer, id: number) {
+  private _putTournamentPlayer(tournament: TournamentPlayer, id: string) {
     return this.http.put<TournamentPlayer>(API + "/api/TournamentPlayer/" + id, tournament);
   }
-  private _deleteTournamentPlayer(id: number) {
+  private _deleteTournamentPlayer(id: string) {
     return this.http.delete<TournamentPlayer>(API + "/api/TournamentPlayer/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentPlayer(id?: number) {
+  public getTournamentPlayer(id?: string) {
     if (!id) {
       this._getTournamentPlayer().subscribe((success: TournamentPlayer) => {
         this.logger.log('get TournamentPlayer: ', success);
@@ -484,7 +497,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentPlayer(tournament: TournamentPlayer, id: number) {
+  public updateTournamentPlayer(tournament: TournamentPlayer, id: string) {
     this._putTournamentPlayer(tournament, id).subscribe((success: TournamentPlayer) => {
       this.translateSrv.get('SUCCESS.tournament-player').subscribe(msg => this.showMessage(msg, 'success'));
       this.logger.log('put TournamentPlayer: ', success);
@@ -497,7 +510,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentPlayer(id: number) {
+  public removeTournamentPlayer(id: string) {
     this._deleteTournamentPlayer(id).subscribe((success: TournamentPlayer) => {
       this.logger.log('put TournamentPlayer: ', success);
     }, (error: HttpErrorResponse) => {
@@ -515,22 +528,22 @@ export class TournamentService {
   private _getTournamentRound() {
     return this.http.get<TournamentRound>(API + "/api/TournamentRound")
   }
-  private _getTournamentRoundById(id: number) {
+  private _getTournamentRoundById(id: string) {
     return this.http.get<TournamentRound>(API + "/api/TournamentRound/" + id)
   }
   private _postTournamentRound(tournament: TournamentRound) {
     return this.http.post<TournamentRound>(API + "/api/TournamentRound", tournament);
   }
-  private _putTournamentRound(tournament: TournamentRound, id: number) {
+  private _putTournamentRound(tournament: TournamentRound, id: string) {
     return this.http.put<TournamentRound>(API + "/api/TournamentRound/" + id, tournament);
   }
-  private _deleteTournamentRound(id: number) {
+  private _deleteTournamentRound(id: string) {
     return this.http.delete<TournamentRound>(API + "/api/TournamentRound/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentRound(id?: number) {
+  public getTournamentRound(id?: string) {
     if (!id) {
       this._getTournamentRound().subscribe((success: TournamentRound) => {
         this.logger.log('get TournamentRound: ', success);
@@ -560,7 +573,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentRound(tournament: TournamentRound, id: number) {
+  public updateTournamentRound(tournament: TournamentRound, id: string) {
     this._putTournamentRound(tournament, id).subscribe((success: TournamentRound) => {
       this.logger.log('put TournamentRound: ', success);
     }, (error: HttpErrorResponse) => {
@@ -571,7 +584,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentRound(id: number) {
+  public removeTournamentRound(id: string) {
     this._deleteTournamentRound(id).subscribe((success: TournamentRound) => {
       this.logger.log('put TournamentRound: ', success);
     }, (error: HttpErrorResponse) => {
@@ -589,22 +602,22 @@ export class TournamentService {
   private _getTournamentRules() {
     return this.http.get<TournamentRules>(API + "/api/TournamentRules")
   }
-  private _getTournamentRulesById(id: number) {
+  private _getTournamentRulesById(id: string) {
     return this.http.get<TournamentRules>(API + "/api/TournamentRules/" + id)
   }
   private _postTournamentRules(tournament: TournamentRules) {
     return this.http.post<TournamentRules>(API + "/api/TournamentRules", tournament);
   }
-  private _putTournamentRules(tournament: TournamentRules, id: number) {
+  private _putTournamentRules(tournament: TournamentRules, id: string) {
     return this.http.put<TournamentRules>(API + "/api/TournamentRules/" + id, tournament);
   }
-  private _deleteTournamentRules(id: number) {
+  private _deleteTournamentRules(id: string) {
     return this.http.delete<TournamentRules>(API + "/api/TournamentRules/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentRules(id?: number) {
+  public getTournamentRules(id?: string) {
     if (!id) {
       this._getTournamentRules().subscribe((success: TournamentRules) => {
         this.logger.log('get TournamentRules: ', success);
@@ -636,7 +649,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentRules(tournament: TournamentRules, id: number) {
+  public updateTournamentRules(tournament: TournamentRules, id: string) {
     this._putTournamentRules(tournament, id).subscribe((success: TournamentRules) => {
       this.logger.log('put TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
@@ -647,7 +660,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentRules(id: number) {
+  public removeTournamentRules(id: string) {
     this._deleteTournamentRules(id).subscribe((success: TournamentRules) => {
       this.logger.log('put TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
@@ -665,22 +678,22 @@ export class TournamentService {
   private _getTournamentRuleTiebreaker() {
     return this.http.get<TournamentRuleTiebreaker>(API + "/api/TournamentRuleTiebreaker")
   }
-  private _getTournamentRuleTiebreakerById(id: number) {
+  private _getTournamentRuleTiebreakerById(id: string) {
     return this.http.get<TournamentRuleTiebreaker>(API + "/api/TournamentRuleTiebreaker/" + id)
   }
   private _postTournamentRuleTiebreaker(tournament: TournamentRuleTiebreaker) {
     return this.http.post<TournamentRuleTiebreaker>(API + "/api/TournamentRuleTiebreaker", tournament);
   }
-  private _putTournamentRuleTiebreaker(tournament: TournamentRuleTiebreaker, id: number) {
+  private _putTournamentRuleTiebreaker(tournament: TournamentRuleTiebreaker, id: string) {
     return this.http.put<TournamentRuleTiebreaker>(API + "/api/TournamentRuleTiebreaker/" + id, tournament);
   }
-  private _deleteTournamentRuleTiebreaker(id: number) {
+  private _deleteTournamentRuleTiebreaker(id: string) {
     return this.http.delete<TournamentRuleTiebreaker>(API + "/api/TournamentRuleTiebreaker/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentRuleTiebreaker(id?: number) {
+  public getTournamentRuleTiebreaker(id?: string) {
     if (!id) {
       this._getTournamentRuleTiebreaker().subscribe((success: TournamentRuleTiebreaker) => {
         this.logger.log('get TournamentRuleTiebreaker: ', success);
@@ -710,7 +723,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentRuleTiebreaker(tournament: TournamentRuleTiebreaker, id: number) {
+  public updateTournamentRuleTiebreaker(tournament: TournamentRuleTiebreaker, id: string) {
     this._putTournamentRuleTiebreaker(tournament, id).subscribe((success: TournamentRuleTiebreaker) => {
       this.logger.log('put TournamentRuleTiebreaker: ', success);
     }, (error: HttpErrorResponse) => {
@@ -721,7 +734,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentRuleTiebreaker(id: number) {
+  public removeTournamentRuleTiebreaker(id: string) {
     this._deleteTournamentRuleTiebreaker(id).subscribe((success: TournamentRuleTiebreaker) => {
       this.logger.log('put TournamentRuleTiebreaker: ', success);
     }, (error: HttpErrorResponse) => {
@@ -739,22 +752,22 @@ export class TournamentService {
   private _getTournamentRuleWinnerOrder() {
     return this.http.get<TournamentRuleWinnerOrder>(API + "/api/TournamentRuleWinnerOrder")
   }
-  private _getTournamentRuleWinnerOrderById(id: number) {
+  private _getTournamentRuleWinnerOrderById(id: string) {
     return this.http.get<TournamentRuleWinnerOrder>(API + "/api/TournamentRuleWinnerOrder/" + id)
   }
   private _postTournamentRuleWinnerOrder(tournament: TournamentRuleWinnerOrder) {
     return this.http.post<TournamentRuleWinnerOrder>(API + "/api/TournamentRuleWinnerOrder", tournament);
   }
-  private _putTournamentRuleWinnerOrder(tournament: TournamentRuleWinnerOrder, id: number) {
+  private _putTournamentRuleWinnerOrder(tournament: TournamentRuleWinnerOrder, id: string) {
     return this.http.put<TournamentRuleWinnerOrder>(API + "/api/TournamentRuleWinnerOrder/" + id, tournament);
   }
-  private _deleteTournamentRuleWinnerOrder(id: number) {
+  private _deleteTournamentRuleWinnerOrder(id: string) {
     return this.http.delete<TournamentRuleWinnerOrder>(API + "/api/TournamentRuleWinnerOrder/" + id)
   }
   /**
    * get all tournament
    */
-  public getTournamentRuleWinnerOrder(id?: number) {
+  public getTournamentRuleWinnerOrder(id?: string) {
     if (!id) {
       this._getTournamentRuleWinnerOrder().subscribe((success: TournamentRuleWinnerOrder) => {
         this.logger.log('get TournamentRuleWinnerOrder: ', success);
@@ -784,7 +797,7 @@ export class TournamentService {
   /**
    * update tournament
    */
-  public updateTournamentRuleWinnerOrder(tournament: TournamentRuleWinnerOrder, id: number) {
+  public updateTournamentRuleWinnerOrder(tournament: TournamentRuleWinnerOrder, id: string) {
     this._putTournamentRuleWinnerOrder(tournament, id).subscribe((success: TournamentRuleWinnerOrder) => {
       this.logger.log('put TournamentRuleWinnerOrder: ', success);
     }, (error: HttpErrorResponse) => {
@@ -795,7 +808,7 @@ export class TournamentService {
   /**
    * remove tournament
    */
-  public removeTournamentRuleWinnerOrder(id: number) {
+  public removeTournamentRuleWinnerOrder(id: string) {
     this._deleteTournamentRuleWinnerOrder(id).subscribe((success: TournamentRuleWinnerOrder) => {
       this.logger.log('put TournamentRuleWinnerOrder: ', success);
     }, (error: HttpErrorResponse) => {

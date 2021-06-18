@@ -68,7 +68,8 @@
         "already-registered":"You are already registered in the tournament",
         "pending": "pending",
         "approved": "approved",
-        "not-approved": "not approved"
+        "not-approved": "not approved",
+        "publish": "publish"
     },
     "FORM" : {
         "registr": "registr",

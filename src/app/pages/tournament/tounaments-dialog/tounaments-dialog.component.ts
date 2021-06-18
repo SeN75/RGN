@@ -193,8 +193,8 @@ export class TounamentsDialogComponent implements OnInit {
     if (this.data.state != 'edit')
       this.tournamentsSrv.postTournament(_tournament);
     else
-      if (_tournament.id)
-        this.tournamentsSrv.updateTournament(_tournament, _tournament.id)
+      if ((_tournament.permalink ? _tournament.permalink : _tournament.guidId ? _tournament.guidId : _tournament.id))
+        this.tournamentsSrv.updateTournament(_tournament, (_tournament.permalink ? _tournament.permalink : _tournament.guidId ? _tournament.guidId : _tournament.id))
     this.onNoClick();
   }
 }
