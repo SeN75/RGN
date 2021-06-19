@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TournamentRules } from 'src/app/_common/types';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { TournamentService } from 'src/app/_services/tournament.service';
+import { RemoveRuleAlertComponent } from '../remove-rule-alert/remove-rule-alert.component';
 
 @Component({
   selector: 'app-point-simple',
@@ -21,25 +22,28 @@ export class PointSimpleComponent implements OnInit {
     { name: 'TOURNAMENTS.number-of-participants', controlName: 'numberOfParticipants', grid: 'col', type: 'number' },
     { name: 'TOURNAMENTS.rounds-counts', controlName: 'numberOfRounds', grid: 'col', type: 'number' },
   ]
-  createForm: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    numberOfParticipants: ['', Validators.required],
-    orderItem: ['', Validators.required],
-    numberOfRounds: ['', Validators.required],
-
-  })
-  createForm2: FormGroup = this.formBuilder.group({
-    firstPlace: [{ value: '', disabled: true }],
-    secondPlace: [{ value: '', disabled: true }],
-    thirdPlace: [{ value: '', disabled: true }],
-    killPoint: [{ value: '', disabled: true }],
-  })
+  createForm: FormGroup | any;
+  createForm2: FormGroup | any;
   constructor(public dialogRef: MatDialogRef<PointSimpleComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder,
     public lang: LanguageService,
-    private tournamentSrv: TournamentService, private logger: LoggerService) { }
+    private tournamentSrv: TournamentService,
+    private logger: LoggerService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.createForm = this.formBuilder.group({
+      name: [this.data.tournament ? this.data.tournament.name ? this.data.tournament.name : '' : '', Validators.required],
+      numberOfParticipants: [this.data.tournament ? this.data.tournament.numberOfParticipants ? this.data.tournament.numberOfParticipants : '' : '', Validators.required],
+      orderItem: [this.data.tournament ? this.data.tournament.orderItem ? this.data.tournament.orderItem : '' : '', Validators.required],
+      numberOfRounds: [this.data.tournament ? this.data.tournament.numberOfRounds ? this.data.tournament.numberOfRounds : '' : '', Validators.required],
+    })
+    this.createForm2 = this.formBuilder.group({
+      firstPlace: [{ value: '', disabled: true }],
+      secondPlace: [{ value: '', disabled: true }],
+      thirdPlace: [{ value: '', disabled: true }],
+      killPoint: [{ value: this.data.tournament ? this.data.tournament.pointBasedOnKill ? this.data.tournament.pointBasedOnKill : '' : '', disabled: true }],
+    })
   }
   _formRule() {
     let rules: TournamentRules = {
@@ -52,8 +56,21 @@ export class PointSimpleComponent implements OnInit {
       isRoundTrip: this.createForm2.get('isRoundTrip')?.value,
       isRandomDistribution: this.createForm2.get('isRandomDistribution')?.value,
       pointBasedOnKill: this.createForm2.get('killPoint')?.value,
-      timezone: new Date().toUTCString(),
-
+      tournamentRuleTypeId: 5,
+      numberOfParticipantsInGroup: this.createForm.get('numberOfParticipantsInGroup')?.value,
+      numberOfWinnerInGroup: this.createForm.get('numberOfWinnerInGroup')?.value,
+      timezone: this.data.tournament ? this.data.tournament.timezone ? this.data.tournament.timezone : new Date().toUTCString() : new Date().toUTCString(),
+      countOfDraws: 0,
+      countOfWins: 0,
+      countOflosses: 0,
+      // createdBy: this.data.tournament ? this.data.tournament.createdBy ? this.data.tournament.createdBy : 0 : 0,
+      // createdDate: this.data.tournament ? this.data.tournament.createdDate ? this.data.tournament.createdDate : '' : '',
+      // deletedBy: this.data.tournament ? this.data.tournament.deletedBy ? this.data.tournament.deletedBy : 0 : 0,
+      // guidId: this.data.tournament ? this.data.tournament.guidId ? this.data.tournament.guidId : '' : '',
+      id: this.data.tournament ? this.data.tournament.id ? this.data.tournament.id : 0 : 0,
+      // lastModifyDate: this.data.tournament ? this.data.tournament.lastModifyDate ? this.data.tournament.lastModifyDate : '' : '',
+      numberOfGroups: 0,
+      orderItem: this.createForm.get('orderItem').value,
     }
     return rules;
   }
@@ -62,8 +79,15 @@ export class PointSimpleComponent implements OnInit {
       this.logger.log('form1: ', this.createForm.value);
       this.logger.log('form2: ', this.createForm2.value);
     } else {
-      this.tournamentSrv.postTournamentRules(this._formRule());
+      if (this.data.state != 'edit')
+        this.tournamentSrv.postTournamentRules(this._formRule());
+      else
+        this.tournamentSrv.updateTournamentRules(this._formRule(), this.data.tournament.id)
+      this.dialogRef.close();
     }
+  }
+  onNoClick() {
+    this.dialogRef.close();
   }
   pointPerPlace() {
 
@@ -84,6 +108,19 @@ export class PointSimpleComponent implements OnInit {
     else
       this.createForm2.get('killPoint')?.disable()
     this._pointPerPoint = !this._pointPerPoint;
+  }
+  remvoeRule() {
+
+    const dialogRef = this.dialog.open(RemoveRuleAlertComponent, {
+      height: 'auto',
+      width: 'auto',
+      minWidth: "300px",
+      data: this.data.tournament.id
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef.close();
+    });
   }
 }
 
