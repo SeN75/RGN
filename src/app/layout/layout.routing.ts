@@ -10,21 +10,21 @@ import { LayoutComponent } from "./layout.component";
 
 
 const routes: Routes = [
-    {
-        component: LayoutComponent, path: "", children: [
-            { redirectTo: "/tournament", path: "", pathMatch: 'full' },
-            { component: TournamentComponent, path: "tournament" },
-            { component: ProfileComponent, path: "profile" },
-            { component: ParticipantsComponent, path: "tournament/:id/edit/associate" },
-            { component: ManageTournamentComponent, path: "tournament/:id/edit" },
-            { component: TournamentsRulesComponent, path: "tournament/:id/edit/rule" },
-        ]
-    },
+  {
+    component: LayoutComponent, path: "", children: [
+      { redirectTo: "/tournament", path: "", pathMatch: 'full' },
+      { component: TournamentComponent, path: "tournament" },
+      { component: ProfileComponent, path: "profile" },
+      { component: ParticipantsComponent, path: "tournament/:id/edit/associate" },
+      { component: ManageTournamentComponent, path: "tournament/:id/edit" },
+      { component: TournamentsRulesComponent, path: "tournament/:id/edit/rule" },
+    ]
+  },
 
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class LayoutRoutingModule { }

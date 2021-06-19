@@ -1,4 +1,4 @@
-<section class="row">
+<section class="row" *ngIf="registrSrv.userData">
   <header class="with_button">
     <h2 class="section-title ">{{'FORM.user-profile' | translate}}</h2>
     <div class="">
@@ -40,7 +40,7 @@
 
 
 <section class="row mt-5"
-  *ngIf="registrSrv.userData.playerNavigation &&registrSrv.userData.playerNavigation.length != 0">
+  *ngIf="registrSrv.userData && registrSrv.userData.playerNavigation &&registrSrv.userData.playerNavigation.length != 0">
   <header class="with_button">
     <h2 class="section-title ">{{'FORM.player-info' | translate}}</h2>
     <div class="">
@@ -75,15 +75,15 @@
 </section>
 
 <section class="current_tournaments mt-5"
-  *ngIf="registrSrv.userData.playerNavigation &&registrSrv.userData.playerNavigation.length != 0">
+  *ngIf="registrSrv.userData && registrSrv.userData.playerNavigation &&registrSrv.userData.playerNavigation.length != 0">
 
   <header class="with_button">
     <h2 class="section-title ">{{'TOURNAMENTS.current-tournaments' | translate}}</h2>
     <div class="">
-      <button mat-raised-button color="primary"
+      <!-- <button mat-raised-button color="primary"
         (click)="dialogSrv.openPlayerDialog('edit',registrSrv.userData.id, registrSrv.userData.playerNavigation[0] )">
         {{'FORM.edit' | translate}}
-      </button>
+      </button> -->
     </div>
   </header>
 

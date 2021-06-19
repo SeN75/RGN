@@ -13,17 +13,17 @@ import { TournamentsRulesComponent } from "./tournament/tournaments-rules/tourna
 
 
 const routes: Routes = [
-    { component: MedforceComponent, path: "" },
-    { component: AboutUsComponent, path: "about-us" },
-    { component: TournamentComponent, path: "tournaments" },
-    { component: TournamentsInfoComponent, path: "tournament/:id" },
-    // { component: TournamentsInfoComponent, path: "tournaments/:id/edit" },
-    { component: RegistationComponent, path: "login" },
+  { component: MedforceComponent, path: "" },
+  { component: AboutUsComponent, path: "about-us" },
+  { component: TournamentComponent, path: "tournaments" },
+  { component: TournamentsInfoComponent, path: "tournament/:id" },
+  // { component: TournamentsInfoComponent, path: "tournaments/:id/edit" },
+  { component: RegistationComponent, path: "login" },
 
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class PageRoutingModule { }

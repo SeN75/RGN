@@ -60,7 +60,7 @@ export class DialogService {
     const dialogRef = this.dialog.open(BattleLeagueComponent, {
       height: 'auto',
       minWidth: '450px',
-      maxWidth: "950px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, tournament: tournament }
     });
@@ -72,6 +72,7 @@ export class DialogService {
   openRuleBattleExclusionDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(BattleExclusionComponent, {
       height: 'auto',
+      minHeight: '300px',
       minWidth: '450px',
       maxWidth: "950px",
       width: 'auto',

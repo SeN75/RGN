@@ -35,6 +35,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ComponentsModule,
     NgbModule,
     LayoutsModule,
+    PageModule,
     MatDialogModule,
     MatNativeDateModule,
     MatSnackBarModule,

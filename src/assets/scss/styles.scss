@@ -125,4 +125,10 @@ h6.mat-dialog-title {
     height: 60px;
     width: auto;
   }
+  .mat-dialog-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto !important;
+  }
 }
