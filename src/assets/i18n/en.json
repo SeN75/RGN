@@ -72,7 +72,13 @@
         "participants": "participants",
         "team": "team",
         "players": "players",
-        "publish": "publish"
+        "publish": "publish",
+        "cancel": "cancel",
+        "remove-rule":"remove rule",
+        "confirmed": "confirmed",
+        "registered": "registered",
+        "number-of-participants-in-group": "number of participants in group",
+        "number-of-winner-in-group": "number of winner in group"
     },
     "FORM" : {
         "registr": "registr",
@@ -118,7 +124,10 @@
         "status":"status",
         "email": "email",
         "mobile": "mobile",
-        "no-data": "no data"
+        "no-data": "no data",
+        "confirm": "confirm",
+        "delete": "delete",
+        "delete-message": "do you want to delete this item?"
     },
     "MATCH": {
         "last-matches-stats": "last matches stats",
@@ -129,7 +138,8 @@
         "watch-replay": "watch replay"
     },
     "GAME" : {
-        "games": "games"
+        "games": "games",
+        "game": "game"
     },
     "PLATFORM": {
         "platforms": "platforms",

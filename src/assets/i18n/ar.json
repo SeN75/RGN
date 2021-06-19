@@ -49,6 +49,7 @@
         "advance": "متقدم" ,
         "timezone": "منطقة الزمنية",
         "clashes-within-a-league": "مواجهات ضمن دوري",
+        "edit-clashes-within-a-league": "مواجهات ضمن دوري",
         "ex-number": "رقم التصفية",
         "ex-name": "اسم التصفية",
         "ex-type": "نوع التصفية",
@@ -76,7 +77,12 @@
         "participants": "الماشركين",
         "team": "فرق",
         "players": "لاعبين",
-        "publish": "نشر"
+        "publish": "نشر",
+        "remove-rule": "حذف قاعده",
+        "confirmed": "مؤكدين",
+        "registered": "مسجلين",
+        "number-of-participants-in-group": "عدد المشاركين في مجموعة",
+        "number-of-winner-in-group": "عدد الفائزين في مجموعة"
 
     },
     "FORM" : {
@@ -127,8 +133,11 @@
         "status":"الحاله",
         "email": "البريد الالكتروني",
         "mobile": "رقم الجوال",
-        "no-data": "لا توجد بيانات"
-
+        "no-data": "لا توجد بيانات",
+        "confirm": "تاكيد",
+        "delete": "حذف",
+        "cancel": "الغاء",
+        "delete-message": "هل تريد حذف هذا العنصر؟"
 
     },
     "MATCH": {
@@ -140,7 +149,8 @@
         "watch-replay": "مشاهده الاعاده"
     },
     "GAME" : {
-        "games": "الالعاب"
+        "games": "الالعاب",
+        "game": "اللعبه"
     },
     "PLATFORM": {
         "platforms": "منصات اللعب",

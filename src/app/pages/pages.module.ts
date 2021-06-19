@@ -37,6 +37,7 @@ import { ParticipantsComponent } from './tournament/participants/participants.co
 import { MatTableModule } from '@angular/material/table';
 import { ParticipantsDialogComponent } from './tournament/participants/participants-dialog/participants-dialog.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { RemoveRuleAlertComponent } from './tournament/tournaments-rules/remove-rule-alert/remove-rule-alert.component';
 
 @NgModule({
   imports: [
@@ -80,6 +81,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     PlayerDialogComponent,
     ParticipantsComponent,
     ParticipantsDialogComponent,
+    RemoveRuleAlertComponent,
   ],
   exports: [
 

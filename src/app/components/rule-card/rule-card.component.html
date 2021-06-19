@@ -1,0 +1,22 @@
+<div class="tournament_rule">
+  <div class="rule_icon">
+    <mat-icon>
+      {{(rule.tournamentRuleTypeId == 3 ? 'sentiment_very_dissatisfied' : rule.tournamentRuleTypeId == 4 ?
+      'sports_kabaddi': rule.tournamentRuleTypeId == 5 ? 'timeline' : rule.tournamentRuleTypeId == 6 ? 'groups':
+      'local_fire_department')}}
+    </mat-icon>
+  </div>
+  <div class="rule_data">
+    <label class="rule_name">{{rule.name}}</label>
+    <div class="rule_info">
+      {{'TOURNAMENTS.'+(rule.tournamentRuleTypeId == 3 ? 'elimination' : rule.tournamentRuleTypeId == 4 ?
+      'clashes-within-a-league': rule.tournamentRuleTypeId == 5 ? 'simple-qualifiers'
+      : rule.tournamentRuleTypeId == 6 ? 'group-qualifiers': '') | translate}}
+    </div>
+  </div>
+  <button mat-icon-button (click)="rulesDialogs(rule)">
+    <mat-icon>
+      more_vert
+    </mat-icon>
+  </button>
+</div>

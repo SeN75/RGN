@@ -32,6 +32,7 @@
 
 .rules {
   display: flex;
+  flex-wrap: wrap;
 }
 .tournament_rule {
   border: #5c34e5 solid 1px;

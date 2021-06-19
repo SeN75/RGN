@@ -652,7 +652,7 @@ export class TournamentService {
   public postTournamentRules(tournament: TournamentRules) {
     this._postTournamentRules(tournament).subscribe((success: TournamentRules) => {
       this.getTournament(this.tournaments.id)
-      this.router.navigateByUrl('/tournament');
+      this.router.navigateByUrl('/tournament/' + this.tournaments.guidId + '/edit');
       this.logger.log('post TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'post TournamentRules: ", error);
@@ -665,6 +665,7 @@ export class TournamentService {
   public updateTournamentRules(tournament: TournamentRules, id: string) {
     this._putTournamentRules(tournament, id).subscribe((success: TournamentRules) => {
       this.logger.log('put TournamentRules: ', success);
+      this.getTournament(this.tournaments.id);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'put TournamentRules: ", error);
     })
@@ -675,6 +676,7 @@ export class TournamentService {
    */
   public removeTournamentRules(id: string) {
     this._deleteTournamentRules(id).subscribe((success: TournamentRules) => {
+      this.getTournament(this.tournaments.id);
       this.logger.log('put TournamentRules: ', success);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'put TournamentRules: ", error);

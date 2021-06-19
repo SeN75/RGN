@@ -30,7 +30,7 @@
         <div>{{tournamentsSrv.tournaments.startDate | date}}</div>
       </div>
       <div class=" col-lg-3 col-md-4 col-12 col-sm-6 tournament_data">
-        <label>{{ 'TOURNAMENTS.game' | translate}}</label>
+        <label>{{ 'GAME.game' | translate}}</label>
         <div>{{tournamentsSrv.tournaments.numberOfParticipants}}</div>
       </div>
       <div class="col-lg-3 col-md-4 col-12 col-sm-6 ">
@@ -47,14 +47,17 @@
         <div>{{tournamentsSrv.tournaments.numberOfParticipants}}</div>
       </div>
       <div class=" col-lg-3 col-md-3 col-12 col-sm-6 tournament_data">
-        <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
+        <label>{{ 'TOURNAMENTS.registered' | translate}}</label>
         <div>{{tournamentsSrv.tournaments.tournamentParticipants
           ?tournamentsSrv.tournaments.tournamentParticipants.length : 0 }}
         </div>
       </div>
       <div class=" col-lg-3 col-md-3 col-12 col-sm-6 tournament_data">
-        <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
-        <div>{{tournamentsSrv.tournaments.numberOfParticipants}}</div>
+        <label>{{ 'TOURNAMENTS.confirmed' | translate}}</label>
+
+        <div>{{tournamentsSrv.tournaments.tournamentParticipants
+          ?
+          confirmedParticipants(tournamentsSrv.tournaments.tournamentParticipants) : 0}}</div>
       </div>
       <div class="col-lg-3 col-md-4 col-12 col-sm-6 ">
         <button mat-raised-button color="primary" (click)="goToAssociate()">{{'FORM.edit' | translate}}</button>
@@ -84,19 +87,22 @@
 
 
     <div class="tournament_card row align-items-center justify-content-between">
-      <h5 class="tournament_title">{{'TOURNAMENTS.management-rules' | translate}}</h5>
-      <div class="col rules" *ngIf="tournamentsSrv.tournaments.tournamentRules">
-        <div class="tournament_rule" *ngFor="let rule of tournamentsSrv.tournaments.tournamentRules">
-          <label class="rule_name">{{rule.name}}</label>
-          <div class="rule_info">{{rule.name}}</div>
-        </div>
+      <h5 class="tournament_title d-flex justify-content-between">{{'TOURNAMENTS.management-rules' | translate}}
+        <button mat-raised-button color="primary" routerLink="rule">{{'FORM.add' | translate}}</button>
+
+      </h5>
+      <div class="col-12 rules" *ngIf="tournamentsSrv.tournaments.tournamentRules">
+        <ng-container *ngFor="let rule of tournamentsSrv.tournaments.tournamentRules">
+          <rule-card *ngIf="!rule.isDeleted" [rule]="rule"></rule-card>
+
+        </ng-container>
+
       </div>
       <div class=" col-lg-3 col-md-3 col-12 col-sm-6 tournament_data">
         <!-- <label>{{ 'TOURNAMENTS.number-of-participants' | translate}}</label>
                 <div>{{tournamentsSrv.tournaments.numberOfParticipants}}</div> -->
       </div>
       <div class="col-lg-3 col-md-4 col-12 col-sm-6 ">
-        <button mat-raised-button color="primary" routerLink="rule">{{'FORM.add' | translate}}</button>
       </div>
     </div>
 

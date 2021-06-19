@@ -15,34 +15,37 @@ import { PlateformSelectComponent } from './plateform-select/plateform-select.co
 import { TournamentsCardComponent } from "./tournaments-card/tournaments-card.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RuleCardComponent } from './rule-card/rule-card.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        RouterModule,
-        TranslateModule,
-        NgbModule,
-        MatIconModule,
-        MatButtonModule
-    ],
-    declarations: [
-        BaseComponent,
-        ShowTournamentCardComponent,
-        GameSelectComponent,
-        PlateformSelectComponent,
-        TournamentsCardComponent,
-        NavbarComponent,
-        SidebarComponent
-    ],
-    exports: [
-        ShowTournamentCardComponent,
-        GameSelectComponent,
-        PlateformSelectComponent,
-        TournamentsCardComponent,
-        NavbarComponent,
-        SidebarComponent
-    ],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    TranslateModule,
+    NgbModule,
+    MatIconModule,
+    MatButtonModule
+  ],
+  declarations: [
+    BaseComponent,
+    ShowTournamentCardComponent,
+    GameSelectComponent,
+    PlateformSelectComponent,
+    TournamentsCardComponent,
+    NavbarComponent,
+    SidebarComponent,
+    RuleCardComponent
+  ],
+  exports: [
+    ShowTournamentCardComponent,
+    GameSelectComponent,
+    PlateformSelectComponent,
+    TournamentsCardComponent,
+    NavbarComponent,
+    SidebarComponent,
+    RuleCardComponent
+  ],
 
 
 })
