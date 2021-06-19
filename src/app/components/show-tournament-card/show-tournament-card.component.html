@@ -17,7 +17,7 @@
       <span class="tournament_action">
         <mat-icon (click)="showTournaments(tournament)">pie_chart</mat-icon>
         <mat-icon *ngIf="!isPlayer" (click)="editTournamenets(tournament)">edit</mat-icon>
-        <mat-icon *ngIf="!isPlayer">delete</mat-icon>
+        <mat-icon *ngIf="!isPlayer" (click)="dialogSrv.openRemoveDialog('tournament', tournament)">delete</mat-icon>
       </span>
     </div>
   </div>

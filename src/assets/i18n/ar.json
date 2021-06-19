@@ -137,7 +137,8 @@
         "confirm": "تاكيد",
         "delete": "حذف",
         "cancel": "الغاء",
-        "delete-message": "هل تريد حذف هذا العنصر؟"
+        "delete-message": "هل تريد حذف هذا العنصر؟",
+        "remove-alert": "حذف"
 
     },
     "MATCH": {

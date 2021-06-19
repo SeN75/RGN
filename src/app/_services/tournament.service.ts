@@ -221,9 +221,12 @@ export class TournamentService {
    */
   public removeTournament(id: string) {
     this._deleteTournament(id).subscribe((success: Tournament) => {
+      this.translateSrv.get('SUCCESS.remove-tournament').subscribe(msg => this.showMessage(msg, 'success'))
+      this.getTournament();
       this.logger.log('put Tournament: ', success);
     }, (error: HttpErrorResponse) => {
       this.logger.error("'put Tournament: ", error);
+      this.translateSrv.get('ERROR.remove-tournament').subscribe(msg => this.showMessage(msg, 'danger'))
     })
   }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { RemoveAlertComponent } from '../components/remove-alert/remove-alert.component';
 import { PlayerDialogComponent } from '../pages/profile/player-dialog/player-dialog.component';
 import { ProfileDialogComponent } from '../pages/profile/profile-dialog/profile-dialog.component';
 import { TounamentsDialogComponent } from '../pages/tournament/tounaments-dialog/tounaments-dialog.component';
@@ -116,6 +117,19 @@ export class DialogService {
       maxWidth: "600px",
       width: 'auto',
       data: { state: state, participant: participant }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openRemoveDialog(state?: string, data?: any): void {
+    const dialogRef = this.dialog.open(RemoveAlertComponent, {
+      height: 'auto',
+      minWidth: '250px',
+      maxWidth: "600px",
+      width: 'auto',
+      data: { state: state, id: data.id }
     });
 
     dialogRef.afterClosed().subscribe(result => {

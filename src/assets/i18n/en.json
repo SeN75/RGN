@@ -127,7 +127,8 @@
         "no-data": "no data",
         "confirm": "confirm",
         "delete": "delete",
-        "delete-message": "do you want to delete this item?"
+        "delete-message": "do you want to delete this item?",
+        "remove-alert": "delete"
     },
     "MATCH": {
         "last-matches-stats": "last matches stats",
