@@ -1,5 +1,28 @@
 <section class="registration_wrapper">
+
   <div class="registration_form">
+    <div class="registr-nav">
+      <div class="before">
+        <button mat-button class="w-auto" color="light" routerLink="." (click)="registraionSrv.showForm = 'userData'"
+          *ngIf="registraionSrv.showForm == 'login'">
+          <mat-icon>arrow_forward</mat-icon>
+          <span> تسجيل</span>
+        </button>
+      </div>
+      <div class="home">
+        <button mat-button class="w-auto" color="light" routerLink="/">
+          <span>صفحة الرئيسية</span>
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+      <div class="next">
+        <button mat-button class="w-auto" color="light" routerLink="." (click)="registraionSrv.showForm= 'login'"
+          *ngIf="registraionSrv.showForm == 'userData'">
+          <span>تسجيل دخول</span>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+    </div>
     <div class="registration_form_" [formGroup]="loginForm" *ngIf="registraionSrv.showForm == 'login'">
       <img src="../../../assets/images/logoRJ_.png" class="logo">
       <h2>{{'FORM.login' | translate}}</h2>
@@ -18,24 +41,7 @@
       <button mat-raised-button color="primary" (click)="login()">
         <span>{{'FORM.login' | translate}}</span>
       </button>
-      <div class="registr-nav">
-        <div class="before">
-          <button mat-button class="w-auto" color="light" routerLink="." (click)="registraionSrv.showForm = 'userData'">
-            <mat-icon>arrow_forward</mat-icon>
-            <span> تسجيل</span>
-          </button>
-        </div>
-        <div class="home">
-          <button mat-button class="w-auto" color="light" routerLink="/">
-            <span>صفحة الرئيسية</span>
-            <mat-icon>home</mat-icon>
-          </button>
-        </div>
-        <div class="next">
 
-
-        </div>
-      </div>
     </div>
 
     <div class="registration_form_" [formGroup]="userInfoForm" *ngIf="registraionSrv.showForm == 'userData'">
@@ -81,31 +87,7 @@
       <button mat-raised-button color="primary" (click)="userInfo()">
         <span>{{'FORM.registr' | translate}}</span>
       </button>
-      <div class="registr-nav">
-        <div class="before">
-          <!--
-                    <button mat-button class="w-auto" color="light" routerLink="."
-                        (click)="registraionSrv.showForm= 'playerInfo'">
-                        <mat-icon>arrow_forward</mat-icon>
 
-                        <span>بيانات اللاعب</span>
-
-                    </button> -->
-        </div>
-        <div class="home">
-          <button mat-button class="w-auto" color="light" routerLink="/">
-            <span>صفحة الرئيسية</span>
-            <mat-icon>home</mat-icon>
-          </button>
-        </div>
-        <div class="next">
-          <button mat-button class="w-auto" color="light" routerLink="." (click)="registraionSrv.showForm= 'login'">
-            <span>تسجيل دخول</span>
-            <mat-icon>arrow_back</mat-icon>
-          </button>
-
-        </div>
-      </div>
     </div>
 
 
@@ -133,25 +115,6 @@
       <button mat-raised-button color="primary" (click)="playerInfo()">
         <span>{{'FORM.save' | translate}}</span>
       </button>
-      <div class="registr-nav">
-        <div class="before">
-
-        </div>
-        <div class="home">
-          <button mat-button class="w-auto" color="light" routerLink="/">
-            <span>صفحة الرئيسية</span>
-            <mat-icon>home</mat-icon>
-          </button>
-        </div>
-        <div class="next">
-          <!-- <button mat-button class="w-auto" color="light" routerLink="."
-                        (click)="registraionSrv.showForm= 'userData'">
-                        <span>بيانات الشخصية</span>
-                        <mat-icon>arrow_back</mat-icon>
-                    </button> -->
-
-        </div>
-      </div>
     </div>
 
 

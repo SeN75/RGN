@@ -20,10 +20,9 @@ export class DialogService {
 
   openTounamentsDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(TounamentsDialogComponent, {
-      height: 'auto',
+
       minWidth: '450px',
       maxWidth: "950px",
-      width: 'auto',
       data: { state: state, tournament: tournament }
     });
 
@@ -33,10 +32,9 @@ export class DialogService {
   }
   openRulePointGroupDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(PointGroupComponent, {
-      height: 'auto',
+
       minWidth: '450px',
       maxWidth: "950px",
-      width: 'auto',
       data: { state: state, tournament: tournament }
     });
 
@@ -46,10 +44,9 @@ export class DialogService {
   }
   openRulePointSimpleDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(PointSimpleComponent, {
-      height: 'auto',
+
       minWidth: '450px',
       maxWidth: "950px",
-      width: 'auto',
       data: { state: state, tournament: tournament }
     });
 
@@ -59,10 +56,9 @@ export class DialogService {
   }
   openRuleBattleLeagueDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(BattleLeagueComponent, {
-      height: 'auto',
+
       minWidth: '450px',
       maxWidth: "90%",
-      width: 'auto',
       data: { state: state, tournament: tournament }
     });
 
@@ -72,11 +68,10 @@ export class DialogService {
   }
   openRuleBattleExclusionDialog(state?: string, tournament?: any): void {
     const dialogRef = this.dialog.open(BattleExclusionComponent, {
-      height: 'auto',
+
       minHeight: '300px',
       minWidth: '450px',
       maxWidth: "950px",
-      width: 'auto',
       data: { state: state, tournament: tournament }
     });
 
@@ -86,10 +81,9 @@ export class DialogService {
   }
   openUserProfileDialog(state?: string, user?: any): void {
     const dialogRef = this.dialog.open(ProfileDialogComponent, {
-      height: 'auto',
+
       minWidth: '250px',
       maxWidth: "600px",
-      width: 'auto',
       data: { state: state, user: user }
     });
 
@@ -99,10 +93,9 @@ export class DialogService {
   }
   openPlayerDialog(state?: string, userId?: any, player?: any): void {
     const dialogRef = this.dialog.open(PlayerDialogComponent, {
-      height: 'auto',
+
       minWidth: '250px',
       maxWidth: "600px",
-      width: 'auto',
       data: { state: state, player: player, userId: userId }
     });
 
@@ -112,10 +105,9 @@ export class DialogService {
   }
   openParticipantDialog(state?: string, participant?: any): void {
     const dialogRef = this.dialog.open(ParticipantsDialogComponent, {
-      height: 'auto',
+
       minWidth: '250px',
       maxWidth: "600px",
-      width: 'auto',
       data: { state: state, participant: participant }
     });
 
@@ -125,10 +117,9 @@ export class DialogService {
   }
   openRemoveDialog(state?: string, data?: any): void {
     const dialogRef = this.dialog.open(RemoveAlertComponent, {
-      height: 'auto',
+
       minWidth: '250px',
       maxWidth: "600px",
-      width: 'auto',
       data: { state: state, id: data.id }
     });
 

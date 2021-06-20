@@ -11,6 +11,7 @@
   background-repeat: no-repeat;
   width: 100%;
   flex: 2;
+  overflow: auto;
 }
 .w-32 {
   width: 32% !important;
@@ -21,6 +22,8 @@
   background: #171744;
   z-index: 10000;
   position: relative;
+  flex-direction: column;
+  overflow: auto;
 }
 .registration_form_ {
   display: flex;
@@ -28,6 +31,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 input {
   text-align: right;
@@ -52,13 +56,14 @@ button span {
 .registr-nav {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 1em;
+  padding: 0 2em;
   color: #fff;
-  position: absolute;
+  position: relative;
   bottom: 2em;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  top: 0;
 }
 .registr-nav div {
   display: flex;

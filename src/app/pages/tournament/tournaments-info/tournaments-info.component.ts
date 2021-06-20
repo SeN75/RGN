@@ -61,7 +61,7 @@ export class TournamentsInfoComponent implements OnInit {
     if (this.userSrv.userData) {
       if (this.userSrv.userData.playerNavigation)
         if (this.userSrv.userData.playerNavigation.length != 0 && this.userSrv.userData.playerNavigation[0].id)
-          this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: (this.tournament.permalink ? this.tournament.permalink : this.tournament.guidId ? this.tournament.guidId : this.tournament.id) });
+          this.tournamentsSrv.postTournamentPlayer({ playerId: this.userSrv.userData.playerNavigation[0].id, tournamentId: this.tournamentsSrv.tournaments.id });
         else {
           this.userSrv.showForm = 'playerInfo';
           this.router.navigateByUrl('/login');

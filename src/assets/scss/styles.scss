@@ -120,15 +120,14 @@ h6.mat-dialog-title {
 .mat-select-value-text {
   color: unset;
 }
+.mat-dialog-container {
+  height: unset !important;
+  width: unset !important;
+  overflow: auto !important;
+}
 @media screen and (max-width: 40em) {
   .site-logo img {
     height: 60px;
     width: auto;
-  }
-  .mat-dialog-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: auto !important;
   }
 }
