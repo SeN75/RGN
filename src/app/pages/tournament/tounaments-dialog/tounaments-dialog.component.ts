@@ -119,11 +119,12 @@ export class TounamentsDialogComponent implements OnInit {
       logo: [(this.data.tournament ? this.data.tournament.logo ? this.data.tournament.logo : '' : ''), Validators.required],
       prize: [(this.data.tournament ? this.data.tournament.prize ? this.data.tournament.prize : '' : ''), Validators.required],
       rule: [(this.data.tournament ? this.data.tournament.rule ? this.data.tournament.rule : '' : ''), Validators.required],
-      descriptioon: [(this.data.tournament ? this.data.tournament.descriptioon ? this.data.tournament.descriptioon : '' : ''), Validators.required],
+      description: [(this.data.tournament ? this.data.tournament.description ? this.data.tournament.description : '' : ''), Validators.required],
 
     })
     // this.gameSrv.postGame({ name: 'game', banner: "banner", logo: "logo" })
   }
+  get createFormControls() { return this.createForm2 }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -170,7 +171,7 @@ export class TounamentsDialogComponent implements OnInit {
     const _Tournament: Tournament = {
       ...this.tournamentsSrv.tournaments,
       name: this.createForm.get('name')?.value,
-      description: this.createForm2.get('descriptioon')?.value,
+      description: this.createForm2.get('description')?.value,
       gameId: 1,
       endDate: this.createForm2.get('endDate')?.value,
       startDate: this.createForm2.get('startDate')?.value,

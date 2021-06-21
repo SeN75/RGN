@@ -82,7 +82,16 @@
         "confirmed": "مؤكدين",
         "registered": "مسجلين",
         "number-of-participants-in-group": "عدد المشاركين في مجموعة",
-        "number-of-winner-in-group": "عدد الفائزين في مجموعة"
+        "number-of-winner-in-group": "عدد الفائزين في مجموعة",
+        "start-date-register": "تاريخ بداية التسجيل",
+        "end-date-register": "تاريخ نهاية التسجيل",
+        "accreditation-type": "نوع الاعتماد",
+        "registr-message": "رساله التسجيل",
+        "approval-message": "رساله القبول",
+        "reject-message": "رساله الرفص",
+        "automatic": "تلقائي",
+        "manual": "يدوي",
+        "registration-based-on-dates": "التسجيل مبني على التاريخ"
 
     },
     "FORM" : {
@@ -138,7 +147,11 @@
         "delete": "حذف",
         "cancel": "الغاء",
         "delete-message": "هل تريد حذف هذا العنصر؟",
-        "remove-alert": "حذف"
+        "remove-alert": "حذف",
+        "yes": "نعم",
+        "no": "لا",
+        "m": "ذكر",
+        "f": "انثى"
 
     },
     "MATCH": {

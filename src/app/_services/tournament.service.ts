@@ -207,6 +207,7 @@ export class TournamentService {
    */
   public updateTournament(tournament: Tournament, id: any) {
     this._putTournament(tournament, id).subscribe((success: Tournament) => {
+      this.getTournament(id);
       this.logger.log('put Tournament: ', success);
       // this.router.navigateByUrl('/tournaments/admin-mangement');
       this.translateSrv.get("SUCCESS.update-tournament").subscribe(msg => this.showMessage(msg, 'success'))

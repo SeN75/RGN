@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RemoveAlertComponent } from '../components/remove-alert/remove-alert.component';
 import { PlayerDialogComponent } from '../pages/profile/player-dialog/player-dialog.component';
 import { ProfileDialogComponent } from '../pages/profile/profile-dialog/profile-dialog.component';
+import { ManageRegistrDialogComponent } from '../pages/tournament/manage-registr-dialog/manage-registr-dialog.component';
 import { TounamentsDialogComponent } from '../pages/tournament/tounaments-dialog/tounaments-dialog.component';
 import { BattleExclusionComponent } from '../pages/tournament/tournaments-rules/battle-exclusion/battle-exclusion.component';
 import { BattleLeagueComponent } from '../pages/tournament/tournaments-rules/battle-league/battle-league.component';
@@ -121,6 +122,17 @@ export class DialogService {
       minWidth: '250px',
       maxWidth: "600px",
       data: { state: state, id: data.id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openManageRegistrtionDialog(state?: string, data?: any): void {
+    const dialogRef = this.dialog.open(ManageRegistrDialogComponent, {
+      minWidth: '350px',
+      maxWidth: "950px",
+      data: { state: state, tournament: data }
     });
 
     dialogRef.afterClosed().subscribe(result => {

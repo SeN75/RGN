@@ -78,7 +78,16 @@
         "confirmed": "confirmed",
         "registered": "registered",
         "number-of-participants-in-group": "number of participants in group",
-        "number-of-winner-in-group": "number of winner in group"
+        "number-of-winner-in-group": "number of winner in group",
+        "start-date-register": "start date register",
+        "end-date-register": "end date register",
+        "accreditation-type": "accreditation type",
+        "registr-message": "registr message",
+        "approval-message": "approval message",
+        "reject-message": "reject message",
+        "automatic": "automatic",
+        "manual": "manual",
+        "registration-based-on-dates": "registration based on dates"
     },
     "FORM" : {
         "registr": "registr",
@@ -128,7 +137,11 @@
         "confirm": "confirm",
         "delete": "delete",
         "delete-message": "do you want to delete this item?",
-        "remove-alert": "delete"
+        "remove-alert": "delete",
+        "yes": "yes",
+        "no": "no",
+        "m": "male",
+        "f": "female"
     },
     "MATCH": {
         "last-matches-stats": "last matches stats",

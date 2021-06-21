@@ -51,6 +51,8 @@
         <div>
           <button mat-raised-button matStepperNext color="primary">{{'FORM.next' |
             translate}}</button>
+          <button *ngIf="data.state == 'edit'" mat-button (click)="formTournament()"><span class="close">{{'FORM.save' |
+              translate}}</span></button>
         </div>
       </form>
     </mat-step>
@@ -71,7 +73,8 @@
           <div class="col col-md-6" dir="rtl">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>{{'TOURNAMENTS.end-date' | translate}}</mat-label>
-              <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+              <input matInput [matDatepicker]="endPicker" [min]="createFormControls.controls.startDate.value"
+                formControlName="endDate">
               <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
               <mat-datepicker #endPicker></mat-datepicker>
             </mat-form-field>
@@ -90,7 +93,7 @@
 
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>{{'TOURNAMENTS.discription' | translate}}</mat-label>
-              <textarea matInput placeholder="{{'TOURNAMENTS.discription' | translate}}" formControlName="descriptioon"
+              <textarea matInput placeholder="{{'TOURNAMENTS.discription' | translate}}" formControlName="description"
                 required></textarea>
             </mat-form-field>
           </div>

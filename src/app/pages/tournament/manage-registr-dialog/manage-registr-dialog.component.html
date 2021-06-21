@@ -1,0 +1,73 @@
+<h2 mat-dialog-title class="mat-dialog-title ">{{'FORM.registration-department' | translate}}
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon class="close">clear</mat-icon>
+  </button>
+</h2>
+
+<div class="" mat-dialog-content>
+  <div class="row" [formGroup]="registrForm">
+    <div class="col col-md-6" dir="rtl">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'TOURNAMENTS.start-date-register' | translate}}</mat-label>
+        <input matInput [matDatepicker]="startPicker" [min]="minDate" formControlName="startRegistrationDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col col-md-6" dir="rtl">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'TOURNAMENTS.end-date-register' | translate}}</mat-label>
+        <input matInput [matDatepicker]="endPicker" [min]="registr.controls.startRegistrationDate.value"
+          formControlName="endRegistrationDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col col-md-6 mb-2">
+      <mat-label class="w-100 d-block mt-1">{{'TOURNAMENTS.accreditation-type'| translate}}</mat-label>
+      <mat-button-toggle-group name="" class="w-auto" formControlName="manuallyParticipantAccreditation">
+        <mat-button-toggle [value]="true">{{'TOURNAMENTS.automatic'| translate}}</mat-button-toggle>
+        <mat-button-toggle [value]="false">{{'TOURNAMENTS.manual'| translate}}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="col col-md-6 mb-2">
+      <mat-label class="w-100 d-block mt-1">{{'TOURNAMENTS.registration-based-on-dates'| translate}}</mat-label>
+      <mat-button-toggle-group name="" class="w-auto" formControlName="registrationBasedOnDates">
+        <mat-button-toggle [value]="true">{{'FORM.yes'| translate}}</mat-button-toggle>
+        <mat-button-toggle [value]="false">{{'FORM.no'| translate}}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <!-- col-md-6 -->
+    <div class="col " dir="rtl">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'TOURNAMENTS.registr-message' | translate}}</mat-label>
+        <textarea matInput placeholder="{{'TOURNAMENTS.registr-message' | translate}}"
+          formControlName="registrationMessage" required></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col " dir="rtl">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'TOURNAMENTS.approval-message' | translate}}</mat-label>
+        <textarea matInput placeholder="{{'TOURNAMENTS.approval-message' | translate}}"
+          formControlName="approvalMessage" required></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col " dir="rtl">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{'TOURNAMENTS.reject-message' | translate}}</mat-label>
+        <textarea matInput placeholder="{{'TOURNAMENTS.reject-message' | translate}}" formControlName="rejectMessage"
+          required></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+
+<div class="" mat-dialog-action>
+  <button mat-raised-button color="primary" (click)="updateRegistraionInfo()">
+    {{'FORM.save'| translate}}
+  </button>
+  <button mat-button (click)="onNoClick()">
+    {{'FORM.cancel' | translate}}
+  </button>
+</div>
