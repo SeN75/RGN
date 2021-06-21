@@ -10,13 +10,14 @@ import { BattleLeagueComponent } from '../pages/tournament/tournaments-rules/bat
 import { PointGroupComponent } from '../pages/tournament/tournaments-rules/point-group/point-group.component';
 import { PointSimpleComponent } from '../pages/tournament/tournaments-rules/point-simple/point-simple.component';
 import { ParticipantsDialogComponent } from './../pages/tournament/participants/participants-dialog/participants-dialog.component';
+import { LoggerService } from 'src/app/_services/logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private logger: LoggerService) { }
 
 
   openTounamentsDialog(state?: string, tournament?: any): void {
@@ -28,7 +29,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openRulePointGroupDialog(state?: string, tournament?: any): void {
@@ -40,7 +41,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openRulePointSimpleDialog(state?: string, tournament?: any): void {
@@ -52,7 +53,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openRuleBattleLeagueDialog(state?: string, tournament?: any): void {
@@ -64,7 +65,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openRuleBattleExclusionDialog(state?: string, tournament?: any): void {
@@ -77,7 +78,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openUserProfileDialog(state?: string, user?: any): void {
@@ -89,7 +90,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openPlayerDialog(state?: string, userId?: any, player?: any): void {
@@ -101,7 +102,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openParticipantDialog(state?: string, participant?: any): void {
@@ -113,7 +114,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openRemoveDialog(state?: string, data?: any): void {
@@ -125,7 +126,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
   openManageRegistrtionDialog(state?: string, data?: any): void {
@@ -136,7 +137,7 @@ export class DialogService {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.logger.log('The dialog was closed');
     });
   }
 

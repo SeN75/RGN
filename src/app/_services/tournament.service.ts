@@ -177,7 +177,7 @@ export class TournamentService {
   getTournamentCheckLocalStorgae() {
     let tournamentId = localStorage.getItem('tournamentId');
 
-    console.log('tournamentId: ', tournamentId)
+    this.logger.log('tournamentId: ', tournamentId)
     if (tournamentId) {
       this.getTournament(tournamentId);
       localStorage.setItem('tournamentId', tournamentId);

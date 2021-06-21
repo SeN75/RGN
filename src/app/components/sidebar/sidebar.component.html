@@ -15,8 +15,7 @@
   </div>
 
   <div class="vertical-menu">
-    <a routerLink="/profile" (click)="helperSrv.isSidebarOpen = false">
-
+    <a routerLink="/profile" (click)="helperSrv.isSidebarOpen = false" *ngIf="logoutSrv.userData">
       الحساب
       <mat-icon>account_circle</mat-icon>
     </a>
@@ -36,10 +35,17 @@
       البطولات
       <mat-icon>gamepad</mat-icon>
     </a>
-    <a (click)="logoutSrv.logout(); helperSrv.isSidebarOpen = false" style="cursor: pointer;">
+    <a (click)="logoutSrv.logout(); helperSrv.isSidebarOpen = false" style="cursor: pointer;"
+      *ngIf="logoutSrv.userData">
 
       تسجيل خروج
       <mat-icon>logout</mat-icon>
+    </a>
+    <a (click)=" helperSrv.isSidebarOpen = false" style="cursor: pointer;" *ngIf="!logoutSrv.userData"
+      routerLink="/login">
+
+      تسجيل / تسجيل دخول
+      <mat-icon>login</mat-icon>
     </a>
 
   </div>
