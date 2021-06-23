@@ -1,0 +1,35 @@
+<h2 mat-dialog-title class="mat-dialog-title ">{{'SETTINGS.'+ (data.state == 'edit' ? 'edit-slide' : 'create-a-slide') |
+  translate}}
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon class="close">clear</mat-icon>
+  </button>
+</h2>
+
+<div mat-dialog-content>
+  <div class="row" [formGroup]="slideForm">
+    <div class="col">
+      <mat-label class="w-100 d-block mt-1">{{'SETTINGS.video-or-image'| translate}}</mat-label>
+      <mat-button-toggle-group name="" class="w-auto" aria-label="Font Style" formControlName="isVedio">
+        <mat-button-toggle [value]="true">{{'SETTINGS.video'| translate}}</mat-button-toggle>
+        <mat-button-toggle [value]="false">{{'SETTINGS.image'| translate}}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="col col-md-6" dir="rtl" *ngFor="let input of inputs">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>{{input.name | translate}}</mat-label>
+        <input matInput placeholder="{{input.name | translate}}" [type]="input.type"
+          [formControlName]="input.controlName" required>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+
+<div class="" mat-dialog-aciton>
+  <button mat-raised-button color="primary" (click)="submit()">
+    {{'FORM.add' | translate}}
+  </button>
+  <button mat-button (click)="onNoClick()">
+    {{'FORM.cancel' | translate}}
+  </button>
+</div>

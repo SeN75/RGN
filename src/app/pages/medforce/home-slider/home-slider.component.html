@@ -1,0 +1,36 @@
+<div style="width: 100%; height: 58vh; position: relative;">
+  <swiper dir="rtl" [slidesPerView]="1" [spaceBetween]="0" [effect]="'fade'" [pagination]="{ type: 'fraction' }"
+    [navigation]="false" [loop]="true" [autoplay]="{delay: 30000,disableOnInteraction: false}">
+    <ng-template class="hero-slide" swiperSlide *ngFor="let slide of settingsSrv.slides">
+      <img *ngIf="!slide.isVedio" [src]="slide.imageOrVedioLink">
+      <div class="video-foreground" *ngIf="slide.isVedio">
+        <iframe
+          [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + slide.imageOrVedioLink.split('/')[3] + '?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&')"
+          frameborder="0"></iframe>
+      </div>
+      <div class="description">
+        <div class="banner-content">
+          <h2 class="title text-right">{{slide.title}} </h2>
+          <span class="sub-title text-right">
+            {{slide.description}}
+
+          </span>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- <ng-template swiperSlide>
+      <div class="video-foreground">
+
+        <iframe
+          src="https://www.youtube.com/embed/nlZ-JkF2BfA?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=nlZ-JkF2BfA"
+          frameborder="0"></iframe>
+      </div>
+    </ng-template> -->
+
+    <ng-template swiperSlide style="z-index: 100;">
+      <hero-bannar></hero-bannar>
+    </ng-template>
+  </swiper>
+  <div class="overlay"></div>
+</div>

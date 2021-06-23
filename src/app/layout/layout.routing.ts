@@ -7,6 +7,7 @@ import { ParticipantsComponent } from "../pages/tournament/participants/particip
 import { TournamentComponent } from "../pages/tournament/tournament.component";
 import { TournamentsRulesComponent } from "../pages/tournament/tournaments-rules/tournaments-rules.component";
 import { LayoutComponent } from "./layout.component";
+import { SliderManagerComponent } from './../pages/slider-manager/slider-manager.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
     component: LayoutComponent, path: "", children: [
       { redirectTo: "/tournament", path: "", pathMatch: 'full' },
       { component: TournamentComponent, path: "tournament" },
+      { component: SliderManagerComponent, path: "slide" },
       { component: ProfileComponent, path: "profile" },
       { component: ParticipantsComponent, path: "tournament/:id/edit/associate" },
       { component: ManageTournamentComponent, path: "tournament/:id/edit" },

@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SettingsService } from 'src/app/_services/settings.service';
 import { TournamentService } from 'src/app/_services/tournament.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TournamentService } from 'src/app/_services/tournament.service';
 })
 export class RemoveAlertComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<RemoveAlertComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private tounramentSrv: TournamentService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private tounramentSrv: TournamentService, private settingsSrv: SettingsService) { }
 
   ngOnInit(): void {
   }
@@ -19,8 +20,8 @@ export class RemoveAlertComponent implements OnInit {
   remove() {
     if (this.data.state == 'tournament')
       this.tounramentSrv.removeTournament(this.data.id);
-
-
+    if (this.data.state == 'slide')
+      this.settingsSrv.removeSlide(this.data.id);
     this.onNoClick();
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CountriesService } from 'src/app/_services/countries.service';
+import { LanguageService } from 'src/app/_services/language.service';
 import { RegistraionService } from 'src/app/_services/registraion.service';
-
+import { citites } from 'src/app/_common/cities';
 @Component({
   selector: 'app-registation',
   templateUrl: './registation.component.html',
@@ -13,7 +15,12 @@ export class RegistationComponent implements OnInit {
   userInfoForm: FormGroup | any;
   playerInfoForm: FormGroup | any;
   isNewUser: boolean = true;
-  constructor(private formBuilder: FormBuilder, public registraionSrv: RegistraionService) { }
+  citites = citites;
+  constructor(
+    private formBuilder: FormBuilder,
+    public registraionSrv: RegistraionService,
+    public couterySrv: CountriesService,
+    public lang: LanguageService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -27,6 +34,7 @@ export class RegistationComponent implements OnInit {
       re_password: [''],
       mobile: [''],
       birthday: [''],
+      gender: ['']
     })
     this.playerInfoForm = this.formBuilder.group({
       username: [''],

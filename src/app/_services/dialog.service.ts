@@ -11,6 +11,8 @@ import { PointGroupComponent } from '../pages/tournament/tournaments-rules/point
 import { PointSimpleComponent } from '../pages/tournament/tournaments-rules/point-simple/point-simple.component';
 import { ParticipantsDialogComponent } from './../pages/tournament/participants/participants-dialog/participants-dialog.component';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { GameDialogComponent } from '../pages/game/game-dialog/game-dialog.component';
+import { SlideDialogComponent } from './../pages/slider-manager/slide-dialog/slide-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -134,6 +136,28 @@ export class DialogService {
       minWidth: '350px',
       maxWidth: "950px",
       data: { state: state, tournament: data }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.logger.log('The dialog was closed');
+    });
+  }
+  openGameDialog(state?: string, data?: any): void {
+    const dialogRef = this.dialog.open(GameDialogComponent, {
+      minWidth: '350px',
+      maxWidth: "950px",
+      data: { state: state, game: data }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.logger.log('The dialog was closed');
+    });
+  }
+  openSlideDialog(state?: string, data?: any): void {
+    const dialogRef = this.dialog.open(SlideDialogComponent, {
+      minWidth: '350px',
+      maxWidth: "950px",
+      data: { state: state, slide: data }
     });
 
     dialogRef.afterClosed().subscribe(result => {

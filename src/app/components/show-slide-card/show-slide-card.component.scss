@@ -1,0 +1,111 @@
+.slide_card {
+  position: relative;
+  box-shadow: 0 0 50px 1px #202066;
+  border-radius: 0.25em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 380px;
+  width: 100%;
+  min-width: 310px;
+  height: 220px;
+  margin-top: 30px;
+}
+
+.slide_logo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.slide_panel {
+  position: absolute;
+  padding: 0.8em 1em;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  display: flex;
+  justify-content: space-between;
+}
+
+.slide_action_panel {
+  border: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(320deg, #171744, rgba(33, 33, 94, 0.7));
+  transition: all 300ms ease-in-out;
+  visibility: hidden;
+  animation: opacity-out 300ms forwards;
+}
+
+.slide_card:hover .slide_action_panel {
+  transition: all 300ms ease-in-out;
+  z-index: 5;
+  visibility: visible;
+  animation: opacity-in 300ms forwards;
+}
+
+.slide_action_panel.active {
+  background: linear-gradient(320deg, #171744, rgba(33, 33, 94, 0.822));
+  visibility: visible;
+  animation: none !important;
+}
+.slide_action {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.slide_action_panel .slide_action mat-icon {
+  cursor: pointer;
+  color: #0ecfee;
+
+  height: auto;
+  width: auto;
+  font-size: 3.2em;
+}
+.slide_date {
+  font-size: 20px;
+}
+label {
+  font-size: 14px;
+}
+
+.slide_action_panel .slide_title {
+  text-transform: capitalize;
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 1em;
+}
+
+.slide_action button mat-icon {
+  margin: -16px 0;
+}
+@keyframes opacity-in {
+  from {
+    opacity: 0;
+    transform: scale (1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale (1);
+  }
+}
+@keyframes opacity-out {
+  from {
+    opacity: 1;
+    transform: scale (1);
+  }
+  to {
+    opacity: 0;
+    transform: scale (1.2);
+  }
+}

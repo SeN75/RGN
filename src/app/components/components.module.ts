@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RuleCardComponent } from './rule-card/rule-card.component';
 import { RemoveAlertComponent } from './remove-alert/remove-alert.component';
+import { ShowSlideCardComponent } from './show-slide-card/show-slide-card.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { RemoveAlertComponent } from './remove-alert/remove-alert.component';
     NavbarComponent,
     SidebarComponent,
     RuleCardComponent,
-    RemoveAlertComponent
+    RemoveAlertComponent,
+    ShowSlideCardComponent
   ],
   exports: [
     ShowTournamentCardComponent,
@@ -46,7 +48,8 @@ import { RemoveAlertComponent } from './remove-alert/remove-alert.component';
     TournamentsCardComponent,
     NavbarComponent,
     SidebarComponent,
-    RuleCardComponent
+    RuleCardComponent,
+    ShowSlideCardComponent
   ],
   entryComponents: [RemoveAlertComponent]
 

@@ -1,0 +1,27 @@
+<section class="slide_card"
+  [ngStyle]="{'background-image': 'url('+( slide.isVedio ? 'assets/images/no-image-icon-23485.png': slide.imageOrVedioLink)+')'}">
+  <div *ngIf="!isAdding">
+
+    <div class="slide_action_panel">
+      <span class="slide_title">
+        {{slide.name}}
+      </span>
+      <span class="slide_action">
+        <mat-icon (click)="dialogSrv.openSlideDialog('edit',slide)">edit</mat-icon>
+        <mat-icon (click)="dialogSrv.openRemoveDialog('slide', slide)">delete</mat-icon>
+      </span>
+    </div>
+  </div>
+  <div *ngIf="isAdding">
+    <div class="slide_action_panel active">
+      <span class="slide_title">
+        {{'SETTINGS.create-a-slide' | translate}}
+      </span>
+      <span class="slide_action">
+        <button mat-fab color="accent" (click)="dialogSrv.openSlideDialog('add')">
+          <mat-icon>add</mat-icon>
+        </button>
+      </span>
+    </div>
+  </div>
+</section>

@@ -77,11 +77,18 @@
         </mat-form-field>
       </div>
       <div class="w-100 login" dir="rtl">
-        <mat-form-field appearance="outline" class="input">
+        <mat-form-field appearance="outline" class="input w-32 mx-1">
           <mat-label>{{'FORM.birthday' | translate}}</mat-label>
           <input matInput [matDatepicker]="birthday" formControlName="birthday">
           <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
           <mat-datepicker #birthday></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input w-32 mx-1">
+          <mat-label>{{'FORM.gender' | translate}}</mat-label>
+          <mat-select formControlName="gender" class="text-light">
+            <mat-option value="M">{{'FORM.male' | translate}}</mat-option>
+            <mat-option value="F">{{'FORM.female' | translate}}</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <button mat-raised-button color="primary" (click)="userInfo()">
@@ -103,13 +110,25 @@
       <div class="w-100 login" dir="rtl">
         <mat-form-field class="input " appearance="outline">
           <mat-label>{{'FORM.country' | translate}}</mat-label>
-          <input matInput placeholder="Placeholder" formControlName="countryId">
+          <mat-select formControlName="countryId">
+            <mat-option *ngFor="let country of couterySrv.counties" [value]="country.id">
+              {{lang.dir =='rtl'?country.nameAr : country.nameEn }}
+            </mat-option>
+            <mat-option value="1">
+              {{lang.dir =='rtl'?'المملكة العربية السعــوديــة' : 'saudi arabia' }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
+
       <div class="w-100 login" dir="rtl">
         <mat-form-field class="input " appearance="outline">
           <mat-label>{{'FORM.city' | translate}}</mat-label>
-          <input matInput placeholder="Placeholder" formControlName="cityId">
+          <mat-select formControlName="cityId">
+            <mat-option *ngFor="let city of citites" [value]="city.city_id">
+              {{lang.dir =='rtl'?city.name_ar : city.name_en }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <button mat-raised-button color="primary" (click)="playerInfo()">

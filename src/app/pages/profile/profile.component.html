@@ -62,14 +62,18 @@
     <mat-icon>apartment</mat-icon>
     <div>
       <label>{{'FORM.city' | translate}}</label>
-      <p>{{registrSrv.userData.playerNavigation[0].cityId}}</p>
+      <!-- <p>{{registrSrv.userData.playerNavigation[0].cityId}}</p> -->
+      <p>{{lang.dir == 'rtl' ? getCity(registrSrv.userData.playerNavigation[0].cityId).name_ar :
+        getCity(registrSrv.userData.playerNavigation[0].cityId).name_en}}</p>
     </div>
   </div>
   <div class="col-12 col-sm-6  col-lg-4 user_data">
     <mat-icon>flag</mat-icon>
     <div>
       <label>{{'FORM.country' | translate}}</label>
-      <p>{{registrSrv.userData.playerNavigation[0].countryId}}</p>
+      <p> {{lang.dir =='rtl'?'المملكة العربية السعــوديــة' : 'saudi arabia' }}
+      </p>
+      <!-- <p>{{registrSrv.userData.playerNavigation[0].countryId}}</p> -->
     </div>
   </div>
 

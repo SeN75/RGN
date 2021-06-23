@@ -1,0 +1,12 @@
+<div class="">
+  <h1 class="title" style="color: #05c3de;">
+    {{'SETTINGS.slide' | translate}}
+  </h1>
+
+  <div class="slide_wrapper">
+    <show-slide-card [isAdding]="false" *ngFor="let slide of settingsSrv.slides" [slide]="slide">
+    </show-slide-card>
+    <show-slide-card [isAdding]="true"></show-slide-card>
+
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<navbar *ngIf="!isHomepage"></navbar>
+<sidebar class="d-block d-lg-none" *ngIf="!isHomepage"></sidebar>
+<section class="game-section bg pt-120 pb-120" id="game">
+  <div class="game-inner" *ngIf="isHomepage"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        <div class="section-header">
+          <h3 class="sub-title">بطولات</h3>
+          <h2 class="section-title">البطولات الحالية</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-30-none">
+      <ng-container *ngFor="let tourn of tournamentSrv.tournamentsData">
+        <div class="col-lg-4 col-md-6 col-sm-8 mb-30"
+          *ngIf="tourn.isPublish && isGone(tourn.endDate) == 0 || isGone(tourn.endDate) == 1">
+          <div class="game-item">
+            <div class="game-thumb">
+              <img src="{{tourn.logo}}" alt="game">
+            </div>
+            <div class="game-content">
+              <div class="game-content-body">
+                <h3 class="title">{{tourn.name}}</h3>
+                <p>{{tourn.description}}
+                </p>
+
+              </div>
+              <div class="game-content-footer">
+                <div class="game-content-footer-content d-flex flex-wrap align-items-center justify-content-between">
+                  <div class="game-player">
+                    <span>{{tourn.startDate | date}}</span>
+                  </div>
+                  <div class="game-footer-icon " style="cursor: pointer;" (click)="showTournament(tourn)">
+                    <span class="text-light mx-1">تحدى</span>
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="row justify-content-center" *ngIf="!isHomepage">
+      <div class="col-lg-6 text-center">
+        <div class="section-header">
+          <h3 class="sub-title"></h3>
+          <h2 class="section-title">البطولات السابقة</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-30-none" *ngIf="!isHomepage">
+
+      <ng-container *ngFor="let tourn of tournamentSrv.tournamentsData">
+        <div class="col-lg-4 col-md-6 col-sm-8 mb-30" *ngIf="isGone(tourn.endDate) == -1">
+          <div class="game-item">
+            <div class="game-thumb game-thumb-old">
+              <img src="{{tourn.logo}}" alt="game">
+            </div>
+            <div class="game-content game-content-old ">
+              <div class="game-content-body">
+                <h3 class="title">{{tourn.name}}</h3>
+                <p>{{tourn.description}}
+                </p>
+
+              </div>
+              <div class="game-content-footer">
+                <div class="game-content-footer-content d-flex flex-wrap align-items-center justify-content-between">
+                  <div class="game-player">
+                    <span>{{tourn.startDate | date}}</span>
+                  </div>
+                  <div class="game-footer-icon" style="cursor: pointer;" (click)="showTournament(tourn)">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

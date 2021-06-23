@@ -9,7 +9,17 @@
         "date": "date",
         "home": "home",
         "operations": "operations",
-        "upload": "upload"
+        "upload": "upload",
+        "create-a-slide": "create a slide",
+        "slide": "slide",
+        "title": "title",
+        "description": "description",
+        "order-slider": "order slider",
+        "image-or-vedio-link": "image or video link",
+        "edit-slide": "edit slide",
+        "video": "video",
+        "image": "image",
+        "video-or-image": "video or image"
     },
     "TOURNAMENTS": {
         "tournaments": "tournaments",
@@ -161,10 +171,16 @@
 
     },
     "SUCCESS": {
+      "add": "added successfully",
+      "update": "Updated successfully",
+      "delete":"Deleted successfully",
         "new-tournament": "A tournament was created successfully",
         "update-tournament": "Tournament has been successfully updated"
     },
     "ERROR": {
+      "add": " an error while adding",
+      "update": "Error during update",
+      "delete":" Error while deleting",
         "new-tournament": "Failed to create tournament",
         "update-tournament": "Tournament update failed "
     }

@@ -35,6 +35,12 @@
       البطولات
       <mat-icon>gamepad</mat-icon>
     </a>
+    <a routerLink="/slide" (click)="helperSrv.isSidebarOpen = false"
+      *ngIf="logoutSrv.userData && logoutSrv.userData.isAdmin">
+
+      السلايد
+      <mat-icon>switch_right</mat-icon>
+    </a>
     <a (click)="logoutSrv.logout(); helperSrv.isSidebarOpen = false" style="cursor: pointer;"
       *ngIf="logoutSrv.userData">
 

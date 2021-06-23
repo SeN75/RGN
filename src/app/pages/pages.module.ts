@@ -39,6 +39,14 @@ import { ParticipantsDialogComponent } from './tournament/participants/participa
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RemoveRuleAlertComponent } from './tournament/tournaments-rules/remove-rule-alert/remove-rule-alert.component';
 import { ManageRegistrDialogComponent } from './tournament/manage-registr-dialog/manage-registr-dialog.component';
+import { GameComponent } from './game/game.component';
+import { GameDialogComponent } from './game/game-dialog/game-dialog.component';
+import { HomeSliderComponent } from './medforce/home-slider/home-slider.component';
+import { SwiperModule } from 'swiper/angular';
+import { TournamentPageComponent } from './medforce/tournament-page/tournament-page.component';
+import { SliderManagerComponent } from './slider-manager/slider-manager.component';
+import { SlideDialogComponent } from './slider-manager/slide-dialog/slide-dialog.component';
+import { HeroBannarComponent } from './medforce/hero-bannar/hero-bannar.component';
 
 @NgModule({
   imports: [
@@ -60,7 +68,8 @@ import { ManageRegistrDialogComponent } from './tournament/manage-registr-dialog
     CarouselModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    SwiperModule
 
   ],
   declarations: [
@@ -84,6 +93,13 @@ import { ManageRegistrDialogComponent } from './tournament/manage-registr-dialog
     ParticipantsDialogComponent,
     RemoveRuleAlertComponent,
     ManageRegistrDialogComponent,
+    GameComponent,
+    GameDialogComponent,
+    HomeSliderComponent,
+    TournamentPageComponent,
+    SliderManagerComponent,
+    SlideDialogComponent,
+    HeroBannarComponent,
   ],
   exports: [
 

@@ -10,12 +10,14 @@ import { ParticipantsComponent } from "./tournament/participants/participants.co
 import { TournamentComponent } from "./tournament/tournament.component";
 import { TournamentsInfoComponent } from "./tournament/tournaments-info/tournaments-info.component";
 import { TournamentsRulesComponent } from "./tournament/tournaments-rules/tournaments-rules.component";
+import { TournamentPageComponent } from './medforce/tournament-page/tournament-page.component';
 
 
 const routes: Routes = [
   { component: MedforceComponent, path: "" },
   { component: AboutUsComponent, path: "about-us" },
   { component: TournamentComponent, path: "tournaments" },
+  { component: TournamentPageComponent, path: "tournaments-page" },
   { component: TournamentsInfoComponent, path: "tournament/:id" },
   // { component: TournamentsInfoComponent, path: "tournaments/:id/edit" },
   { component: RegistationComponent, path: "login" },

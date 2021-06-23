@@ -27,8 +27,11 @@
           </div>
         </div>
         <div class="game-select mt-2">
-          <div class="">
+          <div class="d-flex justify-content-between">
             <mat-label>{{'GAME.games' | translate}}</mat-label>
+            <!-- <button mat-raised-button color="primary" (click)="dialogSrv.openGameDialog()">
+              {{'GAME.add' | translate}}
+            </button> -->
           </div>
 
           <div class="games_wrapper">
@@ -83,7 +86,8 @@
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>{{'TOURNAMENTS.logo' | translate}}</mat-label>
               <input matInput placeholder="{{'TOURNAMENTS.logo' | translate}}" formControlName="logo" required>
-              <button mat-icon-button matSuffix>
+              <input hidden type="file" #logoFile (change)="selectImg($event)">
+              <button mat-icon-button matSuffix (click)="logoFile.click()">
                 <mat-icon>attach_file</mat-icon>
               </button>
             </mat-form-field>

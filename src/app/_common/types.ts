@@ -292,3 +292,35 @@ export interface Player {
   isDeleted?: boolean,
   favoritePlatforms?: any
 }
+
+
+
+export interface City {
+  id: number,
+  countryId: number,
+  nameAr: string,
+  nameEn: string,
+  adressLatitude: string,
+  adressLongitude: string,
+  center: any,
+  boundaries: any,
+  isActive: boolean
+}
+export interface Country {
+  id: number,
+  nameAr: string,
+  nameEn: string
+  latitude: string
+  longitude: string
+  isActive: boolean
+}
+
+
+export interface Slide {
+  id: number,
+  title: string,
+  description: string,
+  imageOrVedioLink: string,
+  isVedio: boolean,
+  orderSlider: number;
+}

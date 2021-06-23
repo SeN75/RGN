@@ -9,7 +9,17 @@
         "date": "تاريخ",
         "home": "الرئيسية",
         "operations": "عمليات",
-        "upload": "رفع"
+        "upload": "رفع",
+        "create-a-slide": "انشاء سلايد جديد",
+        "slide": "سلايد",
+        "title": "العنوان",
+        "description": "الوصف",
+        "order-slider": "ترتيب السلايد",
+        "image-or-vedio-link": "رابط الفيديو او الصوره",
+        "edit-slide": "تعديل السلايد",
+        "video": "فيديو",
+        "image": "صوره",
+        "video-or-image": "فيديو او صوره"
     },
     "TOURNAMENTS": {
         "tournaments": "البطولات",
@@ -172,10 +182,16 @@
 
     },
     "SUCCESS": {
+        "add": "تم الاضافة بنجاح",
+        "update": "تم التحديث بنجاح",
+        "delete":"تم الحذف بنجاح",
         "new-tournament": "تم انشاء بطولة بنجاح",
         "update-tournament": "تم تحديث البطوله بنجاح"
     },
     "ERROR": {
+      "add": " خطاء اثناء الاضافة",
+      "update": " خطاء اثناء التحديث",
+      "delete":" خطاء اثناء الحذف",
         "new-tournament": "فشل انشاء بطولة ",
         "update-tournament": "فشل تحديث البطوله "
     }

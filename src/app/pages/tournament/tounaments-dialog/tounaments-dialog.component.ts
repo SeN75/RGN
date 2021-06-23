@@ -5,7 +5,9 @@ import { Tournament } from 'src/app/_common/types';
 import { LanguageService } from 'src/app/_services/language.service';
 import { TournamentService } from 'src/app/_services/tournament.service';
 import { GamesService } from './../../../_services/games.service';
-
+import { DialogService } from './../../../_services/dialog.service';
+import { AngularFireStorage } from '@angular/fire/storage'
+import { LoggerService } from './../../../_services/logger.service';
 @Component({
   selector: 'app-tounaments-dialog',
   templateUrl: './tounaments-dialog.component.html',
@@ -14,8 +16,10 @@ import { GamesService } from './../../../_services/games.service';
 export class TounamentsDialogComponent implements OnInit {
   isLinear = true;
   isNew = true;
+  logoFile: any;
   games = [
     {
+      id: 0,
       logo: '../../../assets/images/games/d8b511aa-87ad-4780-9bc2-fce0e4e272cbfifa-21-intros.jpg',
       isSelected: false,
       platfroms: {
@@ -102,7 +106,10 @@ export class TounamentsDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<TounamentsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public lang: LanguageService,
-    private formBuilder: FormBuilder, public tournamentsSrv: TournamentService, private gameSrv: GamesService) { }
+    public dialogSrv: DialogService,
+    private formBuilder: FormBuilder, public tournamentsSrv: TournamentService,
+    private logger: LoggerService,
+    private gameSrv: GamesService) { }
 
   ngOnInit(): void {
     console.log(this.data.tournament)
@@ -116,7 +123,7 @@ export class TounamentsDialogComponent implements OnInit {
     this.createForm2 = this.formBuilder.group({
       startDate: [(this.data.tournament ? this.data.tournament.startDate ? this.data.tournament.startDate : '' : ''), Validators.required],
       endDate: [(this.data.tournament ? this.data.tournament.endDate ? this.data.tournament.endDate : '' : ''), Validators.required],
-      logo: [(this.data.tournament ? this.data.tournament.logo ? this.data.tournament.logo : '' : ''), Validators.required],
+      logo: [{ value: (this.data.tournament ? this.data.tournament.logo ? this.data.tournament.logo : '' : ''), disabled: true }, Validators.required],
       prize: [(this.data.tournament ? this.data.tournament.prize ? this.data.tournament.prize : '' : ''), Validators.required],
       rule: [(this.data.tournament ? this.data.tournament.rule ? this.data.tournament.rule : '' : ''), Validators.required],
       description: [(this.data.tournament ? this.data.tournament.description ? this.data.tournament.description : '' : ''), Validators.required],
@@ -130,7 +137,6 @@ export class TounamentsDialogComponent implements OnInit {
   }
 
   selectGame(index: number) {
-    console.log(index)
     for (let i = 0; i < this.platfroms.length; i++)
       this.platfroms[i].selected = false
     for (let i = 0; i < this.games.length; i++) {
@@ -140,6 +146,7 @@ export class TounamentsDialogComponent implements OnInit {
 
     this.games[index].isSelected = !this.games[index].isSelected;
     if (this.games[index].isSelected) {
+      this.createForm.get('gameId').setValue(this.games[index].id)
       for (let i = 0; i < this.platfroms.length; i++) {
         if (i == 0)
           this.platfroms[i].active = this.games[index].platfroms.pc;
@@ -199,5 +206,8 @@ export class TounamentsDialogComponent implements OnInit {
       if ((_tournament.permalink ? _tournament.permalink : _tournament.guidId ? _tournament.guidId : _tournament.id))
         this.tournamentsSrv.updateTournament(_tournament, (_tournament.permalink ? _tournament.permalink : _tournament.guidId ? _tournament.guidId : _tournament.id))
     this.onNoClick();
+  }
+  selectImg(event: any) {
+    this.createForm2.get('logo').setValue(event.target.files[0])
   }
 }
